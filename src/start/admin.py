@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Mensaje,Equipo
-from .forms import RegContactForm, RegEquipoForm
+from .models import Mensaje,Equipo, Clasificacion
+from .forms import RegContactForm, RegEquipoForm, RegClasificacionForm
 
 class AdminEquipo(admin.ModelAdmin):
     list_display = ['clasificacion', 'nombre', 'modelo', 'marca', 'timestamp']
@@ -19,5 +19,12 @@ class AdminContacto(admin.ModelAdmin):
     list_editable = ['nombre']
     search_fields = ['email', 'nombre']
 
+class AdminClasificacion(admin.ModelAdmin):
+	list_display = ['clasificacion']
+	form = RegClasificacionForm
+	list_edtiable = ['clasificacion']
+	search_fields = ['clasificacion']
+
 admin.site.register(Mensaje, AdminContacto)
 admin.site.register(Equipo, AdminEquipo)
+admin.site.register(Clasificacion, AdminClasificacion)

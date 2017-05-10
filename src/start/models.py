@@ -9,11 +9,17 @@ from django.utils.text import slugify
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
+class Clasificacion(models.Model):
+	clasificacion = models.CharField(max_length=50)
+
+	def __str__(self):
+		return self.clasificacion
+
 class Equipo(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     modelo = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
-    clasificacion = models.CharField(max_length=50)
+    clasificacion = models.ForeignKey(Clasificacion, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
     procesador = models.CharField(max_length=50)

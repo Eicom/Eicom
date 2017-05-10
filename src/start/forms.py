@@ -6,7 +6,7 @@ from django import forms
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, ButtonHolder, Submit
 # from crispy_forms.layout import Field
-from .models import Mensaje, Equipo
+from .models import Mensaje, Equipo, Clasificacion
 
 class RegEquipoForm(forms.ModelForm):
     class Meta:
@@ -14,6 +14,11 @@ class RegEquipoForm(forms.ModelForm):
         fields = ['clasificacion','nombre', 'modelo', 'marca', 'procesador',
                   'harddrive', 'pantalla', 'ram', 'video',
                   'descripcion', 'imagen']
+
+class RegClasificacionForm(forms.ModelForm):
+	class Meta:
+		model = Clasificacion
+		fields = ['clasificacion']
 
 class RegContactForm(forms.ModelForm):
     class Meta:
