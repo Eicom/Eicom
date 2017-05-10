@@ -3,6 +3,18 @@
 <!-- <div class="container-fluid"> -->
 <!-- <div class="col-md-12"> -->
 {% block content %}
+<style>
+    {% block style %}
+  .carousel-inner img {
+    width: 100%;
+    max-height: 450px;
+  }
+
+  .carousel-inner{
+  height:100% ;
+  }
+    {% endblock %}
+</style>
   <div id="carousel-1" class="carousel slide show" data-ride="carousel">
     <!-- indicadores -->
     <ol class="carousel-indicators">

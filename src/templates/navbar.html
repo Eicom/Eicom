@@ -1,5 +1,29 @@
 <!-- Navbar -->
-{% block content %}
+
+{%block content%}
+<style>
+  {%block style%}
+  .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    /*background-color: #337ab7;*/
+    background-color: #b11e1e;
+}
+  .navbar {
+     Background: rgba(1,2,1,0.9);
+     Color: rgba(1,1,1,1);
+     border-color: transparent;
+  }
+  body {
+    min-height:inherit;
+    padding-top: 50px;
+  }
+
+.navbar-inverse .navbar-brand {
+    color: #777;
+    background: #bd1717;
+}
+{%endblock style%}
+</style>
 <body>
     <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top" role="navigation">
         <div class="container">
@@ -16,7 +40,7 @@
         <!-- Menú -->
             <div class="collapse navbar-collapse navbar-right" id="navegacion-ns">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         Categorías <span class="caret"></span>

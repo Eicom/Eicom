@@ -1,7 +1,103 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-<div class="body-index">
+<style>
+{%block style%}
+
+  .my-div {
+    background-color: white;
+  }
+  .fondo-inicio {
+    /*background-image: url(../img/.jpg);*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    height: 650px;
+  }
+
+  body {
+    background-color: #171817;
+  }
+  section {
+    color: #403d3d;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .div-contenedor {
+    /*padding-top: 15px;*/
+    /*height: 620px;*/
+    /*width: 350px;*/
+    background-color: white;
+    border-radius: 24px 0px 24px 0px;
+    -moz-border-radius: 24px 0px 24px 0px;
+    -webkit-border-radius: 24px 0px 24px 0px;
+    border: 0px solid #000000;
+    padding-top: 15px;
+    max-height:inherit;
+    /*padding-bottom: 30px;*/
+    /*margin-right: 0.2em;*/
+  }
+  .raised {
+  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+      box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+  .div-botones{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+
+  }
+  .grow:hover
+  {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  -transition:  all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  z-index: 1;
+  }
+
+  .color:hover
+  {
+    background:#f3f3f3;
+    color: white;
+  }
+
+/*.my-color {
+    color: #fffcfc;
+  }*/
+  .texto-index{
+    /*position:absolute;*/
+    /*bottom:20px;
+    width:100%;*/
+    /*text-align:center;*/
+    /*color:rgba(243,243,243,.8);*/
+    font-family:Verdana;
+    font-size:18px;
+    font-style: italic;
+    /*background-color:rgba(0,0,0,.7);*/
+    /*padding:.5em 0;*/
+  }
+
+  /*.my-aside{
+    margin-right: 0.5em;
+  }*/
+
+  /*div { border-style: outset; border-width: 1px; }*/
+.breadcrumb {background: rgba(255, 255, 255, 1); border: 0px solid rgba(255, 255, 255, 1); border-radius: 25px; display: block; height: 40px;}
+.breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\00a0";}
+{%endblock%}
+</style>
+
+<body>
   <!--Navbar-->
   {% include 'navbar.html'%}
   <!--Barra Social-->
@@ -10,14 +106,6 @@
 {% include 'slideshow.html' %}<br>
 <div class="col-md-10 col-md-offset-1">
 <!--<section class="main container">-->
-    <div class="row">
-        <div class="miga-de-pan">
-            <ol class="breadcrumb">
-                <li><a class="my-color-text"href="">Inicio</a></li>
-                <li><a class="my-color-text"href="">Categorías</a></li>
-                <li class="active my-color-text">Laptops</li>
-            </ol>
-         </div><br><br>
 
         <!-- Aside  -->
         <aside class="col-md-3 hidden-xs hidden-sm my-aside">
@@ -67,64 +155,49 @@
                     </div>
                 {% endfor %}
             </div>
+            <!--Pagination-->
+            <div class="pagination pull-right">
+                <span class="step-links">
+                    {% if object_list.has_previous %}
+                    <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">Anterior</a>
+                    {% endif %}
+                <span class="current">
+                    Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
+                </span>
+                    {% if object_list.has_next %}
+                    <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
+                    {% endif %}
+                </span>
+            </div>
         </div>
     </div>
 <!--</section>-->
-</div>
-<!-- Paginación -->
+</div><br>
 
-  <div class="pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">anterior</a>
-        {% endif %}
-        <span class="current">
-            Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
-        </span>
-        {% if object_list.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
-        {% endif %}
-    </span>
-</div>
-  <hr>
-<footer>
-  <div class="container col-md-12">
-    <div class="row">
-      <div class="col-md-4">
-          <p>Ing.Alfredo Navarrete Mendoza - NavaSoft</p>
-      </div>
-
-      <div class="col-md-8 ">
-        <div class="col-md-4 pull-right">
-          <ul class="list-inline text-right">
-            <li>
-                <!--Poner url aqui-->
-
-              <a href="{%url 'start:contact'%}">
-                <p>Contáctanos
-                  <span class="fa-stack fa-1x">
-                    <i class="fa fa-spinner fa-spin fa-stack-2x"></i>
-                    <i class="fa fa-address-card-o fa-stack-1x"></i>
-                  </span>
-                </p>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <p>Inicio
-                  <span class="fa-stack fa-1x">
-                    <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
-                    <i class="fa fa-caret-square-o-up fa-stack-1x"></i>
-                  </span>
-                </p>
-              </a>
-            </li>
-          </ul>
+    <footer>
+        <div class="container col-md-12">
+            <ol class="breadcrumb">
+                <li>Ing.Alfredo Navarrete Mendoza - NavaSoft</li>
+                <li class="pull-right">
+                    <a href="{% url 'start:contact' %}">
+                        Contáctanos
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-spinner fa-spin fa-stack-2x"></i>
+                            <i class="fa fa-address-card-o fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <a href="/">
+                        Inicio
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+                            <i class="fa fa-caret-square-o-up fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </li>
+            </ol>
         </div>
-      </div>
-
-    </div>
-  </div>
-</footer>
-</div>
+    </footer>
+</body>
 {% endblock %}

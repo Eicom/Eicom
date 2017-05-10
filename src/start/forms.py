@@ -11,7 +11,7 @@ from .models import Mensaje, Equipo
 class RegEquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ['nombre', 'modelo', 'marca', 'procesador',
+        fields = ['clasificacion','nombre', 'modelo', 'marca', 'procesador',
                   'harddrive', 'pantalla', 'ram', 'video',
                   'descripcion', 'imagen']
 
@@ -29,18 +29,5 @@ class RegContactForm(forms.ModelForm):
             field.label = ""
         # self.fields["nombre"].label = ""
 
-# class RegPrueba(forms.Form):
-#     el_nombre = forms.CharField(
-#         label='Nombre: ',
-#         max_length=100,
-#         widget=forms.TextInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Nombre:'}
-#         )
-#     )
-#     el_email = forms.EmailField(
-#         label='Email: ',
-#         widget=forms.TextInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Email:'}
-#         )
-#     )
+
 
