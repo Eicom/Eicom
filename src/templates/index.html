@@ -1,0 +1,130 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="body-index">
+  <!--Navbar-->
+  {% include 'navbar.html'%}
+  <!--Barra Social-->
+  {% include 'social.html'%}
+
+{% include 'slideshow.html' %}<br>
+<div class="col-md-10 col-md-offset-1">
+<!--<section class="main container">-->
+    <div class="row">
+        <div class="miga-de-pan">
+            <ol class="breadcrumb">
+                <li><a class="my-color-text"href="">Inicio</a></li>
+                <li><a class="my-color-text"href="">Categorías</a></li>
+                <li class="active my-color-text">Laptops</li>
+            </ol>
+         </div><br><br>
+
+        <!-- Aside  -->
+        <aside class="col-md-3 hidden-xs hidden-sm my-aside">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Categorías</a>
+                <a href="#" class="list-group-item">Laptops</a>
+                <a href="#" class="list-group-item">Tablets</a>
+                <a href="#" class="list-group-item">Computadoras de escritorio</a>
+                <a href="#" class="list-group-item">Accesorios de cómputo</a>
+                <a href="#" class="list-group-item">Hardware</a>
+                <a href="#" class="list-group-item">Mantenimiento</a>
+                <a href="#" class="list-group-item">Instalación de redes</a>
+                <a href="#" class="list-group-item">Software</a>
+                <a href="#" class="list-group-item">Impresoras</a>
+                <br> <br>
+                <a href="#" class="list-group-item active">Categorías</a>
+                <a href="#" class="list-group-item">Laptops</a>
+                <a href="#" class="list-group-item">Tablets</a>
+                <a href="#" class="list-group-item">Computadoras de escritorio</a>
+                <a href="#" class="list-group-item">Accesorios de cómputo</a>
+                <a href="#" class="list-group-item">Hardware</a>
+                <a href="#" class="list-group-item">Mantenimiento</a>
+                <a href="#" class="list-group-item">Instalación de redes</a>
+                <a href="#" class="list-group-item">Software</a>
+                <a href="#" class="list-group-item">Impresoras</a>
+            </div><br>
+        </aside>
+
+        <div class="container col-md-9">
+            <div class="row">
+                {% for obj in object_list %}
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            {% if obj.imagen %}
+                                <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                            {% endif %}
+                            <div class="caption">
+                                <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
+                                    <p>Modelo: {{ obj.modelo}}
+                                    Marca: {{ obj.marca}}
+                                    Procesador: {{ obj.procesador}}
+                                    Memoria Ram: {{ obj.ram }}</p>
+                                <br>
+                                <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Ver detalles completos</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<!--</section>-->
+</div>
+<!-- Paginación -->
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">anterior</a>
+        {% endif %}
+        <span class="current">
+            Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
+        </span>
+        {% if object_list.has_next %}
+            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
+        {% endif %}
+    </span>
+</div>
+  <hr>
+<footer>
+  <div class="container col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+          <p>Ing.Alfredo Navarrete Mendoza - NavaSoft</p>
+      </div>
+
+      <div class="col-md-8 ">
+        <div class="col-md-4 pull-right">
+          <ul class="list-inline text-right">
+            <li>
+                <!--Poner url aqui-->
+
+              <a href="{%url 'start:contact'%}">
+                <p>Contáctanos
+                  <span class="fa-stack fa-1x">
+                    <i class="fa fa-spinner fa-spin fa-stack-2x"></i>
+                    <i class="fa fa-address-card-o fa-stack-1x"></i>
+                  </span>
+                </p>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <p>Inicio
+                  <span class="fa-stack fa-1x">
+                    <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+                    <i class="fa fa-caret-square-o-up fa-stack-1x"></i>
+                  </span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+</div>
+{% endblock %}

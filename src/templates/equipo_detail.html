@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head_title %}{{ instance.nombre }} | {{ block.super }}{% endblock head_title %}
+{% block content %}
+    {% include 'navbar.html' %}
+    {% include 'social.html' %}<br><br>
+    <div class="col-md-12">
+        <div class="col-md-10 col-md-offset-1 thumbnail"><br>
+        <div class="col-md-5">
+            {% if instance.imagen %}
+                <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+            {% endif %}
+        </div>
+        <div class="col-md-7">
+            <h1>{{ instance.nombre }}</h1> <br>
+            <p>Modelo: {{ instance.modelo }}</p>
+            <p>Marca: {{ instance.marca }}</p>
+            <p>Procesador: {{ instance.procesador }}</p>
+            <p>Harddrive: {{ instance.harddrive }}</p>
+            <p>Pantalla: {{ instance.pantalla }}</p>
+            <p>Memoria Ram: {{ instance.ram }}</p>
+            <p>Tarjeta de video: {{ instance.video }}</p><br>
+            <p>Descripción: {{ instance.descripcion }}</p>
+        </div> <br><br>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+             <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+                <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+             </a>
+            <a href="https://twitter.com/home?status= {{ share_string }}{{ request.build_absolute_uri }}">
+                <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+            </a><br><br><hr>
+            <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+            <hr>
+            <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+        </div>
+
+{% endblock content %}
+
