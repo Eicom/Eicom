@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', views.equipo_detail, name='detail'),
     # url(r'^(?P<slug>[\w-]+)/edit/$', views.equipo_update, name='update'),
     # url(r'^(?P<slug>[\w-]+)/delete/$', views.equipo_delete),
-
+    url(r'^categoria/(?P<filtro>[\w-]+)/$',views.categoria, name='filtro'),
 ]
