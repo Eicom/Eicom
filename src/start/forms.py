@@ -11,7 +11,7 @@ from .models import Mensaje, Equipo, Categoria
 class RegEquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ['categoria','nombre', 'modelo', 'marca', 'procesador',
+        fields = ['categoria','nombre', 'modelo', 'marca','so', 'procesador',
                   'harddrive', 'pantalla', 'ram', 'video',
                   'precio', 'imagen']
 
