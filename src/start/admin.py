@@ -1,20 +1,20 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Mensaje,Equipo, Clasificacion
-from .forms import RegContactForm, RegEquipoForm, RegClasificacionForm
+from .models import Mensaje,Equipo, Categoria
+from .forms import RegContactForm, RegEquipoForm, RegCategoriaForm
 
 class AdminEquipo(admin.ModelAdmin):
-    list_display = ['clasif_clasif','nombre', 'modelo', 'marca', 'timestamp']
+    list_display = ['categoria_categoria','nombre', 'modelo', 'marca', 'timestamp']
     form = RegEquipoForm
     list_display_links = ['nombre']
     list_filter = ['timestamp']
     list_editable = ['modelo']
     search_fields = ['nombre', 'modelo', 'marca']
 
-    def clasif_clasif(self,obj):
-        return obj.clasificacion.clasificacion
-    clasif_clasif.short_description = 'Clasificacion'
+    def categoria_categoria(self,obj):
+        return obj.categoria.categoria
+    categoria_categoria.short_description = 'Categoria'
 
 class AdminContacto(admin.ModelAdmin):
     list_display = ['email', 'nombre', 'timestamp']
@@ -23,12 +23,12 @@ class AdminContacto(admin.ModelAdmin):
     list_editable = ['nombre']
     search_fields = ['email', 'nombre']
 
-class AdminClasificacion(admin.ModelAdmin):
-	list_display = ['clasificacion']
-	form = RegClasificacionForm
-	list_edtiable = ['clasificacion']
-	search_fields = ['clasificacion']
+class AdminCategoria(admin.ModelAdmin):
+	list_display = ['categoria']
+	form = RegCategoriaForm
+	list_edtiable = ['categoria']
+	search_fields = ['categoria']
 
 admin.site.register(Mensaje, AdminContacto)
 admin.site.register(Equipo, AdminEquipo)
-admin.site.register(Clasificacion, AdminClasificacion)
+admin.site.register(Categoria, AdminCategoria)

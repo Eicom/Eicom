@@ -2,10 +2,9 @@ from urllib.parse import quote_plus
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import RegEquipoForm, RegContactForm, RegClasificacionForm
-from .models import Equipo, Mensaje, Clasificacion
+from .forms import RegEquipoForm, RegContactForm, RegCategoriaForm
+from .models import Equipo, Mensaje, Categoria
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -23,13 +22,13 @@ def equipo_detail(request, slug=None):
     return render(request, 'equipo_detail.html', context)
 
 def categoria(request,filtro):
-    equipo = Equipo.objects.filter(clasificacion__clasificacion__icontains=filtro)
+    equipo = Equipo.objects.filter(categoria__categoria__icontains=filtro)
     return render(request,'categoria.html',{'object_list':equipo})
     
 
 def equipo_list(request):
     queryset_list = Equipo.objects.all()
-    queryset_list2 = Clasificacion.objects.all()
+    queryset_list2 = Categoria.objects.all()
     query = request.GET.get('q')
     if query:
         queryset_list = queryset_list.filter(
@@ -52,7 +51,7 @@ def equipo_list(request):
     context = {
         'titulo': 'List',
         'object_list': queryset,
-        'clasificacion_list':queryset_list2,
+        'categoria_list':queryset_list2,
         'page_request_var': page_request_var,
     }
     return render(request, 'index.html', context)
