@@ -1,0 +1,35 @@
+.contact-imagen-size {
+  width: 100% !important;
+  height: 500px !important;
+}
+
+.format-text-center {
+  text-align: center;
+}
+.format-text-justify {
+  text-align: justify;
+}
+
+.color1 {
+	background: #00bcd4;
+	color: #fff;
+}
+
+.color2 {
+	background: #9d00d4;
+	color: #fff;
+}
+
+.color3 {
+	background: #00d466;
+	color: #fff;
+}
+
+.my-position {
+  position: relative;
+}
+
+.my-position-2 {
+  position: absolute; left: 60px; top: 100px;
+  color: white;
+}

@@ -1,0 +1,156 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+{%block style%}
+    .foto{
+        width:100%;
+        position:relative;
+
+    }
+
+    .foto img{
+        width:100%;
+        max-height: 450px;
+                background-attachment: fixed;
+    }
+
+    .foto p{
+        position:absolute;
+        bottom:20px;
+        width:100%;
+        height: 20%;
+        text-align:center;
+        color:rgba(243,243,243,.8);
+        font-family:Verdana;
+        font-size:40px;
+        font-style: italic;
+        background-color:rgba(0,0,0,.7);
+        padding:.5em 0;
+    }
+    .body-contact {
+        background-color: white;
+        color: inherit;
+    }
+    .text-about-center {
+        text-align: center;
+    }
+
+    .color-mapa{
+        background-color: #25343F;
+        color: white;
+    }
+    .map-responsive{
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+    }
+    .map-responsive iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
+
+
+
+{%endblock%}
+</style>
+
+
+
+<body class="body-contact">
+    <div class="container-fluid body-contact">
+        <div class="row">
+            <div class=" foto">
+                <img  class="responsive" src="{% static 'img/contact6.jpg' %}" alt="foto">
+                <h1><p>Déjanos conocer tu opinión:</p></h1>
+
+            </div>
+
+            <div class="col-md-12 ">
+                <br>
+                <form method = 'POST' action="">{% csrf_token %}
+                    <div class="col-md-3 col-md-offset-2">
+                        <div class="clearfix form-group">
+                            <label>Nombre:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                {{contact_form.nombre|as_crispy_field:"bootstrap"}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="clearfix form-group">
+                            <label>Email:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                {{contact_form.email|as_crispy_field}}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-2">
+                        <div class="clearfix form-group">
+                            <label>Teléfono:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                                {{contact_form.telefono|as_crispy_field}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2">
+                                                <div class="clearfix form-group">
+                            <label>Asunto:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                {{contact_form.asunto|as_crispy_field}}
+                            </div>
+                        </div>
+                        <div class="clearfix form-group">
+                            <label>Mensaje:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                                {{contact_form.mensaje|as_crispy_field}}
+                            </div>
+                        </div><br>
+                        <div class="col-md-10 col-md-offset-1">
+                            <button class="btn btn-primary btn-block type="submit" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Enviar comentario</button><br><br><br>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 color-mapa"><br>
+                <div class="col-md-6   text-about-center "><br><br>
+                    <h1><i class="fa fa-address-book-o" aria-hidden="true"></i> Información de contacto: </h1><br><br>
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>  Dirección: Calle falsa # 123 Av. Siempre Viva, Springfield, D.F.
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: fulano@sutano.com
+                    </p>
+                    <p>
+                        <i class="fa fa-phone" aria-hidden="true"></i> Teléfono: 01 (123) 123-21-65
+                    </p>
+                    <p>
+                        <i class="fa fa-globe" aria-hidden="true"></i> Página web: www.eicom.com
+                    </p> <br><br>
+                </div>
+
+                <div class="thumbnail col-md-5 ">
+                    <div class=" map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.7003761346245!2d-114.77695568517018!3d32.48070498106247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d64e27b0ecccef%3A0xcbd52d6149fe693e!2sPizzas+%26+Beer!5e0!3m2!1ses-419!2smx!4v1495137863172" width="580" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+        <!--footer-->
+    {% include 'social_footer.html'%}
+</body>
+
+{% endblock %}
