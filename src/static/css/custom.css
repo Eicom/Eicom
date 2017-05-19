@@ -1,3 +1,11 @@
+.body-base {
+	background-color: black;
+}
+
+.body {
+	background-color: white;
+}
+
 /*navbar.html*/
   .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff;

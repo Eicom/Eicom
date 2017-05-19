@@ -25,7 +25,7 @@ class Equipo(models.Model):
     marca = models.CharField(max_length=50)
     procesador = models.CharField(max_length=50)
     harddrive = models.CharField(max_length=50)
-    pantalla = models.CharField(max_length=50,null=True,blank=True)
+    pantalla = models.CharField(max_length=50,null=True,blank=True,default='-')
     ram = models.CharField(max_length=50)
     video = models.CharField(max_length=50)
     precio = models.DecimalField(max_digits=6, decimal_places=2)

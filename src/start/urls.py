@@ -9,3 +9,4 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', views.equipo_detail, name='detail'),
     url(r'^categoria/(?P<filtro>[\w-]+)/$',views.categoria, name='filtro'),
 ]
+

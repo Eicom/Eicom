@@ -1,8 +1,8 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-
-<div class="body">
+{% load humanize %}
+<div class="body-index">
   <!--Barra Social-->
   {% include 'social.html'%}
 
@@ -12,7 +12,7 @@
 <!--<section class="main container">-->
 
         <!-- Aside  -->
-        <aside class="col-md-3 hidden-xs hidden-sm my-aside">
+        <aside class="col-md-2 hidden-xs hidden-sm my-aside">
             <div class="list-group">
 		{% for categoria in categoria_list %}
 		    <a href="{% url 'start:filtro' filtro=categoria.categoria %}" class="list-group-item"/>{{ categoria.categoria }}</a>
@@ -20,7 +20,7 @@
             </div><br>
         </aside>
 
-        <div class="container col-md-9">
+        <div class="container col-md-10">
             <div class="row">
                 {% for obj in object_list %}
                     <div class="col-sm-4">
@@ -29,12 +29,12 @@
                                 <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
                             {% endif %}
                             <div class="caption">
-                                <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
-                                    <p>Modelo: {{ obj.modelo}}
-                                    Marca: {{ obj.marca}}
+                                <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }} {{ obj.modelo}}</a></h2><br>
+                                    <p>Marca: {{ obj.marca}}
                                     Procesador: {{ obj.procesador}}
                                     Memoria Ram: {{ obj.ram }}</p>
                                 <br>
+								<h3>${{ obj.precio|floatformat:"2"|intcomma }} Dlls.</h3>
                                 <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Ver detalles completos</a></p>
                             </div>
                         </div>
