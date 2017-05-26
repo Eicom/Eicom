@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {%block content%}
 {% load filtro_tag %}
 <style>
@@ -28,6 +29,11 @@
 {%endblock style%}
 </style>
 <body>
+=======
+{% block content %}
+{% load filtro_tag %}
+<div class="body-navbar">
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
     <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -49,6 +55,7 @@
                         Categorías <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
+<<<<<<< HEAD
                         {% categorias_lista as categorias %}
                         {% if categorias %}
                         {% for obj in categorias %}
@@ -57,6 +64,16 @@
                         {% else %}
                             <li><a href="#">Empty</a></li>
                         {% endif %}
+=======
+						{% categorias_lista as categorias %}
+						{% if categorias %}
+						{% for obj in categorias %}
+		    				<li><a href="{% url 'start:filtro' filtro=obj.categoria %}"/>{{ obj }}</a></li>
+						{% endfor %}
+						{% else %}
+							<li><a href="#">Empty</a></li>
+						{% endif %}
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
                     </ul>
                     </li>
                     <li><a href="{% url 'start:about' %}">Acerca de nosotros</a></li>
@@ -73,6 +90,7 @@
 
                 </ul>
                 <!-- Búsqueda -->
+<<<<<<< HEAD
                 {% if "/" in request.get_full_path%}
                     <form action="" class="navbar-form navbar-right " role="search" method="get">
                         <div class="input-group">
@@ -88,4 +106,22 @@
         </div>
     </nav>
 </body>
+=======
+                <form action="" class="navbar-form navbar-right " role="search" method="get">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="buscar" value="{{ request.GET.q }}">
+                                <span class="input-group-btn">
+                                    <input class="btn btn-primary" type="submit" value="buscar">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </input>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
 {%endblock content%}

@@ -1,0 +1,10 @@
+*.pyc
+*~
+__pycache__
+settings.py
+venv
+Scripts
+db.sqlite3
+/static
+.DS_Store
+/migrations

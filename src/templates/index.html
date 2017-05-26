@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% load humanize %}
+<<<<<<< HEAD
 <style>
 {%block style%}
 
@@ -93,10 +94,35 @@
             <div class="row">
                 {% for obj in object_list %}
                     <div class="col-sm-4 zoom">
+=======
+<div class="body-index">
+  <!--Barra Social-->
+  {% include 'social.html'%}
+
+{% include 'slideshow.html' %}
+<br>
+<div class="col-md-10 col-md-offset-1">
+<!--<section class="main container">-->
+
+        <!-- Aside  -->
+        <aside class="col-md-2 hidden-xs hidden-sm my-aside">
+            <div class="list-group">
+		{% for categoria in categoria_list %}
+		    <a href="{% url 'start:filtro' filtro=categoria.categoria %}" class="list-group-item"/>{{ categoria.categoria }}</a>
+		{% endfor %}
+            </div><br>
+        </aside>
+
+        <div class="container col-md-10">
+            <div class="row">
+                {% for obj in object_list %}
+                    <div class="col-sm-4">
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
                         <div class="thumbnail">
                             {% if obj.imagen %}
                                 <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
                             {% endif %}
+<<<<<<< HEAD
                             <div class=" caption parrafo">
                                 <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
                                 <p>Modelo: {{ obj.modelo}}</p><br>
@@ -107,6 +133,16 @@
                                 <div class="modal-footer">
                                     <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary btn-block" role="button">Ver detalles completos</a></p>
                                 </div>
+=======
+                            <div class="caption">
+                                <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }} {{ obj.modelo}}</a></h2><br>
+                                    <p>Marca: {{ obj.marca}}
+                                    Procesador: {{ obj.procesador}}
+                                    Memoria Ram: {{ obj.ram }}</p>
+                                <br>
+								<h3>${{ obj.precio|floatformat:"2"|intcomma }} Dlls.</h3>
+                                <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Ver detalles completos</a></p>
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
                             </div>
                         </div>
                     </div>
@@ -132,7 +168,35 @@
 </div><br>
 
     <footer>
+<<<<<<< HEAD
 
     </footer>
 </body>
+=======
+        <div class="container col-md-12">
+            <ol class="breadcrumb">
+                <li>Ing.Alfredo Navarrete Mendoza - NavaSoft</li>
+                <li class="pull-right">
+                    <a href="{% url 'start:contact' %}">
+                        Contáctanos
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-spinner fa-spin fa-stack-2x"></i>
+                            <i class="fa fa-address-card-o fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <a href="/">
+                        Inicio
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+                            <i class="fa fa-caret-square-o-up fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </footer>
+</div>
+>>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
 {% endblock %}
