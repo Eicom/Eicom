@@ -1,6 +1,5 @@
 {% extends 'base.html'%}
 {% load static %}
-<<<<<<< HEAD
 {% block content %}
 <style>
   {% block style %}
@@ -87,69 +86,4 @@
 </div>
 {% include 'social_footer.html'%}
 </body>
-=======
-
-{% block content %}
-    {% include 'social.html' %}
-
-  <div class="body">
-    <!-- Título -->
-    <div class="foto">
-      <img  class="responsive" src="{% static 'img/about2.jpg' %}" alt="foto">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, dolorum.</p>
-    </div>
-
-    <div class="container col-md-12">
-    <!--Columnas de texto-->
-    <!--Bloque Quiénes somos-->
-    <div class=" col-md-4">
-      <div class="col-xs-12 col-sm-6 col-md-12 format-text-center">
-        <article class="post clearfix">
-          <h2 class="post-title my-texto">
-            <a href="#">¿Quiénes somos?</a>
-          </h2>
-          <a href="#" class="thumb">
-            <img src="{% static 'img/nosotros2.jpg' %}" alt="" class="img-thumbnail">
-          </a>
-          <p class="post-contenido text-justify"><br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem labore impedit blanditiis quaerat fugiat odio eligendi velit optio deserunt sapiente, qui pariatur quis veniam voluptatibus rerum minus voluptate odit.
-          </p>
-        </article>
-      </div>
-    </div>
-    <!--Bloque Misión-->
-    <div class="container col-md-4">
-      <div class="col-xs-12 col-sm-6 col-md-12 format-text-center">
-        <article class="post clearfix">
-          <h2 class="post-title my-texto">
-            <a href="#">Misión</a>
-          </h2>
-          <a href="#" class="thumb">
-            <img src="{% static 'img/mision3.jpg' %}" alt="" class="img-thumbnail">
-          </a>
-          <p class="post-contenido text-justify"><br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem labore impedit blanditiis quaerat fugiat odio eligendi velit optio deserunt sapiente, qui pariatur quis veniam voluptatibus rerum minus voluptate odit.
-          </p>
-        </article>
-      </div>
-    </div>
-    <!--Bloque Visión-->
-    <div class="container col-md-4">
-      <div class="col-xs-12 col-sm-6 col-md-12 format-text-center">
-        <article class="post clearfix">
-          <h2 class="post-title my-texto">
-            <a href="#">Visión</a>
-          </h2>
-          <a href="#" class="thumb">
-            <img src="{% static 'img/vision2.jpg' %}" alt="" class="img-thumbnail">
-          </a>
-          <p class="post-contenido text-justify"><br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem labore impedit blanditiis quaerat fugiat odio eligendi velit optio deserunt sapiente, qui pariatur quis veniam voluptatibus rerum minus voluptate odit.
-          </p>
-        </article>
-      </div>
-    </div>
-</div>
-  </div>
->>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
 {%endblock%}

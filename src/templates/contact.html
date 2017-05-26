@@ -2,7 +2,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<<<<<<< HEAD
 
 <style>
 {%block style%}
@@ -153,90 +152,5 @@
         <!--footer-->
     {% include 'social_footer.html'%}
 </body>
-=======
-<!-- <body my-body-about style="background-image: url('{% static "img/login2.jpg"%}')";> -->
-<div class="body">
-  <div class="container col-md-12">
-    <div class="col-md-4 col-md-offset-4"><br><br>
-      <div class="col-sm-12 div-contenedor raised ">
-        <h1>Contáctanos:</h1>
-        <br>
-        <!-- Campo Nombre -->
-        <form method = 'POST' action="">{% csrf_token %}
-          <div class="clearfix form-group">
-            <label for="country">Nombre:</label>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-              {{contact_form.nombre|as_crispy_field:"bootstrap"}}
-            </div>
-          </div>
-          <div class="clearfix form-group">
-            <label for="country">Email:</label>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-              {{contact_form.email|as_crispy_field}}
-            </div>
-          </div>
-          <div class="clearfix form-group">
-            <label for="country">Teléfono:</label>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
-              {{contact_form.telefono|as_crispy_field}}
-            </div>
-          </div>
-          <div class="clearfix form-group">
-            <label for="country">Asunto:</label>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-              {{contact_form.tema|as_crispy_field}}
-            </div>
-          </div>
-          <div class="clearfix form-group">
-            <label for="country">Mensaje:</label>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
-              {{contact_form.mensaje|as_crispy_field}}
-            </div>
-          </div><br>
-          <input class="btn btn-block btn-success" type="submit" value="Enviar comentario"/><br>
-        </form>
-      </div>
-    </div>
-  </div><br>
-
-
-  <!-- Información de contacto -->
-  <div class="col-xs-12 col-sm-4 col-md-12 my-texto">
-      <hr class="my-hr">
-        <strong><h2 style="text-align:center;"><i class="fa fa-address-book-o" aria-hidden="true"></i> Información de contacto: </h2></strong>
-  </div>
-  <div class="container">
-    <div class="col-xs-12 col-sm-4 col-md-4 my-texto">
-      <p>
-        <strong><p><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: neros.anm@gmail.com</p></strong>
-      </p>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 my-texto">
-      <p>
-        <strong><p><i class="fa fa-phone" aria-hidden="true"></i> Teléfono: 4691234567</p></strong>
-      </p>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 my-texto">
-      <p>
-        <strong><p><i class="fa fa-globe" aria-hidden="true"></i> Página web: www.nerosoft.com</p></strong>
-      </p>
-    </div>
-  </div><br><br>
-  <div class="col-md-12">
-    <div class="social-btns">
-      <a class="btn facebook" href="#"><i class="fa fa-facebook"></i></a>
-      <a class="btn twitter" href="#"><i class="fa fa-twitter"></i></a>
-      <a class="btn google" href="#"><i class="fa fa-google"></i></a>
-      <a class="btn dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-      <a class="btn skype" href="#"><i class="fa fa-skype"></i></a>
-    </div>
-  </div>
-</div>
->>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
 
 {% endblock %}

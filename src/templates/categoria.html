@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -25,30 +24,3 @@
 </div>
 
 {% endblock %}
-=======
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<div class="container col-md-9">
-	<div class="row">
-		{% for obj in object_list %}
-			<div class="col-md-4">
-				<div class="thumbnail">
-					{% if obj.imagen %}
-						<img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" />
-					{% endif %}
-					<div class="caption">
-						<h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
-						<p>{{ obj.marca }} {{ obj.modelo }} <br>
-							 {{ obj.procesador }} <br>
-							 {{ obj.ram }}</p><br>
-						<p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">Ver detalles completos</a></p>
-					</div>
-				</div>
-			</div>
-		{% endfor %}
-	</div>
-</div>
-
-{% endblock %}
->>>>>>> a2c84bb6414900b317fa31774f5e74fdb247d49f
