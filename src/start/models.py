@@ -43,13 +43,28 @@ class Equipo(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return self.nombre
+        return self.modelo
 
     def get_absolute_url(self):
         return reverse('start:detail', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ['-timestamp']
+
+class Slideshow(models.Model):
+	titulo = models.CharField(max_length=50,blank=True,null=True)
+	descripcion = models.CharField(max_length=150,blank=True,null=True)
+	equipo = models.ForeignKey(Equipo,on_delete=models.CASCADE,null=True,blank=True)
+	imagen = models.ImageField(upload_to=upload_location,null=True,blank=True,height_field='height_field',width_field='width_field')
+	height_field = models.IntegerField(default=0)
+	width_field = models.IntegerField(default=0)
+	timestamp = models.DateTimeField(auto_now_add=True,auto_now=False)
+
+	def __str__(self):
+		return self.titulo
+
+	class Meta:
+		ordering = ['-timestamp']
 
 
 def create_slug(instance, new_slug=None):

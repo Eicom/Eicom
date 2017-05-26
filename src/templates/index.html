@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+{% load humanize %}
 <style>
 {%block style%}
 
@@ -17,8 +18,7 @@
 
 
    .parrafo{
-        line-height: 60%;
-        text-align: center;
+        line-height: 70%;
     }
 
     .div-contenedor {
@@ -99,10 +99,11 @@
                             {% endif %}
                             <div class=" caption parrafo">
                                 <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
-                                       <p><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> {{ obj.modelo}}</p>
-                                       <p><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> {{ obj.marca}}</p>
-                                       <p><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> {{ obj.procesador}}</p>
-                                       <p><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> {{ obj.ram }}</p>
+                                <p>Modelo: {{ obj.modelo}}</p><br>
+                                <p>Marca: {{ obj.marca}}</p><br>
+                                <p>Procesador: {{ obj.procesador}}</p><br>
+                                <p>RAM: {{ obj.ram }}</p><br>
+								<h3>${{ obj.precio|floatformat:"2"|intcomma }} Dlls.</h3>
                                 <div class="modal-footer">
                                     <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary btn-block" role="button">Ver detalles completos</a></p>
                                 </div>

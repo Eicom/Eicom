@@ -2,7 +2,7 @@ __author__ = 'NeroS'
 # -*- coding: utf-8 -*-
 
 from django import forms
-from .models import Mensaje, Equipo, Categoria
+from .models import Mensaje, Equipo, Categoria, Slideshow
 
 class RegEquipoForm(forms.ModelForm):
     class Meta:
@@ -10,6 +10,11 @@ class RegEquipoForm(forms.ModelForm):
         fields = ['categoria', 'nombre', 'modelo', 'marca', 'so', 'procesador',
                   'harddrive', 'pantalla', 'ram', 'video', 'precio',
                   'descripcion', 'imagen']
+
+class RegSlideshowForm(forms.ModelForm):
+	class Meta:
+		model = Slideshow
+		fields = ['titulo','descripcion','equipo','imagen']
 
 class RegCategoriaForm(forms.ModelForm):
     class Meta:

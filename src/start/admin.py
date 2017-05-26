@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Mensaje, Equipo, Categoria
-from .forms import RegContactForm, RegEquipoForm, RegCategoriaForm
+from .models import Mensaje, Equipo, Categoria, Slideshow
+from .forms import RegContactForm, RegEquipoForm, RegCategoriaForm, RegSlideshowForm
 
 class AdminEquipo(admin.ModelAdmin):
     list_display = ['categoria_categoria', 'nombre', 'modelo', 'marca', 'timestamp']
@@ -16,6 +16,17 @@ class AdminEquipo(admin.ModelAdmin):
         return obj.categoria.categoria
     categoria_categoria.short_description = 'Categoria'
 
+class AdminSlideshow(admin.ModelAdmin):
+	list_display = ['titulo','descripcion','equipo_nombre']
+	form = RegSlideshowForm
+	list_editable = ['descripcion']
+	search_fields = ['titulo','descripcion']
+
+	def equipo_nombre(self,obj):
+		return obj.equipo
+
+	equipo_nombre.short_descripcion = 'Equipo'
+
 class AdminContacto(admin.ModelAdmin):
     list_display = ['email', 'nombre', 'timestamp']
     form = RegContactForm
@@ -26,9 +37,11 @@ class AdminContacto(admin.ModelAdmin):
 class AdminCategoria(admin.ModelAdmin):
     list_display = ['categoria']
     form = RegCategoriaForm
-    list_edtiable = ['categoria']
+    #list_editable = ['categoria']
     search_fields = ['categoria']
+
 
 admin.site.register(Mensaje, AdminContacto)
 admin.site.register(Equipo, AdminEquipo)
 admin.site.register(Categoria, AdminCategoria)
+admin.site.register(Slideshow, AdminSlideshow)

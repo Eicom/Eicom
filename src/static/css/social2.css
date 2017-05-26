@@ -15,18 +15,8 @@
 }
 
 /*Pen code from this point on*/
-.btn {
-  clear:both;
-  white-space:nowrap;
+.btn-social {
   font-size:.8em;
-  display:inline-block;
-  border-radius:5px;
-  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.35);
-  margin:2px;
-  -webkit-transition:all .5s;
-  -moz-transition:all .5s;
-  transition:all .5s;
-  overflow:hidden
 }
 
 .btn:hover {
