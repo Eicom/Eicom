@@ -4,7 +4,7 @@ venv
 /Scripts
 *.pyc
 *~
-settings.py
+secret.py
 venv
 Scripts
 db.sqlite3
