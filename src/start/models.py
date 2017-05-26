@@ -43,7 +43,7 @@ class Equipo(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return self.modelo
+        return self.nombre
 
     def get_absolute_url(self):
         return reverse('start:detail', kwargs={'slug': self.slug})
