@@ -7,8 +7,8 @@ from .models import Mensaje, Equipo, Categoria, Slideshow
 class RegEquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ['categoria', 'nombre', 'modelo', 'marca', 'so', 'procesador',
-                  'harddrive', 'pantalla', 'ram', 'video', 'precio',
+        fields = ['categoria', 'nombre', 'modelo', 'sistema_operativo', 'marca', 'procesador',
+                 'disco_duro', 'pantalla', 'memoria_ram', 'tarjeta_madre', 'bateria', 'camara', 'adaptador_ac', 'video', 'precio',
                   'descripcion', 'imagen']
 
 class RegSlideshowForm(forms.ModelForm):

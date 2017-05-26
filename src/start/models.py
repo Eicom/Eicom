@@ -7,7 +7,6 @@ from django.utils.text import slugify
 # Create your models here.
 
 
-
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
@@ -23,12 +22,16 @@ class Equipo(models.Model):
     slug = models.SlugField(unique=True)
     nombre = models.CharField(max_length=50)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    so = models.CharField(max_length=50, default='None')
     marca = models.CharField(max_length=50)
+    sistema_operativo = models.CharField(max_length=50, default='None')
     procesador = models.CharField(max_length=50)
-    harddrive = models.CharField(max_length=50)
+    disco_duro = models.CharField(max_length=50)
     pantalla = models.CharField(max_length=50)
-    ram = models.CharField(max_length=50)
+    memoria_ram = models.CharField(max_length=50)
+    bateria = models.CharField(max_length=50)
+    adaptador_ac = models.CharField(max_length=100)
+    camara = models.CharField(max_length=50)
+    tarjeta_madre = models.CharField(max_length=50)
     video = models.CharField(max_length=50)
     descripcion = models.TextField()
     precio = models.DecimalField (max_digits=8, decimal_places=2, null=False)

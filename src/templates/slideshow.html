@@ -1,42 +1,41 @@
-{% load static %} 
+{% load static %}
 <!-- slideshow -->
 {% block content %}{#{ forloop.counter0 }#}
-<style>
-    {% block style %}
-  .carousel-inner img {
-    width: 100%;
-    max-height: 450px;
-  }
-
-  .carousel-inner{
-  height:100% ;
-  }
+    <style>
+        {% block style %}
+            .carousel-inner img {
+            width: 100%;
+            max-height: 450px;
+        }
+        .carousel-inner{
+            height:100% ;
+        }
     {% endblock %}
 </style>
-  <div id="carousel-1" class="carousel slide show" data-ride="carousel">
-    <!-- indicadores -->
-		{% for obj in object_slideshow %}
-		{% endfor %}
-		<!-- contenedor de los slide -->
-		<div class="carousel-inner" role="listbox">
-			{% for obj in object_slideshow %}
-		    <div class="item {% if forloop.counter == 1 %}active{% endif %}" >
-		        <img class="img-responsive" src="{{ obj.imagen.url }}" alt="">
-		    	<div class="carousel-caption hidden-xs hidden-sm">
-					<h3 href="{% url 'start:detail' slug=obj.equipo.get_absolute_url }}">{{ obj.titulo}}</h3>
-		        	<p>{{ obj.descripcion}}</p>
-		    	</div>
-			</div>
-			{% endfor %}
-		</div>
+    <div id="carousel-1" class="carousel slide show" data-ride="carousel">
+        <!-- indicadores -->
+        {% for obj in object_slideshow %}
+        {% endfor %}
+        <!-- contenedor de los slide -->
+        <div class="carousel-inner" role="listbox">
+            {% for obj in object_slideshow %}
+                <div class="item {% if forloop.counter == 1 %}active{% endif %}" >
+                    <img class="img-responsive" src="{{ obj.imagen.url }}" alt="">
+                    <div class="carousel-caption hidden-xs hidden-sm">
+                        <h3 href="{% url 'start:detail' slug=obj.equipo.get_absolute_url }}">{{ obj.titulo}}</h3>
+                        <p>{{ obj.descripcion}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     <!-- Controles -->
-    <a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Siguiente</span>
-    </a>
-  </div>
+        <a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
 {% endblock %}

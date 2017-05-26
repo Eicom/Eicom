@@ -1,47 +1,96 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head_title %}{{ instance.nombre }} | {{ block.super }}{% endblock head_title %}
 {% block content %}
 
-<style>
-    {% block style %}
-           .parrafo{
-            line-height: 60%;
-    }
-        body {
-    background-color: #171817;
-    }
-    {% endblock style %}
-</style>
+    <style>
+        {% block style %}
 
-    {% include 'navbar.html' %}
-    {% include 'social.html' %}<br><br>
-    <div class="col-md-12">
-        <div class="col-md-5 col-md-offset-1">
-            {% if instance.imagen %}
-                <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
-                <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+        .indent-detail{ padding-left: 1.4em }
 
-            {% endif %}
+        .align-detail {
+            text-align: center;
+            padding-top: 0.3cm;
+        }
+        {% endblock style %}
+    </style><br>
+    <body style="background-color: #25343F">
+        <div class="container-fluid">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="page-header">
+                        <h1 class="indent-detail">{{ instance.nombre }}</h1>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body col-md-12">
+                        <div class="col-md-4">
+                            {% if instance.imagen %}
+                                <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                                <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <strong><h2>Especificaciones:</h2></strong><br>
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Disco duro:</strong> {{ instance.disco_duro }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}
+                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <h1 class="align-detail">Galería:</h1>
+                    </div>
+                    <div id="carousel-1" class="carousel slide show" data-ride="carousel">
+                        <!-- contenedor de los slide -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active" >
+                                <img class="img-responsive" src="{% static 'img/slide1.jpg' %}" alt="">
+                                <div class="carousel-caption hidden-xs hidden-sm">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, dolores.</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img class="img-responsive " src="{% static 'img/slide5.jpg' %}" alt="">
+                                <div class="carousel-caption hidden-xs hidden-sm">
+                                    <h3>Este es nuestro slide #5</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img class="img-responsive " src="{% static 'img/slide6.jpg' %}" alt="">
+                                <div class="carousel-caption hidden-xs hidden-sm">
+                                    <h3>Este es nuestro slide #6</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Controles -->
+                        <a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                </div>
+                <br>
+            </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-5 thumbnail">
-                <h1>{{ instance.nombre }}</h1>
-                <h3>Componentes:</h3><br>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Modelo: {{ instance.modelo }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Marca: {{ instance.marca }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Procesador: {{ instance.procesador }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Harddrive: {{ instance.harddrive }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Pantalla: {{ instance.pantalla }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Memoria Ram: {{ instance.ram }}</p>
-                <p parrafo><i class="fa fa-angle-double-right parrafo" aria-hidden="true"></i> Tarjeta de video: {{ instance.video }}</p><br>
-                <p>Descripción: {{ instance.descripcion }}</p>
-            </div>
-        </div> <br><br>
-            <div class="col-md-6 col-md-offset-3">
-                <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
-            </div>
-    </div>
-
+        {% include 'social_footer.html'%}
+    </body>
 {% endblock content %}
 

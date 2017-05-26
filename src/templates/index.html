@@ -1,7 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-{% load humanize %}
 <style>
 {%block style%}
 
@@ -15,51 +14,15 @@
     height: 650px;
     }
 
-
-
-   .parrafo{
-        line-height: 70%;
-    }
-
-    .div-contenedor {
-    /*padding-top: 15px;*/
-    /*height: 620px;*/
-    /*width: 350px;*/
-    background-color: white;
-    border-radius: 24px 0px 24px 0px;
-    -moz-border-radius: 24px 0px 24px 0px;
-    -webkit-border-radius: 24px 0px 24px 0px;
-    border: 0px solid #000000;
-    padding-top: 15px;
-    max-height:inherit;
-    /*padding-bottom: 30px;*/
-    /*margin-right: 0.2em;*/
-    }
-    .raised {
-    -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-     -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-      box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    }
     body {
         background-color: #25343F;
-        color: rgba(243,243,243,.8);
+        /*color: rgba(243,243,243,.8);*/
     }
-    /*.grow:hover*/
-    /*{*/
-    /*-webkit-transform: scale(1.1);*/
-    /*-ms-transform: scale(1.1);*/
-    /*transform: scale(1.1);*/
-    /*-transition:  all 500ms ease;*/
-    /*-webkit-transition: all 500ms ease;*/
-    /*-o-transition: all 500ms ease;*/
-    /*z-index: 1;*/
-    /*}*/
     .zoom{
         transition: 200ms ease;
         -moz-transition: 200ms ease; /* Firefox */
         -webkit-transition: 200ms ease; /* Chrome - Safari */
         -o-transition: 200ms ease; /* Opera */
-
     }
     .zoom:hover{
         transform : scale(1.05);
@@ -68,71 +31,82 @@
         -o-transform : scale(1.05); /* Opera */
         -ms-transform : scale(1.05); /* IE9 */
     }
+    .text-align-index {
+        text-align: center;
+    }
+    .div-footer-index {
+        height: 100px;
+    }
+    /*.buttons-index {*/
+        /*position: ;*/
+        /*bottom:200px;*/
+    /*}*/
 
   /*div { border-style: outset; border-width: 1px; }*/
 
 {%endblock%}
 </style>
 
-<body>
-    {% include 'social.html'%}
-    {% include 'slideshow.html' %}<br>
-    {% include 'breadcrumb.html' %}
-<div class="col-md-10 col-md-offset-1">
-        <!-- Aside  -->
-        <aside class="col-md-3 hidden-xs hidden-sm my-aside">
-            <div class="list-group">
-                <a class="list-group-item active">Categorías</a>
-                {% for obj in object_clasificacion %}
-                    <a href="{% url 'start:filtro' filtro=obj.categoria %}" class="list-group-item"/>{{ obj.categoria }}</a>
-                {% endfor %}
-            </div>
-        </aside>
-
-        <div class="container col-md-9">
-            <div class="row">
-                {% for obj in object_list %}
-                    <div class="col-sm-4 zoom">
-                        <div class="thumbnail">
-                            {% if obj.imagen %}
-                                <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
-                            {% endif %}
-                            <div class=" caption parrafo">
-                                <h2><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h2><br>
-                                <p>Modelo: {{ obj.modelo}}</p><br>
-                                <p>Marca: {{ obj.marca}}</p><br>
-                                <p>Procesador: {{ obj.procesador}}</p><br>
-                                <p>RAM: {{ obj.ram }}</p><br>
-								<h3>${{ obj.precio|floatformat:"2"|intcomma }} Dlls.</h3>
-                                <div class="modal-footer">
-                                    <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary btn-block" role="button">Ver detalles completos</a></p>
+    <body>
+        {% include 'social.html'%}
+        {% include 'slideshow.html' %}<br>
+        <div class="col-md-12 container-fluid">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="container col-md-10 col-md-offset-1">
+                        <div class="row">
+                            {% for obj in object_list %}
+                                <div class="col-md-4 zoom text-align-index">
+                                    <div class=""><br>
+                                        {% if obj.imagen %}
+                                            <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                                        {% endif %}
+                                        <div class="caption">
+                                            <div class="page-header">
+                                                <h3><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h3>
+                                            </div>
+                                            <h5><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h5>
+                                        </div>
+                                        <br>
+                                        <div class="caption div-contendor">
+                                                <!--<p>{{ obj.sistema_operativo}},-->
+                                                <!--{{ obj.procesador}},-->
+                                                <!--{{ obj.video}},-->
+                                                <!--{{ obj.memoria_ram}},-->
+                                                <!--{{ obj.ram }},-->
+                                                <!--{{ obj.tarjeta_madre }},-->
+                                                <!--{{ obj.disco_duro }}</p><br>-->
+                                            <p><h2>$ {{ obj.precio }}</h2></p>
+                                            <div class="footer buttons-index"><br>
+                                                <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary btn-block" role="button">Ver detalles completos</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><hr>
+                                    <br>
                                 </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-            <!--Pagination-->
-            <div class="pagination pull-right">
-                <span class="step-links">
-                    {% if object_list.has_previous %}
-                    <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">Anterior</a>
-                    {% endif %}
-                <span class="current">
-                    Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
-                </span>
-                    {% if object_list.has_next %}
-                    <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
-                    {% endif %}
-                </span>
+                </div>
             </div>
         </div>
-    </div>
-<!--</section>-->
-</div><br>
 
-    <footer>
-
-    </footer>
-</body>
+        <div class="pagination pull-right">
+            <span class="step-links">
+                {% if object_list.has_previous %}
+                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">Anterior</a>
+                {% endif %}
+            <span class="current">
+                Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
+            </span>
+                {% if object_list.has_next %}
+                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
+                {% endif %}
+            </span>
+        </div>
+        <footer class="">
+            {% include 'footer.html' %}
+        </footer>
+    </body>
 {% endblock %}

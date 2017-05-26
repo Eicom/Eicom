@@ -1,0 +1,16 @@
+appdirs==1.4.3
+crank==0.8.1
+Django==1.11.1
+django-bootstrap-breadcrumbs==0.8.2
+django-crispy-forms==1.6.1
+django-registration==2.2
+MarkupSafe==1.0
+olefile==0.44
+packaging==16.8
+Pillow==4.1.1
+pkg-resources==0.0.0
+pytz==2017.2
+repoze.lru==0.6
+six==1.10.0
+TurboGears2==2.3.10
+WebOb==1.7.2
