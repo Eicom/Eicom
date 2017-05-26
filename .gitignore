@@ -1,13 +1,14 @@
 __pycache__
-settings.py
 venv
-/Scripts
+Scripts
 *.pyc
 *~
 secret.py
 venv
 Scripts
 db.sqlite3
-/static
 .DS_Store
 /src/start/migrations
+/media_cdn
+/static_cdn
+/src/static
