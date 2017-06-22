@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.conf.urls import url
 from .import views
 
 urlpatterns = [
@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^pruebas/$', views.pruebas, name='pruebas'),
     url(r'^(?P<slug>[\w-]+)/$', views.equipo_detail, name='detail'),
-    url(r'^categoria/(?P<filtro>[\w-]+)/$',views.categoria, name='filtro'),
+    url(r'^categoria/(?P<filtro>[\w-]+)/$', views.categoria, name='filtro'),
 ]

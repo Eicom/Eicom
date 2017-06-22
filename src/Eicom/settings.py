@@ -1,5 +1,5 @@
 import os
-from .secret import *
+from .secret import (secret_key, email_user, email_pass)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -14,7 +14,7 @@ SECRET_KEY = secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = email_user
 EMAIL_HOST_PASSWORD = email_pass
@@ -23,6 +23,9 @@ EMAIL_USE_TLS = True
 
 
 # Application definition
+
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                        "django_excel.TemporaryExcelFileUploadHandler")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'registration',
     'django_bootstrap_breadcrumbs',
     'start',
+    'excel'
 ]
 
 MIDDLEWARE = [

@@ -1,18 +1,15 @@
 {% load static %}
 <style>
     {% block style %}
-
         .color-footer-index {
-            height: 62.53px;
-            padding-top: 0.1cm;
-            background-color: #000000;
-            padding-bottom: 0.1cm;
+            height: 50px;
+            padding-top: 0.5cm;
+            background: #20d24d;
+            padding-bottom: 0.5cm;
         }
-        .text-footer{
-            padding-bottom: 50%;
-
+        .text-color-footer{
+            color: white;
         }
-
     {% endblock style %}
 </style>
 
@@ -20,7 +17,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 color-footer-index">
-                    <a href="/">EICOM.COM <i class="fa fa-registered" aria-hidden="true"></i></a>
+                    <a href="{% url 'start:contact' %}" class="text-color-footer"> <i class="fa fa-address-card" aria-hidden="true"></i> Contacto |</a>
+                    <a href="{% url 'start:about' %}" class="text-color-footer"> <i class="fa fa-handshake-o" aria-hidden="true"></i> Acerca de nosotros |</a>
+                    <a href="/" class="pull-right text-color-footer">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2017 eicom.com</a>
                 </div>
             </div>
         </div>

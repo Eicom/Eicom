@@ -24,30 +24,42 @@
                 </div>
                 <div class="panel-body">
                     <div class="panel-body col-md-12">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-md-offset-1"><br><br>
                             {% if instance.imagen %}
                                 <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
                                 <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
                             {% endif %}
                         </div>
-                        <div class="col-md-6 col-md-offset-1">
-                            <strong><h2>Especificaciones:</h2></strong><br>
+                        <div class="col-md-5 col-md-offset-1">
+                            <strong><h2>Especificaciones:</h2></strong>
+                            <hr>
+                            <br>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Disco duro:</strong> {{ instance.disco_duro }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}
+                            <hr>
                             <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}
-                            <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
+                            <hr><p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid">
                     <div class="page-header">
+                        <hr>
                         <h1 class="align-detail">Galería:</h1>
                     </div>
                     <div id="carousel-1" class="carousel slide show" data-ride="carousel">

@@ -15,8 +15,27 @@
     }
 
     body {
-        background-color: #25343F;
+        /*background:#35dc3d;*/
+        background: white;
         /*color: rgba(243,243,243,.8);*/
+    }
+    .texto-mas-vendido{
+        color: orangered;
+        text-align: center;
+    }
+    .div-panel{
+        -webkit-box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.57);
+        -moz-box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.57);
+        box-shadow: 10px 10px 8px -3px rgba(0,0,0,0.57);
+    }
+    .div-equipo{
+        border-radius: 0px 20px 0px 20px;
+        -moz-border-radius: 0px 20px 0px 20px;
+        -webkit-border-radius: 0px 20px 0px 20px;
+        border: 1px solid #e4e2e2;
+        -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
     }
     .zoom{
         transition: 200ms ease;
@@ -34,76 +53,132 @@
     .text-align-index {
         text-align: center;
     }
-    .div-footer-index {
-        height: 100px;
-    }
-    /*.buttons-index {*/
-        /*position: ;*/
-        /*bottom:200px;*/
-    /*}*/
 
-  /*div { border-style: outset; border-width: 1px; }*/
+        .marcas {
+            height: 200px;
+            padding-top: 0.5cm;
+            background-color: white;
+            padding-bottom: 0.1cm;
+        }
+        .the-img{
+            height: 60px;
+            padding: 0px;
+            width: auto;
+        }
+
+.aside-fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
 
 {%endblock%}
 </style>
-
     <body>
         {% include 'social.html'%}
-        {% include 'slideshow.html' %}<br>
-        <div class="col-md-12 container-fluid">
+        {% include 'slideshow.html' %}
+        {% include 'searchbox.html' %}
+        <div class="col-md-12" style="text-align: center;">
+            {% include 'breadcrumb.html' %}
+        </div>
+        <div class="col-md-12 container-fluid ">
             <div class="panel">
-                <div class="panel-body">
-                    <div class="container col-md-10 col-md-offset-1">
+                <div class="panel-body ">
+                    <!--<div class="page-header">-->
+
+                        <h2 class="texto-mas-vendido">Lo más vendido:</h2>
+                    <hr>
+                    <!--</div>-->
+                    <!--<div class="col-md-3 aside-fixed">-->
+                        <!--<aside class="col-md-12 hidden-xs hidden-sm my-aside">-->
+                            <!--<div class="list-group">-->
+                                <!--<a class="list-group-item active">Categorías</a>-->
+                                <!--{% for obj in object_clasificacion %}-->
+                                    <!--<a href="{% url 'start:filtro' filtro=obj.categoria %}" class="list-group-item"/>{{ obj.categoria }}</a>-->
+                                <!--{% endfor %}-->
+                            <!--</div>-->
+                        <!--</aside>-->
+                    <!--</div>-->
+                    <div class="container col-md-12 ">
                         <div class="row">
                             {% for obj in object_list %}
-                                <div class="col-md-4 zoom text-align-index">
-                                    <div class=""><br>
-                                        {% if obj.imagen %}
-                                            <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
-                                        {% endif %}
-                                        <div class="caption">
-                                            <div class="page-header">
-                                                <h3><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h3>
+                                <div class="col-md-3 zoom text-align-index"><br><br>
+                                    <div class="col-md-12 div-equipo">
+                                        <div class=""><br>
+                                            {% if obj.imagen %}
+                                                <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
+                                            {% endif %}
+                                            <div class="caption">
+                                                <div class="page-header">
+                                                    <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
+                                                </div>
+                                                <h6><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h6>
                                             </div>
-                                            <h5><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h5>
+                                            <br>
+                                            <div class="caption div-contendor">
+                                                    <!--<p>{{ obj.sistema_operativo}},-->
+                                                    <!--{{ obj.procesador}},-->
+                                                    <!--{{ obj.video}},-->
+                                                    <!--{{ obj.memoria_ram}},-->
+                                                    <!--{{ obj.ram }},-->
+                                                    <!--{{ obj.tarjeta_madre }},-->
+                                                    <!--{{ obj.disco_duro }}</p><br>-->
+                                                <p><h2>$ {{ obj.precio }}</h2></p>
+                                                <div class="footer buttons-index"><br>
+                                                    <p><a href="{{ obj.get_absolute_url }}" class="btn btn-success btn-block" role="button">Ver detalles completos</a></p>
+                                                </div>
+                                            </div>
                                         </div>
                                         <br>
-                                        <div class="caption div-contendor">
-                                                <!--<p>{{ obj.sistema_operativo}},-->
-                                                <!--{{ obj.procesador}},-->
-                                                <!--{{ obj.video}},-->
-                                                <!--{{ obj.memoria_ram}},-->
-                                                <!--{{ obj.ram }},-->
-                                                <!--{{ obj.tarjeta_madre }},-->
-                                                <!--{{ obj.disco_duro }}</p><br>-->
-                                            <p><h2>$ {{ obj.precio }}</h2></p>
-                                            <div class="footer buttons-index"><br>
-                                                <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary btn-block" role="button">Ver detalles completos</a></p>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <br><hr>
-                                    <br>
                                 </div>
                             {% endfor %}
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="pagination pull-right">
-            <span class="step-links">
-                {% if object_list.has_previous %}
-                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">Anterior</a>
-                {% endif %}
-            <span class="current">
-                Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.
-            </span>
-                {% if object_list.has_next %}
-                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>
-                {% endif %}
-            </span>
+        <!--<div class="pagination pull-right">-->
+            <!--<span class="step-links">-->
+                <!--{% if object_list.has_previous %}-->
+                <!--<a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">Anterior</a>-->
+                <!--{% endif %}-->
+            <!--<span class="current">-->
+                <!--Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}.-->
+            <!--</span>-->
+                <!--{% if object_list.has_next %}-->
+                <!--<a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">siguiente</a>-->
+                <!--{% endif %}-->
+            <!--</span>-->
+        <!--</div>-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class=" col-md-12">
+                    <ul class="list-inline" style="text-align: center;">
+                        <li><a href="#"><img  src="{% static 'img/dell.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/hp.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/intel2.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/manhattan.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/asus.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/logi.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/acteck.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                        <li><a href="#"><img  src="{% static 'img/tplink.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                    </ul>
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/dell.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/hp.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/intel2.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/manhattan.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/asus.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/logi.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/acteck.jpg' %}" class="img-responsive" alt=""/></div>-->
+                    <!--<div class="col-md-1 marcas"><img  src="{% static 'img/tplink.jpg' %}" class="img-responsive" alt=""/></div>-->
+
+                </div>
+            </div>
         </div>
         <footer class="">
             {% include 'footer.html' %}
