@@ -4,8 +4,6 @@ from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 
-# Create your models here.
-
 
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
