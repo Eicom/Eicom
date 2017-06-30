@@ -1,14 +1,36 @@
 {% load static %}
 <style>
     {% block style %}
-        .barra-busqueda{
-            height: 50px;
-            padding-top: 0.2cm;
+        .marcas {
+            height: 200px;
+            padding-top: 0.5cm;
             background-color: white;
             padding-bottom: 0.1cm;
         }
+        .the-img{
+            height: 58px;
+            padding: 0px;
+            width: auto;
+        }
     {% endblock style%}
 </style>
+ <!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class=" col-md-12" style="padding-top: 1cm;">-->
 
+            <ul class="list-inline" style="text-align: center;">
+                <li><a href="#"><img  src="{% static 'img/dell.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/hp.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/intel2.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/manhattan.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/asus.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/logi.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/acteck.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+                <li><a href="#"><img  src="{% static 'img/tplink.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+            </ul>
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 

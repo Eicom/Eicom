@@ -4,10 +4,6 @@
 <style>
   {%block style%}
 
-    body {
-        min-height:inherit;
-        padding-top: 50px;
-    }
     .navbar-inverse .navbar-nav>li>a
     {
         color:#777;
@@ -15,6 +11,7 @@
 
     .navbar-inverse .navbar-toggle .icon-bar {
         background-color: black;
+
     }
     .navbar-brand {
         background: #4CAF50;
@@ -26,8 +23,26 @@
         width: auto;
     }
   .navbar {
-      background: rgba(255,255,255, 1);
+
+        background-image: url("../static/img/fondoeicom.jpg")!important;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: black;
+        /*min-height: 100%;*/
+
+  /*background-position: center center;*/
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  background-color: black;
+      padding-bottom: 1cm;
+  /*min-height: 100%;*/
+
+      /*background: rgba(255,255,255, 1);*/
       border-color: #e3e3e3;
+      height: 100px;
+      padding-top: 28px;
     }
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
     {
@@ -53,7 +68,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><img id="" class="" src="{% static 'img/eicombrand.jpg' %} " alt=""/></a>
+                <a href="/" class="navbar-brand"><img id="" class="" src="{% static 'img/logofinaleicom.jpg' %} " alt=""/></a>
             </div>
         <!-- Menú -->
             <div class="collapse navbar-collapse" id="navegacion-ns">

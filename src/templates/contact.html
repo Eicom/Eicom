@@ -14,34 +14,35 @@
     .foto img{
         width:100%;
         max-height: 450px;
-                background-attachment: fixed;
+        background-attachment: fixed;
     }
 
-    .foto p{
+    .foto h1{
         position:absolute;
-        bottom:20px;
-        width:100%;
-        height: 20%;
+        bottom:30%;
+        width:40%;
+        height:auto;
         text-align:center;
         color:rgba(243,243,243,.8);
         font-family:Verdana;
-        font-size:40px;
         font-style: italic;
         background-color:rgba(0,0,0,.7);
         padding:.5em 0;
     }
-    .body-contact {
-        background-color: white;
-        color: inherit;
-    }
+
+    .body-contact{
+  background-image: url("../static/img/fondoeicom.jpg")!important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  min-height: 100%;
+}
     .text-about-center {
         text-align: center;
     }
 
-    .color-mapa{
-        background-color: #20d24d;
-        color: white;
-    }
     .map-responsive{
         overflow:hidden;
         padding-bottom:56.25%;
@@ -65,97 +66,129 @@
         box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
     }
 
+    .emerald-flat-button {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #92d14f;
+  border: 0;
+  border-bottom: 2px solid #568624;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #568624;
+  box-shadow: inset 0 -2px #568624;
+}
+.emerald-flat-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 {%endblock%}
 </style>
 
 <body class="body-contact">
+    {% include 'social.html' %}
     <div class="container-fluid body-contact">
         <div class="row">
             <div class=" foto">
-                <img  class="responsive" src="{% static 'img/contact6.jpg' %}" alt="foto">
-                <h1><p>Déjanos conocer tu opinión:</p></h1>
-
+                <img  class="responsive" src="{% static 'img/contactus.jpg' %}" alt="foto">
+                <h1>¿QUIÉNES SOMOS?</h1>
             </div>
 
-            <div class="col-md-12 ">
-                <br>
-                <form method = 'POST' action="">{% csrf_token %}
-                    <div class="col-md-3 col-md-offset-2">
-                        <div class="clearfix form-group">
-                            <label>Nombre:</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                                {{contact_form.nombre|as_crispy_field:"bootstrap"}}
+            <!--<div class="col-md-12"><br>-->
+
+
+                <!--
+                <!--<br>-->
+            <!--</div>-->
+             <div class="container col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class=""><br>
+                                <div class="col-md-6">
+                                    <div class="col-md-12  text-about-center ">
+                                        <div class="page-header">
+                                            <h2><i class="fa fa-address-book-o" aria-hidden="true"></i> INFORMACIÓN DE CONTACTO: </h2>
+                                        </div>
+                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i>  Dirección: Avenida Benjamín Flores y Calle 30 (local verde)</p>
+                                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: eicom_sanluis@hotmail.com</p>
+                                        <p><i class="fa fa-phone" aria-hidden="true"></i> Teléfonos: </p>
+                                        <p><i class="fa fa-globe" aria-hidden="true"></i> Página web: eicom.pythonanywhere.com</p> <br><br>
+                                    </div>
+
+                                    <div class="thumbnail col-md-12 ">
+                                        <div class=" map-responsive"><br>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d65.15354643070178!2d-114.75904852364107!3d32.43520450174623!2m2!1f7.372176066730731!2f6.63216152943555!3m2!1i1024!2i768!4f55.8249039809447!3m3!1m2!1s0x80d64f04ec3760e1%3A0x438f59653e1b32d9!2sAltar%2C+San+Luis+R%C3%ADo+Colorado%2C+Son.!5e1!3m2!1ses!2smx!4v1498751679052" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.7003761346245!2d-114.77695568517018!3d32.48070498106247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d64e27b0ecccef%3A0xcbd52d6149fe693e!2sPizzas+%26+Beer!5e0!3m2!1ses-419!2smx!4v1495137863172" width="580" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" ><br>
+                                    <form method = 'POST' action="">{% csrf_token %}
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="clearfix form-group">
+                                                <label>Nombre:</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                                    {{contact_form.nombre|as_crispy_field:"bootstrap"}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="clearfix form-group">
+                                                <label>Email:</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                                    {{contact_form.email|as_crispy_field}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="col-md-10 col-md-offset-1">
+                                            <div class="clearfix form-group">
+                                                <label>Teléfono:</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                                                    {{contact_form.telefono|as_crispy_field}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="clearfix form-group">
+                                                <label>Asunto:</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                                    {{contact_form.asunto|as_crispy_field}}
+                                                </div>
+                                            </div>
+                                            <div class="clearfix form-group">
+                                                <label>Mensaje:</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                                                    {{contact_form.mensaje|as_crispy_field}}
+                                                </div>
+                                                <br>
+                                                <button class="btn emerald-flat-button" type="submit" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Enviar comentario</button><br><br><br>
+                                            </div><br>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="clearfix form-group">
-                            <label>Email:</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                                {{contact_form.email|as_crispy_field}}
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-md-2">
-                        <div class="clearfix form-group">
-                            <label>Teléfono:</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
-                                {{contact_form.telefono|as_crispy_field}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-md-offset-2">
-                                                <div class="clearfix form-group">
-                            <label>Asunto:</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                {{contact_form.asunto|as_crispy_field}}
-                            </div>
-                        </div>
-                        <div class="clearfix form-group">
-                            <label>Mensaje:</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-                                {{contact_form.mensaje|as_crispy_field}}
-                            </div>
-                            <br>
-                            <button class="btn btn-primary btn-block" type="submit" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Enviar comentario</button><br><br><br>
-                        </div><br>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-12 color-mapa"><br>
-                <div class="col-md-6   text-about-center "><br><br>
-                    <h1><i class="fa fa-address-book-o" aria-hidden="true"></i> Información de contacto: </h1><br><br>
-                    <p>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>  Dirección: Calle falsa # 123 Av. Siempre Viva, Springfield, D.F.
-                    </p>
-                    <p>
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail: fulano@sutano.com
-                    </p>
-                    <p>
-                        <i class="fa fa-phone" aria-hidden="true"></i> Teléfono: 01 (123) 123-21-65
-                    </p>
-                    <p>
-                        <i class="fa fa-globe" aria-hidden="true"></i> Página web: www.eicom.com
-                    </p> <br><br>
                 </div>
-
-                <div class="thumbnail col-md-5 ">
-                    <div class=" map-responsive">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.7003761346245!2d-114.77695568517018!3d32.48070498106247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d64e27b0ecccef%3A0xcbd52d6149fe693e!2sPizzas+%26+Beer!5e0!3m2!1ses-419!2smx!4v1495137863172" width="580" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <br>
-            </div>
+             </div>
         </div>
+        <hr>
     </div>
-
-        <!--footer-->
-    {% include 'social_footer.html'%}
+    {% include 'footer.html' %}
 </body>
 
 {% endblock %}
