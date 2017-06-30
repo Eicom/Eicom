@@ -4,10 +4,9 @@ Scripts
 *.pyc
 *~
 secret.py
-venv
-Scripts
 db.sqlite3
 .DS_Store
 /src/start/migrations
 /media_cdn
 /static_cdn
+wsgi
