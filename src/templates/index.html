@@ -2,95 +2,60 @@
 {% load static %}
 {% block content %}
 <style>
-{%block style%}
+    {%block style%}
+        .texto-mas-vendido{
+            color: orangered;
 
-     .body-index{
-  background-image: url("../static/img/fondoeicom.jpg")!important;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: black;
-  min-height: 100%;
-}
-    .texto-mas-vendido{
-        color: orangered;
-
-    }
-
-    .div-equipo{
-        border-radius: 0px 20px 0px 20px;
-        -moz-border-radius: 0px 20px 0px 20px;
-        -webkit-border-radius: 0px 20px 0px 20px;
-        border: 1px solid #e4e2e2;
-        -webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
-        -moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
-        box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
-    }
-    .zoom{
-        transition: 200ms ease;
-        -moz-transition: 200ms ease; /* Firefox */
-        -webkit-transition: 200ms ease; /* Chrome - Safari */
-        -o-transition: 200ms ease; /* Opera */
-    }
-    .zoom:hover{
-        transform : scale(1.05);
-        -moz-transform : scale(1.05); /* Firefox */
-        -webkit-transform : scale(1.05); /* Chrome - Safari */
-        -o-transform : scale(1.05); /* Opera */
-        -ms-transform : scale(1.05); /* IE9 */
-    }
-    .text-align-index {
-        text-align: center;
-    }
-
-
-
-
-.aside-fixed {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-    border: 3px solid #73AD21;
-}
-.emerald-flat-button {
-  position: relative;
-  vertical-align: top;
-  width: 100%;
-  height: 60px;
-  padding: 0;
-  font-size: 22px;
-  color: white;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  background: #92d14f;
-  border: 0;
-  border-bottom: 2px solid #568624;
-  cursor: pointer;
-  -webkit-box-shadow: inset 0 -2px #568624;
-  box-shadow: inset 0 -2px #568624;
-    padding-top: 0.3cm;
-}
-.emerald-flat-button:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-{%endblock%}
+        }
+        .zoom{
+            transition: 200ms ease;
+            -moz-transition: 200ms ease; /* Firefox */
+            -webkit-transition: 200ms ease; /* Chrome - Safari */
+            -o-transition: 200ms ease; /* Opera */
+        }
+        .zoom:hover{
+            transform : scale(1.05);
+            -moz-transform : scale(1.05); /* Firefox */
+            -webkit-transform : scale(1.05); /* Chrome - Safari */
+            -o-transform : scale(1.05); /* Opera */
+            -ms-transform : scale(1.05); /* IE9 */
+        }
+        .text-align-index {
+            text-align: center;
+        }
+        .emerald-flat-button {
+            position: relative;
+            vertical-align: top;
+            width: 100%;
+            height: 60px;
+            padding: 0;
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            background: #92d14f;
+            border: 0;
+            border-bottom: 2px solid #568624;
+            cursor: pointer;
+            -webkit-box-shadow: inset 0 -2px #568624;
+            box-shadow: inset 0 -2px #568624;
+            padding-top: 0.3cm;
+        }
+        .emerald-flat-button:active {
+            top: 1px;
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    {%endblock%}
 </style>
 <body>
-    <div class="col-md-12" style="padding-top: 3cm;">
-
+    <div class="col-md-12" >
         <div class="container-fluid">
            {% include 'searchbox.html' %}
         </div>
-         {% include 'slideshow.html' %}
-        {% include 'breadcrumb.html' %}
-        <!--<div class="col-md-1">-->
-        <!--</div>-->
+        {% include 'slideshow.html' %}
+        {% include 'menu_horizontal.html' %}
         <div class="container">
             <div class=" col-md-12">
                 <h2 class="texto-mas-vendido">LO MÁS VENDIDO</h2>
@@ -117,9 +82,7 @@
         <hr>
     </div>
     {% include 'marcas.html' %}
-    <div class="container-fluid">
-        <hr>
-    </div>
-{% include 'footer.html' %}
+
+    {% include 'footer.html' %}
 </body>
 {% endblock %}

@@ -11,7 +11,7 @@ class RegEquipoForm(forms.ModelForm):
         fields = ['categoria', 'nombre', 'modelo', 'sistema_operativo', 'marca', 'procesador',
                   'disco_duro', 'pantalla', 'memoria_ram', 'tarjeta_madre', 'bateria',
                   'camara', 'adaptador_ac', 'video', 'precio',
-                  'descripcion', 'imagen']
+                  'descripcion', 'imagen', 'imagen2', 'imagen3']
 
 
 class RegSlideshowForm(forms.ModelForm):

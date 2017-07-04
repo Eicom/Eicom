@@ -1,48 +1,39 @@
-{%block content%}
+﻿{%block content%}
 {% load static %}
 {% load filtro_tag %}
 <style>
   {%block style%}
 
-    .navbar-inverse .navbar-nav>li>a
-    {
-        color:#777;
-    }
+        .navbar-inverse .navbar-nav>li>a {
+            color:#777;
+        }
 
-    .navbar-inverse .navbar-toggle .icon-bar {
-        background-color: black;
-
-    }
-    .navbar-brand {
-        background: #4CAF50;
-        color: white;
-        padding: 0px;
-    }
-    .navbar-brand>img {
-        height: 100%;
-        width: auto;
-    }
-  .navbar {
-
-        background-image: url("/static/img/fondoeicom.jpg")!important;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        background-color: black;
-        /*min-height: 100%;*/
-
-  /*background-position: center center;*/
-  /*background-attachment: fixed;*/
-  background-size: cover;
-  background-color: black;
-      padding-bottom: 1cm;
-  /*min-height: 100%;*/
-
-      /*background: rgba(255,255,255, 1);*/
-      border-color: #e3e3e3;
-      height: 100px;
-      padding-top: 28px;
+        .navbar-inverse .navbar-toggle .icon-bar {
+            background-color: black;
+        }
+        .navbar-brand {
+            background: #4CAF50;
+            color: white;
+            padding: 0px;
+        }
+        .navbar-brand>img {
+            height: 100%;
+            width: auto;
+        }
+        .navbar {
+            /*background-image: url("../static/img/fondoeicom.jpg")!important;*/
+        /*background-repeat: no-repeat;*/
+        /*background-position: center center;*/
+        /*background-attachment: fixed;*/
+        /*background-size: cover;*/
+        /*background-color: black;*/
+        /*background-size: cover;*/
+        background-color: white;
+            background: white;
+        /*padding-bottom: 1cm;*/
+        border-color: #e3e3e3;
+        height: 100px;
+        padding-top: 28px;
     }
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
     {
@@ -50,16 +41,10 @@
         color:white;
     }
 
-
-/*.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {*/
-    /*color: #fff;*/
-    /*background-color: #28d828;;*/
-/*}*/
-
 {%endblock style%}
 </style>
 <body>
-    <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-static-top " role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-ns">
@@ -95,13 +80,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
-                    <!--<li><a href="{% url 'start:about' %}">Acerca de nosotros</a></li>-->
-                    <!--<li><a href="{% url 'start:contact' %}">Contacto</a></li>-->
+                    <li><a href="{% url 'auth_login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </body>
 {%endblock content%}
+
+

@@ -1,53 +1,15 @@
 {% load static %}
 <style>
     {% block style %}
-        .color-bg{
-            /*background: #363636;*/
-            padding-top: 0.7cm;
+        .color-footer{
+            background: #202020;
+            padding-top: 0.5cm;
         }
-    .color-social {
-        background-image: url("../static/img/fondoeicom.jpg")!important;
-        /*background-repeat: no-repeat;*/
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        background-color: black;
-        min-height: 100%;
-
-
-        /*background: #121212;*/
-        height: 2cm;
-        padding-top: 0.6cm;
-        text-align: center;
-    }
-    .color-facebook {
-        color:#4267b2;
-    }
-    .color-youtube {
-        color:#c4302b;
-    }
-    .color-twitter {
-        color:#1b95e0;
-    }
-    .color-instagram {
-        color:black;
-    }
-
-    .hr-footer{
-        /*background: #e8351c;*/
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border: 0;
-        border-top: 0.5px solid #535454;
-    }
-    .Puntos{
-        color: #535454;
-    }
     p{
-       color: #535454;
+       color: #7a7b7b;
     }
     a {
-        color: #535454;
+        color: #7a7b7b;
     }
     a:link {
         text-decoration:none;
@@ -60,40 +22,37 @@
         height: 50px;
         width: auto;
     }
-
+    .div-social {
+        padding:5px;
+        padding-top:0.5cm;
+        background: #121212;
+        font-size: 20px;
+        text-align: center;
+    }
     {% endblock style %}
 </style>
 
-	<footer id="footer" class="footer color-bg">
+	<footer id="footer" class="footer color-footer">
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-                    <div class="hidden-xs hidden-sm col-md-4">
-                        <ul>
-                            <li>
-                                <a title="Nosotros" href="{% url 'start:about' %}"> NOSOTROS</a></i>
-                                <hr class="hr-footer">
-                            </li>
-                            <li>
-                                <a href="#"> BLOG</a></i>
-                                <hr class="hr-footer">
-                            </li>
-                            <li>
-                                <a href="{% url 'start:contact' %}"> CONTACTO</a></i>
-                                <hr class="hr-footer">
-                            </li>
-                            <li>
-                                <a href="#"> POLÍTICA DE GARANTÍA</a></i>
-                            </li>
-                        </ul>
+                    <div class="col-md-4">
+                        <div class=" texto-footer">
+                            <p><i class="fa fa-users" aria-hidden="true"></i><a title="Nosotros" href="{% url 'start:about' %}"> Nosotros</a></p>
+                            <p><i class="fa fa-address-book-o" aria-hidden="true"></i><a href="#"> Blog</a></p>
+                            <p><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="{% url 'start:contact' %}"> Contacto</a></p>
+                            <p><i class="fa fa-certificate" aria-hidden="true"></i><a href="#"> Políticas de garantía</a></p>
+                        </div>
                     </div>
-                    <div class="col-md-4 texto-footer">
-                        <a title="EICOM" href="http://eicom.pythonanywhere.com/"><img class="img-responsive center-block img-footer" src="{% static 'img/logofinaleicom.png' %}" alt="" /></a>						<br>
-						<span class="bottom-legend">
-							EICOM © 2017
-                            <br>
-							Desarrollado por <b><a title="NavaSoft & Jogimbo" target="_blank" href="/">NavaSoft & Jogimbo</a></b>.
-						</span>
+                    <div class="col-md-4">
+                        <div class=" texto-footer">
+                            <a title="EICOM" href="http://eicom.pythonanywhere.com/"><img class="img-responsive center-block img-footer" src="{% static 'img/logofinaleicom.png' %}" alt="" /></a>						<br>
+                            <span class="bottom-legend" style="color: #7a7b7b;">
+                                EICOM © 2017
+                                <br>
+                                Desarrollado por <b><a title="NavaSoft & Jogimbo" target="_blank" href="/">PowerPython</a></b>.
+                            </span>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class=" texto-footer">
@@ -107,23 +66,24 @@
 				</div><!-- row -->
 			</div><!-- container -->
 		</div><!-- footer-bottom -->
-        <br>
-        <!--<div class="col-md-12 color-social">-->
-            <!--<div class="col-xs-3">-->
-                <!--<a title="Facebook" class="color-facebook" target="_blank" href="https://www.facebook.com/EICOM/">-->
-                    <!--<i class="fa fa-facebook fa-2x" aria-hidden="true"></i>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-xs-3">-->
-                <!--<a title="Youtube" class="color-youtube" target="_blank" href="#"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>-->
-            <!--</div>-->
-            <!--<div class="col-xs-3">-->
-                <!--<a title="Twitter" class="color-twitter" target="_blank" href="#"><i class="fa fa-twitter fa-2x"></i></a>-->
-            <!--</div>-->
-            <!--<div class="col-xs-3">-->
-                <!--<a title="Instagram" class="color-instagram" target="_blank" href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>-->
-            <!--</div>-->
-        <!--</div>-->
-            {% include 'social_footer.html'%}
+        <div class="container-fluid div-social">
+            <ul class="list-inline">
+                <li>
+                    <a title="Facebook" class="fb" target="_blank" href="https://www.facebook.com/EICOM"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a title="Twitter" class="tw" target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a title="Instagram" class="fb" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a title="Youtube" class="youtube" target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+                <li>
+                    <a title="Google +" class="google" target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+            </ul>
+        </div>
 	</footer>
 

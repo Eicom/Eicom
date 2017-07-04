@@ -1,0 +1,84 @@
+{% load static %}
+{% load filtro_tag %}
+<style>
+    {% block style %}
+        .navbar {
+            padding:25px;
+            background: white;
+        }
+        .navbar-brand {
+            background: #4CAF50;
+            color: white;
+            padding: 0px;
+        }
+        .navbar-brand>img {
+            padding-left: 2em;
+            background: white;
+            height: 100%;
+            width: auto;
+        }
+        .padding-linea {
+            padding-top: 12.5px;
+        }
+
+    {% endblock style %}
+</style>
+
+<div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a title="EICOM" class="navbar-brand" href="/"><img class="img-responsive center-block logo-brand" src="{% static 'img/logofinaleicom.png' %}" alt="" /></a>							</div><!-- navbar-header -->
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a title="INICIO" href="/"><i class="fa fa-home"></i></a>
+                            </li>
+							<li class="padding-linea hidden-xs">
+								|
+							</li>
+							<li>
+								<a title="PROMOCIONES" href="#">PROMOCIONES</a>
+							</li>
+							<li class="padding-linea hidden-xs">
+								|
+							</li>
+							<li class="dropdown li-activo">
+								<a  title="CATEGORÍAS" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+									CATEGORÍAS <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+									{% categorias_lista as categorias %}
+									{% if categorias %}
+									{% for obj in categorias %}
+										<li><a href="{% url 'start:filtro' filtro=obj.categoria %}"/>{{ obj }}</a></li>
+									{% endfor %}
+									{% else %}
+										<li><a href="#">Empty</a></li>
+									{% endif %}
+								</ul>
+							</li>
+							<li>
+								<a title="LO MÁS VENDIDO" href="#">LO MÁS VENDIDO</a>
+							</li>
+							<li class="padding-linea hidden-xs">
+								|
+							</li>
+							<li>
+								<a title="LO MÁS NUEVO" href="#">LO MÁS NUEVO</a>
+							</li>
+						</ul>
+					</div><!-- nav-collapse -->
+				</div><!--container -->
+			</div><!-- navbar -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- blue-bar -->

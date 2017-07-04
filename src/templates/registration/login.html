@@ -1,44 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
 <style>
-{%block style%}
-.div-contenedor {
-  padding-top: 15px;*/
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 0px solid #000000;
-}
-
-.raised {
-  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-     -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-      box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-
-
-{%endblock%}
+    {%block style%}
+        .div-login {
+        padding-top: 3cm;
+        }
+    .body-login {
+        background: white;
+    }
+  {%endblock style%}
 </style>
 
-<body class="my-body-login">
-  {% include 'navbar.html'%}
-  <div class="col-md-4 col-sm-offset-4"><br><br>
-    <div class="col-md-12 div-contenedor raised">
-      <br><br>
-      <h2 class="text-align-center"><strong>Iniciar Sesión</strong></h2>
-      <form method="post" action=".">
-      {% csrf_token %}
-      {{ form|crispy}}
-      <br>
-      <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Iniciar sesion' %}" />
-      <input type="hidden" name="next" value="{{ next }}" /><br>
-      </form>
-      <p style="text-align:center;">{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
-      <p style=" text-align:center;">{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>
+<body class="body-login">
+    <div class="col-md-4 col-sm-offset-4">
+        <div class="col-md-12 div-login">
+            <h2 class="text-align-center"><strong>Iniciar Sesión</strong></h2>
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <br>
+                <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Iniciar sesion' %}" />
+                <input type="hidden" name="next" value="{{ next }}" /><br>
+            </form>
+            <p style="text-align:center;">{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
+            <p style=" text-align:center;">{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>
+        </div>
     </div>
-  </div>
 </body>
-
-{% endblock %}
+{% endblock content%}

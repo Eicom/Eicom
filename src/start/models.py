@@ -41,6 +41,18 @@ class Equipo(models.Model):
         height_field='height_field',
         width_field='width_field'
     )
+    imagen2 = models.ImageField(
+        upload_to=upload_location,
+        null=True, blank=True,
+        height_field='height_field',
+        width_field='width_field'
+    )
+    imagen3 = models.ImageField(
+        upload_to=upload_location,
+        null=True, blank=True,
+        height_field='height_field',
+        width_field='width_field'
+    )
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)

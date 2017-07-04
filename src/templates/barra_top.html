@@ -1,0 +1,110 @@
+<style>
+    {%block style%}
+.dark-bar
+{
+	padding: 10px 0px;
+	background-color: #1d1d1d;
+}
+
+.menu-top li a, .menu-top li
+{
+	display: inline-block;
+	color: #fff;
+	margin-bottom: 0px;
+}
+
+.menu-top li
+{
+	padding: 0px 5px;
+}
+
+.menu-top
+{
+	margin-bottom: 0px;
+}
+
+        .fb:hover
+{
+	color: #3b5998;
+}
+
+.tw:hover
+{
+	color: #00aced;
+}
+
+.youtube:hover
+{
+	color: #bb0000;
+}
+
+.google:hover
+{
+	color: #dd4b39;
+}
+
+ .texto:hover
+{
+	color: #20d24d;
+}
+a:link {
+    text-decoration:none;
+
+}
+
+    {% endblock style %}
+</style>
+<header>
+    <div class="dark-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3 text-center">
+                    <ul class="menu-top">
+                        <li>
+                            <a class="texto" title="Nosotros" href="{% url 'start:about' %}">Nosotros</a>
+                        </li>
+                        <li>|</li>
+                        <li>
+                            <a class="texto" title="Contacto" href="{% url 'start:contact' %}">Contacto</a>
+                        </li>
+                        <li>|</li>
+                        <li>
+                            <a class="texto" title="Blog" href="#">Blog</a>
+                        </li>
+                    </ul>
+                </div><!-- col -->
+                <div class="col-md-5 col-lg-6 text-center">
+                    <ul class="menu-top">
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            51 81519
+                        </li>
+                        <li>|</li>
+                        <li>
+                            653 106 72 62
+                        </li>
+                    </ul>
+                </div><!-- col -->
+                <div class="col-md-3 col-lg-3 text-center hidden-xs">
+                    <ul class="menu-top">
+                        <li>
+                            <a title="Facebook" class="fb" target="_blank" href="https://www.facebook.com/EICOM"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a title="Twitter" class="tw" target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a title="Instagram" class="fb" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a title="Youtube" class="youtube" target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                        </li>
+                        <li>
+                            <a title="Google +" class="google" target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                    </ul>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- dark-bar -->
+</header>
