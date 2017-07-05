@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="thumbnail">
-                        {% if obj.imagen %}
-                            <img src="{{ obj.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                        {% if obj.imagen_1 %}
+                            <img src="{{ obj.imagen_1.url }}" class="img-responsive thumbnail" alt=""/>
                         {% endif %}
                         <div class="caption">
                             <h3><a href="{{ obj.get_absolute_url }}">{{ obj.titulo }}</a><small> hace {{ obj.timestamp|timesince }}</small></h3>

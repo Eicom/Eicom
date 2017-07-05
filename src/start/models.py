@@ -18,36 +18,36 @@ class Categoria(models.Model):
 
 class Equipo(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
-    modelo = models.CharField(max_length=50)
+    modelo = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=100)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    marca = models.CharField(max_length=50)
-    sistema_operativo = models.CharField(max_length=50, default='None')
-    procesador = models.CharField(max_length=50)
-    disco_duro = models.CharField(max_length=50)
-    pantalla = models.CharField(max_length=50)
-    memoria_ram = models.CharField(max_length=50)
-    bateria = models.CharField(max_length=50)
+    marca = models.CharField(max_length=100)
+    sistema_operativo = models.CharField(max_length=100, default='None')
+    procesador = models.CharField(max_length=100)
+    disco_duro = models.CharField(max_length=100)
+    pantalla = models.CharField(max_length=100)
+    memoria_ram = models.CharField(max_length=100)
+    bateria = models.CharField(max_length=100)
     adaptador_ac = models.CharField(max_length=100)
-    camara = models.CharField(max_length=50)
+    camara = models.CharField(max_length=100)
     tarjeta_madre = models.CharField(max_length=50)
-    video = models.CharField(max_length=50)
+    video = models.CharField(max_length=100)
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=8, decimal_places=2, null=False)
-    imagen = models.ImageField(
+    imagen_1 = models.ImageField(
         upload_to=upload_location,
         null=True, blank=True,
         height_field='height_field',
         width_field='width_field'
     )
-    imagen2 = models.ImageField(
+    imagen_2 = models.ImageField(
         upload_to=upload_location,
         null=True, blank=True,
         height_field='height_field',
         width_field='width_field'
     )
-    imagen3 = models.ImageField(
+    imagen_3 = models.ImageField(
         upload_to=upload_location,
         null=True, blank=True,
         height_field='height_field',

@@ -25,8 +25,8 @@
             </div>
             <div class="col-md-12">
                 <div class="col-md-6"><br><br>
-                    {% if instance.imagen %}
-                        <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                    {% if instance.imagen_1 %}
+                        <img src="{{ instance.imagen_1.url }}" class="img-responsive thumbnail" alt=""/>
                    {% endif %}
                 </div>
                 <div class="col-md-6">
@@ -75,4 +75,3 @@
         {% include 'footer.html'%}
     </body>
 {% endblock content %}
-

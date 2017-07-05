@@ -63,8 +63,8 @@
                 <br>
                 {% for obj in object_list %}
                     <div class="col-md-3 text-align-index zoom"><br><br>
-                        {% if obj.imagen %}
-                            <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
+                        {% if obj.imagen_1 %}
+                            <img src="{{ obj.imagen_1.url }}" class="img-responsive  " alt=""/>
                         {% endif %}
                         <div class="page-header">
                             <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
