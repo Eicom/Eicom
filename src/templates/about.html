@@ -1,117 +1,65 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-    <style>
-        {% block style %}
-            .body-about{
-                background-image: url("../static/img/fondoeicom.jpg")!important;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-attachment: fixed;
-                background-size: cover;
-                background-color: black;
-                min-height: 100%;
-            }
+<style>
+  {% block style %}
+  .foto{
+    width:100%;
+    position:relative;
+  }
+  .foto img{
+    width:100%;
+    max-height: 400px;
+  }
 
-            .text-justify {
-                text-align: justify;
-            }
-            h2 {
-                text-align: center;
-            }
-            .li-espacio {
-                padding-bottom:0.5cm;
-            }
-        {% endblock %}
-    </style>
+  .foto h1{
+    position:absolute;
+    bottom:200px;
+    width:100%;
+    text-align:center;
+    color:rgba(243,243,243,.8);
+    font-family:Verdana;
+    /*font-size:18px;*/
+    font-style: italic;
+    background-color:rgba(0,0,0,.7);
+    padding:.5em 0;
+  }
+.body-about{
+  background-image: url("../static/img/fondoeicom.jpg")!important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  min-height: 100%;
+}
+
+.text-justified {
+    text-align: justify;
+}
+/**/
+  {% endblock %}
+</style>
 
 <body class="body-about">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-6 col-md-offset-3">
-                    <img src="{% static 'img/logofinaleicom.png' %}" alt="" class="img-responsive">
-                    <hr>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <article>
-                        <div class="page-header">
-                            <h2 class="post-title">EICOM</h2>
-                            <p class="post-contenido text-justify"><br>
-                                Somos una empresa joven, pero con experiencia de ventas de
-                                equipo de computo,venta de accesorios, instalación de redes,
-                                consumibles, mantenimiento preventivo, mantenimiento correctivos y más…
-                            </p>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="page-header">
-                            <h2 class="post-title">MISIÓN</h2>
-                            <p class="post-contenido text-justify"><br>
-                                Ser una empresa dedicada a la prestación de servicios
-                                en lo que a equipo de cómputo se refiere, además de la venta
-                                de equipos y accesorios nuevos, bajo los requerimientos acordados
-                                con nuestros clientes, ofreciendo siempre la más alta calidad en
-                                cada servicio y producto vendido.
-                            </p>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="page-header">
-                            <h2 class="post-title">VISIÓN</h2>
-                            <p class="post-contenido text-justify"><br>
-                                Convertirnos en una empresa capaz de satisfacer las exigencias y gustos
-                                del mercado informático y tecnológico, por medio del cual lleguemos a posicionarnos
-                                entre una de las mejores empresas proveedoras de servicios y venta de equipo de cómputo.
-                            </p>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="page-header">
-                            <h2 class="post-title">VALORES</h2>
-                            <br>
-                            <ol class="">
-                                <li class="text-justify li-espacio">
-                                    <strong>Honradez:</strong> una persona honrada cuando armoniza las palabras con los hechos.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Ética:</strong> una persona es ética cuando se orienta por principios y convicciones,
-                                    se dice entonces que tiene carácter y buena índole.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Respeto:</strong> implica un verdadero interés no egoísta por el otro mas allá de las
-                                    obligaciones explícitas que pueden existir.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Privacidad:</strong> ámbito de la vida personal de un individuo desarrollado en un espacio
-                                    que debe de mantenerse confidencial. En el ámbito computacional la privacidad se
-                                    define como el derecho de mantener de forma reservada o confidencial los datos de la
-                                    computadora y los que intercambia con su red.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Eficacia:</strong> la eficacia tiene que ver con los resultados, está relacionada con lograr
-                                    los objetivos.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Eficiencia:</strong> se enfoca a los recursos, a utilizarlos de la mejor manera.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Responsabilidad:</strong> guarda relación con el asumir las consecuencias de todos aquellos
-                                    actos que realizamos en forma consciente e intencionada.
-                                </li>
-                                <li class="text-justify li-espacio">
-                                    <strong>Honestidad:</strong> es la conciencia clara “ante mí y ante los demás”. Honestidad es el
-                                    reconocimiento de lo que está bien y es apropiado para nuestro propio papel,
-                                    conducta y relaciones, es hablar de lo que se piensa y hacer lo que se ha dicho.
-                                </li>
-                            </ol>
-                        </div>
-                    </article>
-                </div>
+    <div class=" foto">
+        <img  class="responsive" src="{% static 'img/about2.jpg' %}" alt="foto">
+        <h1>¿QUIÉNES SOMOS?</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <article>
+            <div class="page-header">
+                <h2 class="post-title">QUIÉNES SOMOS?</h2>
+                <p class="post-contenido text-justify"><br>
+                Somos una empresa joven, pero con experiencia de ventas de equipo de computo,venta de accesorios, instalación de redes,
+                consumibles, mantenimiento preventivo, mantenimiento correctivos y más….
+            </p>
             </div>
-        </div>
+        </article>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1">
+        <img src="{% static 'img/misva.png' %}" alt="" class="img-responsive">
     </div>
 </body>
-{% include 'footer.html'%}
 {%endblock%}

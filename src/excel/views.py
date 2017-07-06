@@ -102,7 +102,7 @@ def import_data(request):
         {
             'form': form,
             'title': 'Import excel data into database example',
-            'header': 'Ploease upload sample-data.xls:'
+            'header': 'Please choose your excel file:'
         })
 
 

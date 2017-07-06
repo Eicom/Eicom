@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 {% load static %}
 {% block head_title %}{{ instance.nombre }} | {{ block.super }}{% endblock head_title %}
 {% block content %}
@@ -16,69 +16,71 @@
             /*padding-top: 1cm;*/
             color: orangered;
         }
-        .padding-detail {
-            padding-top: 1cm;
-        }
         {% endblock style %}
     </style>
     <body>
-        <div class="container">
+        <!-- <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="{% url 'start:inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'start:filtro' instance.categoria %}">{{ instance.categoria }}</a></li>
+            <li><a href="#">{{ instance.nombre }}</a></li>
+          </ol>
+        </div>-->
+        {% include 'breadcrumb.html' %}
+
+        <div class="container-fluid">
+            <div class="page-header">
+                <h1 class="indent-detail">{{ instance.nombre }}</h1>
+            </div>
             <div class="col-md-12">
-                <div class="col-md-6 padding-detail">
-                    {% if instance.imagen %}
-                        <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                <div class="col-md-6"><br><br>
+                    {% if instance.imagen_1 %}
+                        <img src="{{ instance.imagen_1.url }}" class="img-responsive thumbnail" alt=""/>
                    {% endif %}
                 </div>
                 <div class="col-md-6">
-                    <div class="page-header">
-                        <h1 class="align-detail">{{ instance.nombre }}</h1>
+                    <div class="page-header align-detail">
+                        <h2>Especificaciones</h2>
                     </div>
-                    <p><strong>Referencia: </strong></p>
-                    <p><strong>Condición: </strong></p>
-                    <h3>Descripción: </h3>
-                    <p>{{ instance.descripcion}}</p>
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
                     <hr>
-                    <div class="fb-like" data-href="https://www.facebook.com/EICOM" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
                     <hr>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <hr>
-                        <h4 class="align-detail">GALERÍA:</h4>
-                    </div>
-                    {% include 'slideshow_imagenes_productos.html'%}
-                </div>
-
-                <div class="col-md-12">
-                    <div class="page-header">
-                    <h4 class="align-detail">ESPECIFICACIONES:</h4>
-                </div>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
                     <hr>
                     <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Disco duro:</strong> {{ instance.disco_duro }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}
-                    <hr><p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
+                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}
+                    <hr><p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
+                </div>
+                <div class="container-fluid">
                     <hr>
                 </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="page-header">
+                    <h2 class="align-detail">Galería:</h2>
+                </div>
+                {% include 'slideshow_imagenes_productos.html'%}
+            </div>
+
+            <div class="col-md-12">
+                <hr>
+                <div class="fb-like" data-href="https://www.facebook.com/EICOM" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                <hr>
             </div>
         </div>
         {% include 'footer.html'%}
     </body>
 {% endblock content %}
-
