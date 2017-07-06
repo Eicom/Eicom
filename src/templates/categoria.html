@@ -19,7 +19,6 @@
         .text-align-index {
             text-align: center;
         }
-
         .emerald-flat-button {
             position: relative;
             vertical-align: top;
@@ -49,17 +48,16 @@
 <body>
     <div class="col-md-12">
         <div class="container-fluid">
-            {% include 'searchbox.html' %}
+           {% include 'searchbox.html' %}
         </div>
         {% include 'menu_horizontal.html' %}
-        {% include "breadcrumb.html" %}
         <div class="container">
             <div class=" col-md-12">
                 <br>
                 {% for obj in object_list %}
                     <div class="col-md-3 text-align-index zoom"><br><br>
-                        {% if obj.imagen_1 %}
-                            <img src="{{ obj.imagen_1.url }}" class="img-responsive  " alt=""/>
+                        {% if obj.imagen %}
+                            <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
                         {% endif %}
                         <div class="page-header">
                             <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
@@ -73,6 +71,7 @@
                     </div>
                 {% endfor %}
             </div>
+            {% include 'pagination.html'%}
         </div>
         <hr>
     </div>

@@ -1,24 +1,13 @@
 /*Header*/
 
 .my-body {
-  background-image: url(../img/contacto5.jpg);
+  background-image: url(../img/fondoeicom.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
   min-height: 100%;
-}
-
-.my-body-about {
-  background-image: url(../img/login2.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #f0f0f0;
-  width: 700px;
-  float: center;
 }
 
 .my-hr {
