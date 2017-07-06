@@ -8,67 +8,19 @@
   margin: 0;
   padding: 0;
 }
-#menu {
-  margin: 1em;
-}
-#menu ul {
-  list-style-type: none;
-}
-#menu li {
-  display: block;
-}
-.btn-menu {
-  background-color: #e9e9e9;
-  /*color: blue;*/
-  display: block;
-  /*font-family: 'Fjalla One', sans-serif;*/
-  /*font-size: 1em;*/
-  margin: 0 0 .125em 0;
-  padding: .5em 0;
-  text-align: center;
-  text-decoration: none;
-}
-.btn-menu:hover {
-  background-color: #92d14f;
-  color: white;
-}
 
-@media (min-width: 50em) {
-  #menu li {
-    float: left;
-    width: 50%;
-  }
-  .btn-menu {
-    margin-right: .125em;
-  }
-}
-
-@media (min-width: 40em) {
-  #menu li {
-    display: inline-block;
-    width: 25%;
-  }
-}
-
-@media (min-width: 48em) {
-  #menu li {
-    max-width: 13em;
-  }
-}
     {% endblock style %}
 </style>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <nav id="menu">
-                <ul>
-                    {% for obj in object_clasificacion %}
-                        <li><a href="{% url 'start:filtro' filtro=obj.categoria %}" class="btn-menu" title="Go to homepage"><strong>{{ obj.categoria }}</strong></a></li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </div>
-    </div>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'start:inicio' %}">Inicio</a></li>
+      {% if instance.categoria %}
+        <li><a href="{% url 'start:filtro' instance.categoria %}">{{ instance.categoria }}</a></li>
+        {% if instance.nombre %}
+          <li><a href="#">{{ instance.nombre }}</a></li>
+        {% endif %}
+      {% endif %}
+    </ol>
+  </div>
 </div>
-
-

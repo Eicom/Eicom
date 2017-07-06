@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'registration',
-    'django_bootstrap_breadcrumbs',
     'start',
     'excel'
 ]
