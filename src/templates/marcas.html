@@ -1,23 +1,29 @@
 {% load static %}
 <style>
     {% block style %}
-        .the-img{
-            height: 58px;
-            padding: 0px;
-            width: auto;
-        }
-    {% endblock style%}
+    .the-img{
+        height: 45px;
+        width: auto;
+    }
+    .texto-marcas{
+        text-align: center;
+    }
+    {% endblock %}
 </style>
-<ul class="list-inline" style="text-align: center;">
+
+<ul class="list-inline texto-marcas">
     <li><a href="#"><img  src="{% static 'img/dell.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/hp.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
-    <li><a href="#"><img  src="{% static 'img/intel2.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
+    <li><a href="#"><img  src="{% static 'img/intel.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/manhattan.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/asus.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/logi.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/acteck.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
     <li><a href="#"><img  src="{% static 'img/tplink.jpg' %}" class="img-responsive the-img" alt=""/></a></li>
 </ul>
+
+
+
 
 
 

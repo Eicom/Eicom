@@ -18,7 +18,10 @@
         <!-- contenedor de los slide -->
         <div class="carousel-inner" role="listbox">
             {% if instance.imagen_1 and instance.imagen_2 and instance.imagen_3 %}
-                <div class="item active">
+                <div class="item active" >
+                    <img src="{{ instance.imagen_1.url }}" class="img-responsive " alt=""/>
+                </div>
+                <div class="item">
                     <img src="{{ instance.imagen_2.url }}" class="img-responsive " alt=""/>
                 </div>
                 <div class="item">
@@ -38,4 +41,4 @@
             <span class="sr-only">Siguiente</span>
         </a>
     </div>
-    {% endblock %}
+{% endblock %}
