@@ -23,8 +23,35 @@ def equipo_detail(request, slug=None):
     return render(request, 'equipo_detail.html', context)
 
 def categoria(request,filtro):
-    equipo = Equipo.objects.filter(categoria__categoria__icontains=filtro)
-    return render(request,'categoria.html',{'object_list':equipo})
+    queryset_list_2 = Equipo.objects.filter(categoria__categoria__icontains=filtro)
+    queryset_categoria_2 = Categoria.objects.all()
+    query_2 = request.GET.get('q')
+    if query_2:
+        queryset_list_2 = queryset_list_2.filter(
+            Q(nombre__icontains=query_2) |
+            Q(modelo__icontains=query_2) |
+            Q(marca__icontains=query_2)
+        ).distinct()
+    paginator = Paginator(queryset_list_2, 8)  # Show 25 contacts per page
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var, 1)
+    try:
+        queryset_2 = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        queryset_2 = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        queryset_2 = paginator.page(paginator.num_pages)
+    context = {
+        'object_list': queryset_2,
+        'titulo': 'List',
+        # 'object_list': queryset_2,
+        'object_clasificacion': queryset_categoria_2,
+        'page_request_var': page_request_var,
+    }
+    return render(request, 'categoria.html', context)
+
 
 def slideshow_list(request):
 	slideshow = Slideshow.objects.all()
@@ -46,7 +73,7 @@ def equipo_list(request):
             Q(modelo__icontains=query) |
             Q(marca__icontains=query)
         ).distinct()
-    paginator = Paginator(queryset_list, 9)  # Show 25 contacts per page
+    paginator = Paginator(queryset_list, 8)  # Show 25 contacts per page
     page_request_var = 'page'
     page = request.GET.get(page_request_var, 1)
     try:
@@ -66,31 +93,6 @@ def equipo_list(request):
         'page_request_var': page_request_var,
     }
     return render(request, 'index.html', context)
-
-# def equipo_update(request, slug=None):
-#     if not request.user.is_staff or not request.user.is_superuser:
-#         raise Http404
-#     instance = get_object_or_404(Equipo, slug=slug)
-#     form = RegEquipoForm(request.POST or None, request.FILES or None, instance=instance)
-#     if form.is_valid():
-#         instance = form.save(commit=False)
-#         instance.save()
-#         messages.success(request, 'El <a href="#">registro</a> ha sido modificado correctamente', extra_tags='html_safe')
-#         return HttpResponseRedirect(instance.get_absolute_url())
-#     context = {
-#         'titulo': instance.nombre,
-#         'instance': instance,
-#         'form': form,
-#     }
-#     return render(request, 'equipo_form.html', context)
-
-# def equipo_delete(request, slug=None):
-#     if not request.user.is_staff or not request.user.is_superuser:
-#         raise Http404
-#     instance = get_object_or_404(Equipo, slug=slug)
-#     instance.delete()
-#     messages.success(request, 'El registro ha sido elimiando correctamente')
-#     return redirect('start:list')
 
 def contact(request):
     titulo = 'Contacto'

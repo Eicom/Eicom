@@ -36,13 +36,14 @@
             border: 0;
             color: #383838;
             background-color: #383838;
+            margin-top:-5px;
+            margin-bottom: 5px;
+
         }
         .padding-location {
-            padding-top: 0.5cm;
+            padding-bottom: 0.5cm;
         }
-        .padding-logo {
-            padding-top: 0.5cm;
-        }
+        .p-location {margin: 3px 0;}
     {% endblock style %}
 </style>
 
@@ -51,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class=" texto-footer-justify">
+                    <div class=" texto-footer-justify padding-location">
                         <p><i class="fa fa-users" aria-hidden="true"></i><a title="Nosotros" href="{% url 'start:about' %}"> Nosotros</a></p>
                         <hr class="hr-footer">
                         <p><i class="fa fa-address-book-o" aria-hidden="true"></i><a href="#"> Blog</a></p>
@@ -63,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class=" texto-footer padding-logo">
+                    <div class=" texto-footer padding-location">
                         <a title="EICOM" href="http://eicom.pythonanywhere.com/"><img class="img-responsive center-block img-footer" src="{% static 'img/logofinaleicom.png' %}" alt="" /></a>						<br>
                         <span class="bottom-legend" style="color: #7a7b7b;">
                             EICOM © 2017
@@ -73,13 +74,13 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class=" texto-footer">
-                        <p class="padding-location"><i class="fa fa-map-marker marker circle-gray"></i>
-                            Avenida Benjamín Flores y Calle 30 (local verde)
-                            San Luis Río Colorado, Cp 123456
-                            Sonora, México</p>
-                        <p><i class="fa fa-phone phone circle-gray"></i> 518 1519 / 653 1067262</p>
-                        <p><i class="fa fa-envelope-o envelope circle-gray"></i> eicom.pythonanywhere.com</p>
+                    <div class=" texto-footer padding-location">
+                        <p class="p-location"><i class="fa fa-map-marker marker"></i>
+                            Avenida Benjamín Flores y Calle 30 (local verde)</p>
+                            <p class="p-location">San Luis Río Colorado, Cp 123456</p>
+                            <p class="p-location">Sonora, México</p>
+                        <p class="p-location"><i class="fa fa-phone phone"></i> 518 1519 / 653 1067262</p>
+                        <p class="p-location"><i class="fa fa-envelope-o envelope"></i> eicom.pythonanywhere.com</p>
                     </div><!-- media-body -->
                 </div>
             </div><!-- row -->
