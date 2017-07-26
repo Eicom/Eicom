@@ -17,7 +17,7 @@
     <div id="carousel-1" class="carousel slide" data-ride="carousel">
         <!-- contenedor de los slide -->
         <div class="carousel-inner" role="listbox">
-            {% if instance.imagen_1 and instance.imagen_2 and instance.imagen_3 %}
+            {% if instance.imagen_1 %}
                 <div class="item active" >
                     <img src="{{ instance.imagen_1.url }}" class="img-responsive " alt=""/>
                 </div>
@@ -28,7 +28,7 @@
                     <img src="{{ instance.imagen_3.url }}" class="img-responsive " alt=""/>
                 </div>
             {% else %}
-                <h2>No se han isnertado imagenes en la galería...</h2>
+                <h2>No se han insertado imagenes en la galería...</h2>
             {%endif%}
         </div>
         <!-- Controles -->

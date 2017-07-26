@@ -67,6 +67,7 @@
             <br>
             <!--inicio for object_list-->
             {% for obj in object_list %}
+            {% if obj.top_vendido %}
                 <div class="col-md-3 text-align-index zoom"><br><br>
                     {% if obj.imagen %}
                         <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
@@ -82,6 +83,7 @@
                     </div>
                 </div>
             <!--end for object_list-->
+            {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -96,5 +98,3 @@
     {% include 'footer.html' %}
 </body><!--end body-->
 {% endblock %}
-
-

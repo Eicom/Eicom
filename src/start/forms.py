@@ -9,8 +9,8 @@ class RegEquipoForm(forms.ModelForm):
         model = Equipo
         fields = ['categoria', 'nombre', 'modelo', 'sistema_operativo', 'marca',  'procesador',
                   'disco_duro', 'pantalla', 'memoria_ram', 'tarjeta_madre', 'bateria',
-                  'camara', 'adaptador_ac', 'video', 'precio', 'descripcion', 'imagen',
-                  'imagen_1', 'imagen_2', 'imagen_3']
+                  'camara', 'adaptador_ac', 'video', 'top_vendido', 'promo', 'precio',
+                  'descripcion', 'imagen', 'imagen_1', 'imagen_2', 'imagen_3']
 
 
 class RegMarcaForm(forms.ModelForm):

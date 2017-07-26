@@ -20,6 +20,14 @@ def equipo_detail(request, slug=None):
     return render(request, 'equipo_detail.html', context)
 
 
+def promociones(request):
+    queryset = Equipo.objects.all()
+    context = {
+        'object_list': queryset,
+    }
+    return render(request, 'promociones.html', context)
+
+
 def categoria(request, filtro):
     queryset_list_2 = Equipo.objects.filter(categoria__categoria__icontains=filtro)
     queryset_categoria_2 = Categoria.objects.all()
@@ -30,7 +38,7 @@ def categoria(request, filtro):
             Q(modelo__icontains=query_2) |
             Q(marca__icontains=query_2)
         ).distinct()
-    paginator = Paginator(queryset_list_2, 8)  # Show 25 contacts per page
+    paginator = Paginator(queryset_list_2, 16)  # Show 25 contacts per page
     page_request_var = 'page'
     page = request.GET.get(page_request_var, 1)
     try:
@@ -44,7 +52,6 @@ def categoria(request, filtro):
     context = {
         'object_list': queryset_2,
         'titulo': 'List',
-        # 'object_list': queryset_2,
         'object_clasificacion': queryset_categoria_2,
         'page_request_var': page_request_var,
     }
@@ -106,8 +113,8 @@ def contact(request):
         instance = form.save(commit=False)
         form_nombre = form.cleaned_data.get('nombre')
         form_email = form.cleaned_data.get('email')
-        form_telefono = form.cleaned_data.get('telefono')
-        form_tema = form.cleaned_data.get('tema')
+        # form_telefono = form.cleaned_data.get('telefono')
+        # form_tema = form.cleaned_data.get('tema')
         form_mensaje = form.cleaned_data.get('mensaje')
         asunto = 'Form de Contacto'
         email_from = settings.EMAIL_HOST_USER

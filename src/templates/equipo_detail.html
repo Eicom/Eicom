@@ -52,19 +52,15 @@
                 </div>
                 <div class="col-md-12">
                     <div class="page-header">
-                        <hr>
-                        <h4 class="align-detail">GALERÍA:</h4>
+                      <div class="page-header">
+                          <h1 class="align-detail">{{ instance.nombre }}</h1>
+                      </div>
+                      <h3>Descripción: </h3>
+                      <p>{{ instance.descripcion}}</p>
+                      <hr>
+                      <h4 class="align-detail">GALERÍA:</h4>
                     </div>
                     {% include 'slideshow_imagenes_productos.html'%}
-                </div>
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h1 class="align-detail">{{ instance.nombre }}</h1>
-                    </div>
-                    <h3>Descripción: </h3>
-                    <p>{{ instance.descripcion}}</p>
-                    <hr>
-                    <div class="fb-like" data-href="https://www.facebook.com/EICOM" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                     <hr>
                 </div>
             </div>
@@ -72,4 +68,3 @@
         {% include 'footer.html'%}
     </body>
 {% endblock content %}
-
