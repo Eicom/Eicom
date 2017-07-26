@@ -1,6 +1,7 @@
 __author__ = 'NeroS'
 from django import forms
-from .models import Mensaje, Equipo, Categoria, Slideshow, Slideshow_marcas
+from .models import (Mensaje, Equipo, Categoria, Slideshow, Slideshow_marcas, Marca,
+                     SistemaOperativo, Procesador, DiscoDuro, Ram, Departamento)
 
 
 class RegEquipoForm(forms.ModelForm):
@@ -10,6 +11,36 @@ class RegEquipoForm(forms.ModelForm):
                   'disco_duro', 'pantalla', 'memoria_ram', 'tarjeta_madre', 'bateria',
                   'camara', 'adaptador_ac', 'video', 'precio', 'descripcion', 'imagen',
                   'imagen_1', 'imagen_2', 'imagen_3']
+
+
+class RegMarcaForm(forms.ModelForm):
+    class Meta:
+        model = Marca
+        fields = ['marca']
+
+
+class RegSistemaOperativoForm(forms.ModelForm):
+    class Meta:
+        model = SistemaOperativo
+        fields = ['sistema_operativo']
+
+
+class RegProcesadorForm(forms.ModelForm):
+    class Meta:
+        model = Procesador
+        fields = ['procesador']
+
+
+class RegDiscoDuroForm(forms.ModelForm):
+    class Meta:
+        model = DiscoDuro
+        fields = ['disco_duro']
+
+
+class RegRamForm(forms.ModelForm):
+    class Meta:
+        model = Ram
+        fields = ['ram']
 
 
 class RegSlideshowForm(forms.ModelForm):
@@ -27,7 +58,13 @@ class RegSlideshowMarcasForm(forms.ModelForm):
 class RegCategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
-        fields = ['categoria']
+        fields = ['categoria', 'departamento']
+
+
+class RegDepartamentoForm(forms.ModelForm):
+    class Meta:
+        model = Departamento
+        fields = ['departamento']
 
 
 class RegContactForm(forms.ModelForm):

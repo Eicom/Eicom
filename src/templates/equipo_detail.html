@@ -4,20 +4,15 @@
 {% block content %}
     <style>
         {% block style %}
-
-        .indent-detail{
-            padding-left: 1.4em;
-            /*padding-top: 1cm;*/
-            color: orangered;
-        }
-
-        .align-detail {
-            /*text-align: left;*/
-            /*padding-top: 1cm;*/
-            color: orangered;
-        }
-        .padding-detail {
-            padding-top: 1cm;
+            .align-detail {
+                color: orangered;
+            }
+            .padding-detail {
+                padding-top: 1cm;
+            }
+            .img-detail {
+                width: 70%;
+                height: 70%;
         }
         {% endblock style %}
     </style>
@@ -26,22 +21,35 @@
             <div class="col-md-12">
                 <div class="col-md-6 padding-detail">
                     {% if instance.imagen %}
-                        <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail" alt=""/>
+                        <img src="{{ instance.imagen.url }}" class="img-responsive thumbnail img-detail" alt=""/>
                    {% endif %}
                 </div>
                 <div class="col-md-6">
                     <div class="page-header">
-                        <h1 class="align-detail">{{ instance.nombre }}</h1>
+                        <h2 class="align-detail">ESPECIFICACIONES:</h2>
                     </div>
-                    <p><strong>Referencia: </strong></p>
-                    <p><strong>Condición: </strong></p>
-                    <h3>Descripción: </h3>
-                    <p>{{ instance.descripcion}}</p>
+                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
                     <hr>
-                    <div class="fb-like" data-href="https://www.facebook.com/EICOM" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
                     <hr>
+                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
+                    <!--<hr>-->
+                    <!--<p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Disco duro:</strong> {{ instance.disco_duro }}-->
+                    <hr>
+                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
+                    <hr>
+                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
+                    <!--<hr>-->
+                    <!--<p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}-->
+                    <!--<hr>-->
+                    <!--<p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}-->
+                    <!--<hr>-->
+                    <!--<p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}-->
+                    <!--<hr>-->
+                    <!--<p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}-->
+                    <!--<hr><p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}-->
+                    <!--<hr>-->
                 </div>
-
                 <div class="col-md-12">
                     <div class="page-header">
                         <hr>
@@ -49,31 +57,14 @@
                     </div>
                     {% include 'slideshow_imagenes_productos.html'%}
                 </div>
-
                 <div class="col-md-12">
                     <div class="page-header">
-                    <h4 class="align-detail">ESPECIFICACIONES:</h4>
-                </div>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Modelo:</strong> {{ instance.modelo }}
+                        <h1 class="align-detail">{{ instance.nombre }}</h1>
+                    </div>
+                    <h3>Descripción: </h3>
+                    <p>{{ instance.descripcion}}</p>
                     <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Marca:</strong> {{ instance.marca }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Procesador:</strong> {{ instance.procesador }}
-                    <hr>
-                    <p parrafo><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Disco duro:</strong> {{ instance.disco_duro }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Pantalla:</strong> {{ instance.pantalla }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Memoria Ram:</strong> {{ instance.memoria_ram }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Batería:</strong> {{ instance.bateria }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Cámara:</strong> {{ instance.camara }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Tarjeta de video:</strong> {{ instance.video }}
-                    <hr>
-                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Adaptador A.C.:</strong> {{ instance.adaptador_ac }}
-                    <hr><p><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> Precio:</strong> {{ instance.precio }}
+                    <div class="fb-like" data-href="https://www.facebook.com/EICOM" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                     <hr>
                 </div>
             </div>

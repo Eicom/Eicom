@@ -6,7 +6,7 @@
 <style>
     {%block style%}
         .div-login {
-        padding-top: 3cm;
+        padding-top: 1cm;
         }
     .body-login {
         background: white;
@@ -17,7 +17,7 @@
 <body class="body-login">
     <div class="col-md-4 col-sm-offset-4">
         <div class="col-md-12 div-login">
-            <h2 class="text-align-center"><strong>Iniciar Sesión</strong></h2>
+            <h3 class="text-align-center"><strong>INICIAR SESIÓN</strong></h3><br>
             <form method="post" action=".">
                 {% csrf_token %}
                 {{ form|crispy}}
@@ -25,8 +25,8 @@
                 <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Iniciar sesion' %}" />
                 <input type="hidden" name="next" value="{{ next }}" /><br>
             </form>
-            <p style="text-align:center;">{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
-            <p style=" text-align:center;">{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>
+            <p>{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
+            <p>{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>
         </div>
     </div>
 </body>

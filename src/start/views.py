@@ -1,15 +1,12 @@
 from urllib.parse import quote_plus
-from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import RegEquipoForm, RegContactForm, RegCategoriaForm, RegSlideshowForm, RegSlideshowMarcasForm
-from .models import Equipo, Mensaje, Categoria, Slideshow, Slideshow_marcas
+from .forms import RegContactForm
+from .models import Equipo, Categoria, Slideshow, Slideshow_marcas
 from django.core.mail import send_mail
 from django.conf import settings
 
-# Create your views here.
 
 def equipo_detail(request, slug=None):
     instance = Equipo.objects.get(id=1)
@@ -22,7 +19,8 @@ def equipo_detail(request, slug=None):
     }
     return render(request, 'equipo_detail.html', context)
 
-def categoria(request,filtro):
+
+def categoria(request, filtro):
     queryset_list_2 = Equipo.objects.filter(categoria__categoria__icontains=filtro)
     queryset_categoria_2 = Categoria.objects.all()
     query_2 = request.GET.get('q')
@@ -54,12 +52,14 @@ def categoria(request,filtro):
 
 
 def slideshow_list(request):
-	slideshow = Slideshow.objects.all()
-	return render(request,'slideshow.html',{'object_list':slideshow})
+    slideshow = Slideshow.objects.all()
+    return render(request, 'slideshow.html', {'object_list': slideshow})
+
 
 def slideshow_marcas(request):
-	slideshow_mr = Slideshow_marcas.objects.all()
-	return render(request,'marcas.html',{'object_list':slideshow_mr})
+    slideshow_mr = Slideshow_marcas.objects.all()
+    return render(request, 'marcas.html', {'object_list': slideshow_mr})
+
 
 def equipo_list(request):
     queryset_list = Equipo.objects.all()
@@ -87,12 +87,13 @@ def equipo_list(request):
     context = {
         'titulo': 'List',
         'object_list': queryset,
-        'object_clasificacion':queryset_categoria,
+        'object_clasificacion': queryset_categoria,
         'object_slideshow': queryset_slideshow,
         'object_slideshow_marcas': queryset_slideshow_marcas,
         'page_request_var': page_request_var,
     }
     return render(request, 'index.html', context)
+
 
 def contact(request):
     titulo = 'Contacto'
@@ -106,22 +107,22 @@ def contact(request):
         form_nombre = form.cleaned_data.get('nombre')
         form_email = form.cleaned_data.get('email')
         form_telefono = form.cleaned_data.get('telefono')
-        # form_tema = form.cleaned_data.get('tema')
+        form_tema = form.cleaned_data.get('tema')
         form_mensaje = form.cleaned_data.get('mensaje')
         asunto = 'Form de Contacto'
         email_from = settings.EMAIL_HOST_USER
-        email_to = [email_from, 'neros.anm@gmail.com']
-        email_mensaje = '%s: %s enviado por %s' %(form_nombre, form_mensaje, form_email)
+        email_to = [email_from, 'eicomtecnologias@gmail.com']
+        email_mensaje = '%s: %s enviado por %s' % (form_nombre, form_mensaje, form_email)
         if not instance.nombre:
             instance.nombre = 'Persona'
         instance.save()
 
         context = {
-            'titulo': 'Gracias %s, tu mensaje ha sido enviado!' %(form_nombre)
+            'titulo': 'Gracias %s, tu mensaje ha sido enviado!' % (form_nombre)
         }
         if not form_nombre:
             context = {
-                'titulo': 'Gracias %s, tu mensaje ha sido enviado!' %(form_email)
+                'titulo': 'Gracias %s, tu mensaje ha sido enviado!' % (form_email)
             }
 
         send_mail(
@@ -131,11 +132,14 @@ def contact(request):
             email_to,
             fail_silently=False
                   )
+        return redirect('/')
 
     return render(request, 'contact.html', context)
 
+
 def about(request):
-    return render(request,'about.html')
+    return render(request, 'about.html')
+
 
 def pruebas(request):
-    return render(request,'sitio_en_construccion.html')
+    return render(request, 'sitio_en_construccion.html')

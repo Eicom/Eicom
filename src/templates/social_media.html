@@ -1,0 +1,44 @@
+{% load static %}
+{% block content %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($.cookie("no_thanks") == null) {
+            var date, expires;
+            date = new Date();
+            //Cambiar '7' a cualquier cantidad de dias deseado antes de que expire
+            date.setTime(date.getTime()+(7*24*60*60*1000))
+            expires ="; expires="+date.toGMTString();
+            $('#myModal').appendTo("body");
+            function show_modal(){
+                $('#myModal').modal();
+          }
+        window.setTimeout(show_modal, 3000);
+        }
+        $(".nothanks").click(function(){
+            document.cookie = "no_thanks=true"+expires;
+        });
+    });
+</script>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="max-width: 530px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Visítanos en facebook</h4>
+            </div>
+            <div class="modal-body">
+                <div class="fb-page"
+                    data-href="https://www.facebook.com/imdb"
+                    data-width="340"
+                    data-hide-cover="false"
+                    data-show-facepile="true">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary nothanks" data-dismiss="modal" aria-hidden="true">No mostrar ésto de nuevo</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}

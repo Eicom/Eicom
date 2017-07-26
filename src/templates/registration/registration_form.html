@@ -4,47 +4,28 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <style>
-{%block style%}
-.div-contenedor {
-  padding-top: 15px;*/
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 0px solid #000000;
-  background: white;
-}
-
-.raised {
-  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-     -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-      box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-
-my-body{
-  background: url('{% static "img/login2.jpg"%}');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: white;
-
-}
-
-{%endblock%}
+    {%block style%}
+        .div-login {
+        padding-top: 1cm;
+        }
+    .body-login {
+        background: white;
+    }
+  {%endblock style%}
 </style>
-<!-- <body style="background: url('{% static "img/login2.jpg"%}')";> -->
-<body>
-  {% include 'navbar.html' %}
-  <div class="col-md-4 col-sm-offset-4"><br>
-      <div class=" col-md-12 div-contenedor raised">
-        <h2 class="text-align-center"><strong>Registrarse</strong></h2><br/>
-          <form method="post" action=".">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Enviar' %}" /><br>
-          </form>
-            <p style="text-align:center;">No estás registrado aún? <a href="{% url 'auth_login' %}"> Iniciar Sesión.</a></p><br>
-      </div>
-  </div>
+<body class="body-login">
+    <div class="col-md-4 col-sm-offset-4">
+        <div class="col-md-12 div-login">
+            <h3 class="text-align-center"><strong>REGISTRARSE</strong></h3><br>
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <br>
+                <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Enviar' %}" />
+                <input type="hidden" name="next" value="{{ next }}" /><br>
+            </form>
+            <p>No estás registrado aún? <a href="{% url 'auth_login' %}"> Iniciar Sesión.</a></p><br>
+        </div>
+    </div>
 </body>
-{% endblock %}
+{% endblock content%}

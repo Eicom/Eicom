@@ -9,11 +9,54 @@ def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
 
+class Departamento(models.Model):
+    departamento = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.departamento
+
+
 class Categoria(models.Model):
     categoria = models.CharField(max_length=50)
+    departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.categoria
+
+
+class Marca(models.Model):
+    marca = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.marca
+
+
+class SistemaOperativo(models.Model):
+    sistema_operativo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.sistema_operativo
+
+
+class Procesador(models.Model):
+    procesador = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.procesador
+
+
+class DiscoDuro(models.Model):
+    disco_duro = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.disco_duro
+
+
+class Ram(models.Model):
+    ram = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.ram
 
 
 class Equipo(models.Model):
@@ -21,13 +64,13 @@ class Equipo(models.Model):
     modelo = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     nombre = models.CharField(max_length=200)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    marca = models.CharField(max_length=200)
-    sistema_operativo = models.CharField(max_length=200, default='None')
-    procesador = models.CharField(max_length=200)
-    disco_duro = models.CharField(max_length=200)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
+    marca = models.ForeignKey(Marca, on_delete=models.SET_NULL, null=True)
+    sistema_operativo = models.ForeignKey(SistemaOperativo, on_delete=models.SET_NULL, null=True)
+    procesador = models.ForeignKey(Procesador, on_delete=models.SET_NULL, null=True)
+    disco_duro = models.ForeignKey(DiscoDuro, on_delete=models.SET_NULL, null=True)
     pantalla = models.CharField(max_length=200)
-    memoria_ram = models.CharField(max_length=200)
+    memoria_ram = models.ForeignKey(Ram, on_delete=models.SET_NULL, null=True)
     bateria = models.CharField(max_length=200)
     adaptador_ac = models.CharField(max_length=200)
     camara = models.CharField(max_length=200)
