@@ -46,7 +46,7 @@ class RegRamForm(forms.ModelForm):
 class RegSlideshowForm(forms.ModelForm):
     class Meta:
         model = Slideshow
-        fields = ['titulo', 'descripcion', 'equipo', 'imagen']
+        fields = ['titulo', 'descripcion', 'imagen']
 
 
 class RegSlideshowMarcasForm(forms.ModelForm):

@@ -56,15 +56,10 @@ class AdminRam(admin.ModelAdmin):
 
 
 class AdminSlideshow(admin.ModelAdmin):
-    list_display = ['titulo', 'descripcion', 'equipo_nombre']
+    list_display = ['titulo', 'descripcion']
     form = RegSlideshowForm
     list_editable = ['descripcion']
     search_fields = ['titulo', 'descripcion']
-
-    def equipo_nombre(self, obj):
-        return obj.equipo
-
-    equipo_nombre.short_descripcion = 'Equipo'
 
 
 class AdminSlideshowMarcas(admin.ModelAdmin):

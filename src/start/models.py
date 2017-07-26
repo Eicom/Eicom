@@ -121,7 +121,6 @@ class Equipo(models.Model):
 class Slideshow(models.Model):
     titulo = models.CharField(max_length=50, blank=True, null=True)
     descripcion = models.CharField(max_length=150, blank=True, null=True)
-    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE, null=True, blank=True)
     imagen = models.ImageField(upload_to=upload_location, null=True, blank=True,
                                height_field='height_field', width_field='width_field')
     height_field = models.IntegerField(default=0)
