@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RegContactForm
-from .models import Equipo, Categoria, Slideshow, Slideshow_marcas
+from .models import Equipo, Categoria, Slideshow
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -28,8 +28,8 @@ def promociones(request):
     return render(request, 'promociones.html', context)
 
 
-def categoria(request, filtro):
-    queryset_list_2 = Equipo.objects.filter(categoria__categoria__icontains=filtro)
+def categoria(request, slug):
+    queryset_list_2 = Equipo.objects.filter(categoria__slug__icontains=slug)
     queryset_categoria_2 = Categoria.objects.all()
     query_2 = request.GET.get('q')
     if query_2:
@@ -53,7 +53,7 @@ def categoria(request, filtro):
         'object_list': queryset_2,
         'titulo': 'List',
         'object_clasificacion': queryset_categoria_2,
-        'page_request_var': page_request_var,
+        # 'page_request_var': page_request_var,
     }
     return render(request, 'categoria.html', context)
 
@@ -63,16 +63,10 @@ def slideshow_list(request):
     return render(request, 'slideshow.html', {'object_list': slideshow})
 
 
-def slideshow_marcas(request):
-    slideshow_mr = Slideshow_marcas.objects.all()
-    return render(request, 'marcas.html', {'object_list': slideshow_mr})
-
-
 def equipo_list(request):
     queryset_list = Equipo.objects.all()
     queryset_categoria = Categoria.objects.all()
     queryset_slideshow = Slideshow.objects.all()
-    queryset_slideshow_marcas = Slideshow_marcas.objects.all()
     query = request.GET.get('q')
     if query:
         queryset_list = queryset_list.filter(
@@ -96,7 +90,6 @@ def equipo_list(request):
         'object_list': queryset,
         'object_clasificacion': queryset_categoria,
         'object_slideshow': queryset_slideshow,
-        'object_slideshow_marcas': queryset_slideshow_marcas,
         'page_request_var': page_request_var,
     }
     return render(request, 'index.html', context)

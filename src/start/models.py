@@ -19,9 +19,14 @@ class Departamento(models.Model):
 class Categoria(models.Model):
     categoria = models.CharField(max_length=50)
     departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.categoria
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.categoria)
+        super(Categoria, self).save(*args, **kwargs)
 
 
 class Marca(models.Model):
@@ -41,6 +46,9 @@ class SistemaOperativo(models.Model):
 class Procesador(models.Model):
     procesador = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name_plural = 'Procesadores'
+
     def __str__(self):
         return self.procesador
 
@@ -48,12 +56,18 @@ class Procesador(models.Model):
 class DiscoDuro(models.Model):
     disco_duro = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name_plural = 'Disco Duro'
+
     def __str__(self):
         return self.disco_duro
 
 
 class Ram(models.Model):
     ram = models.CharField(max_length=10)
+
+    class Meta:
+        verbose_name_plural = 'RAM'
 
     def __str__(self):
         return self.ram
@@ -71,11 +85,6 @@ class Equipo(models.Model):
     disco_duro = models.ForeignKey(DiscoDuro, on_delete=models.SET_NULL, null=True)
     pantalla = models.CharField(max_length=200)
     memoria_ram = models.ForeignKey(Ram, on_delete=models.SET_NULL, null=True)
-    bateria = models.CharField(max_length=200, null=True, default='')
-    adaptador_ac = models.CharField(max_length=200, null=True, default='')
-    camara = models.CharField(max_length=200, null=True, default='')
-    tarjeta_madre = models.CharField(max_length=200, null=True, default='')
-    video = models.CharField(max_length=200)
     top_vendido = models.BooleanField(default=False)
     promo = models.BooleanField(default=False)
     descripcion = models.TextField(null=True, default='NOT_PROVIDED')
@@ -132,21 +141,10 @@ class Slideshow(models.Model):
 
     class Meta:
         ordering = ['-timestamp']
+        verbose_name_plural = 'Slideshow'
 
 
-class Slideshow_marcas(models.Model):
-    titulo = models.CharField(max_length=50, blank=True, null=True)
-    imagen = models.ImageField(upload_to=upload_location, null=True, blank=True,
-                               height_field='height_field', width_field='width_field')
-    height_field = models.IntegerField(default=0)
-    width_field = models.IntegerField(default=0)
-    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-
-    def __str__(self):
-        return self.titulo
-
-
-def create_slug(instance, new_slug=None):
+def create_slug_equipo(instance, new_slug=None):
     slug = slugify(instance.modelo)
     if new_slug is not None:
         slug = new_slug
@@ -154,16 +152,16 @@ def create_slug(instance, new_slug=None):
     exists = qs.exists()
     if exists:
         new_slug = '%s-%s' % (slug, qs.first().id)
-        return create_slug(instance, new_slug=new_slug)
+        return create_slug_equipo(instance, new_slug=new_slug)
     return slug
 
 
 def pre_save_equipo_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = create_slug(instance)
+        instance.slug = create_slug_equipo(instance)
 
 
-# que se hará con el objeto antes de fguardarlo(slug en éste caso)...
+# que se hará con el objeto antes de guardarlo(slug en éste caso)...
 pre_save.connect(pre_save_equipo_receiver, sender=Equipo)
 
 

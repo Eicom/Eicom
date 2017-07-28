@@ -73,7 +73,7 @@
                                                     <ul class="dropdown-menu">
                                                         {% for cate in categoria %}
                                                             {% if obj == cate.departamento %}
-                                                                <li><a tabindex="-1" href="{% url 'start:filtro' filtro=cate.categoria %}">{{ cate }}</a></li>
+                                                                <li><a tabindex="-1" href="{% url 'start:categoria' cate.slug %}">{{ cate }}</a></li>
                                                             {% endif %}
                                                         {% endfor %}
                                                     </ul>

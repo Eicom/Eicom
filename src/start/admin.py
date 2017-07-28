@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import (Mensaje, Equipo, Categoria, Slideshow, Slideshow_marcas, Marca, Procesador,
+from .models import (Mensaje, Equipo, Categoria, Slideshow, Marca, Procesador,
                      SistemaOperativo, DiscoDuro, Ram, Departamento)
 from .forms import (RegContactForm, RegEquipoForm, RegCategoriaForm, RegMarcaForm,
-                    RegSistemaOperativoForm, RegSlideshowForm, RegSlideshowMarcasForm,
+                    RegSistemaOperativoForm, RegSlideshowForm,
                     RegProcesadorForm, RegDiscoDuroForm, RegRamForm, RegDepartamentoForm)
 
 
@@ -62,15 +62,6 @@ class AdminSlideshow(admin.ModelAdmin):
     search_fields = ['titulo', 'descripcion']
 
 
-class AdminSlideshowMarcas(admin.ModelAdmin):
-    list_display = ['titulo']
-    form = RegSlideshowMarcasForm
-    search_fields = ['titulo']
-
-    def equipo_nombre(self, obj):
-        return obj.titulo
-
-
 class AdminContacto(admin.ModelAdmin):
     list_display = ['email', 'nombre', 'timestamp']
     form = RegContactForm
@@ -97,7 +88,6 @@ admin.site.register(Mensaje, AdminContacto)
 admin.site.register(Equipo, AdminEquipo)
 admin.site.register(Categoria, AdminCategoria)
 admin.site.register(Slideshow, AdminSlideshow)
-admin.site.register(Slideshow_marcas, AdminSlideshowMarcas)
 admin.site.register(Marca, AdminMarca)
 admin.site.register(SistemaOperativo, AdminSistemaOperativo)
 admin.site.register(Procesador, AdminProcesador)

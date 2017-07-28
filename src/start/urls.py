@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^pruebas/$', views.pruebas, name='pruebas'),
     url(r'^promociones/$', views.promociones, name='promo'),
     url(r'^(?P<slug>[\w-]+)/$', views.equipo_detail, name='detail'),
-    url(r'^categoria/(?P<filtro>[\w-]+)/$', views.categoria, name='filtro'),
+    url(r'^categoria/(?P<slug>[\w-]+)/$', views.categoria, name='categoria'),
 ]

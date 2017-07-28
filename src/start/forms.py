@@ -1,6 +1,6 @@
 __author__ = 'NeroS'
 from django import forms
-from .models import (Mensaje, Equipo, Categoria, Slideshow, Slideshow_marcas, Marca,
+from .models import (Mensaje, Equipo, Categoria, Slideshow, Marca,
                      SistemaOperativo, Procesador, DiscoDuro, Ram, Departamento)
 
 
@@ -8,8 +8,7 @@ class RegEquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
         fields = ['categoria', 'nombre', 'modelo', 'sistema_operativo', 'marca',  'procesador',
-                  'disco_duro', 'pantalla', 'memoria_ram', 'tarjeta_madre', 'bateria',
-                  'camara', 'adaptador_ac', 'video', 'top_vendido', 'promo', 'precio',
+                  'disco_duro', 'pantalla', 'memoria_ram', 'top_vendido', 'promo', 'precio',
                   'descripcion', 'imagen', 'imagen_1', 'imagen_2', 'imagen_3']
 
 
@@ -47,12 +46,6 @@ class RegSlideshowForm(forms.ModelForm):
     class Meta:
         model = Slideshow
         fields = ['titulo', 'descripcion', 'imagen']
-
-
-class RegSlideshowMarcasForm(forms.ModelForm):
-    class Meta:
-        model = Slideshow_marcas
-        fields = ['titulo', 'imagen']
 
 
 class RegCategoriaForm(forms.ModelForm):
