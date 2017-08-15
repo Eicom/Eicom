@@ -36,58 +36,27 @@ class Marca(models.Model):
         return self.marca
 
 
-class SistemaOperativo(models.Model):
-    sistema_operativo = models.CharField(max_length=100)
+class Familia(models.Model):
+    familia = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.sistema_operativo
-
-
-class Procesador(models.Model):
-    procesador = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = 'Procesadores'
-
-    def __str__(self):
-        return self.procesador
-
-
-class DiscoDuro(models.Model):
-    disco_duro = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = 'Disco Duro'
-
-    def __str__(self):
-        return self.disco_duro
-
-
-class Ram(models.Model):
-    ram = models.CharField(max_length=10)
-
-    class Meta:
-        verbose_name_plural = 'RAM'
-
-    def __str__(self):
-        return self.ram
+        return self.familia
 
 
 class Equipo(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
-    modelo = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    nombre = models.CharField(max_length=200)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
+    familia = models.ForeignKey(Familia, on_delete=models.SET_NULL, null=True)
     marca = models.ForeignKey(Marca, on_delete=models.SET_NULL, null=True)
-    sistema_operativo = models.ForeignKey(SistemaOperativo, on_delete=models.SET_NULL, null=True)
-    procesador = models.ForeignKey(Procesador, on_delete=models.SET_NULL, null=True)
-    disco_duro = models.ForeignKey(DiscoDuro, on_delete=models.SET_NULL, null=True)
-    pantalla = models.CharField(max_length=200)
-    memoria_ram = models.ForeignKey(Ram, on_delete=models.SET_NULL, null=True)
+    slug = models.SlugField(unique=True)
+    clave = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField(null=True, default='NOT_PROVIDED')
+    modelo = models.CharField(max_length=200)
+    codigo_barras = models.CharField(max_length=25)
+    linea = models.CharField(max_length=30)
     top_vendido = models.BooleanField(default=False)
     promo = models.BooleanField(default=False)
-    descripcion = models.TextField(null=True, default='NOT_PROVIDED')
     precio = models.DecimalField(max_digits=8, decimal_places=2, null=False)
     imagen = models.ImageField(
         upload_to=upload_location,
@@ -145,9 +114,9 @@ class Slideshow(models.Model):
 
 
 def create_slug_equipo(instance, new_slug=None):
-    slug = slugify(instance.modelo)
+    slug = slugify(instance.clave.upper())
     if new_slug is not None:
-        slug = new_slug
+        slug = new_slug.upper()
     qs = Equipo.objects.filter(slug=slug).order_by('-id')
     exists = qs.exists()
     if exists:

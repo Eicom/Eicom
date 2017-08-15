@@ -1,14 +1,14 @@
 __author__ = 'NeroS'
 from django import forms
 from .models import (Mensaje, Equipo, Categoria, Slideshow, Marca,
-                     SistemaOperativo, Procesador, DiscoDuro, Ram, Departamento)
+                     Departamento, Familia)
 
 
 class RegEquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ['categoria', 'nombre', 'modelo', 'sistema_operativo', 'marca',  'procesador',
-                  'disco_duro', 'pantalla', 'memoria_ram', 'top_vendido', 'promo', 'precio',
+        fields = ['categoria', 'clave', 'nombre', 'modelo', 'marca',
+                  'linea', 'familia', 'top_vendido', 'promo', 'precio',
                   'descripcion', 'imagen', 'imagen_1', 'imagen_2', 'imagen_3']
 
 
@@ -18,28 +18,10 @@ class RegMarcaForm(forms.ModelForm):
         fields = ['marca']
 
 
-class RegSistemaOperativoForm(forms.ModelForm):
-    class Meta:
-        model = SistemaOperativo
-        fields = ['sistema_operativo']
-
-
-class RegProcesadorForm(forms.ModelForm):
-    class Meta:
-        model = Procesador
-        fields = ['procesador']
-
-
-class RegDiscoDuroForm(forms.ModelForm):
-    class Meta:
-        model = DiscoDuro
-        fields = ['disco_duro']
-
-
-class RegRamForm(forms.ModelForm):
-    class Meta:
-        model = Ram
-        fields = ['ram']
+class RegFamiliaForm(forms.ModelForm):
+    class meta:
+        model = Familia
+        fields = ['familia']
 
 
 class RegSlideshowForm(forms.ModelForm):

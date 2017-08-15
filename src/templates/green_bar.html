@@ -104,16 +104,17 @@
                                     <!--|-->
                                 </li>
                                 {% if request.user.is_authenticated %}
-                                    <li>
-                                        <a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out"></span> SALIR</a>
-                                    </li>
+                                  <li>
+                                    <a href="{% url 'start:nuevo' %}"><span class="glyphicon glyphicon-plus"></span>Nuevo</a>
+                                  </li>
+                                  <li>
+                                      <a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out"></span> SALIR</a>
+                                  </li>
                                 {% else %}
                                     <li>
                                         <a title="REGISTER" href="{% url 'registration_register' %}"><span class="glyphicon glyphicon-user"></span> REGISTRARSE</a>
                                     </li>
-                                    <li class="padding-linea hidden-xs padding-separador">
-                                        <!--|-->
-                                    </li>
+                                    <li class="padding-linea hidden-xs padding-separador"></li>
                                 {% endif %}
                                 {% if not request.user.is_authenticated %}
                                     <li>

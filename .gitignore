@@ -7,6 +7,6 @@ secret.py
 db.sqlite3
 .DS_Store
 /src/start/migrations
-/media_cdn
-/static_cdn
+media
+static
 wsgi

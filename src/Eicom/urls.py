@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'', include('start.urls', namespace='start')),
-    url(r'^excel/', include('excel.urls', namespace='excel'))
+    # url(r'^excel/', include('excel.urls', namespace='excel'))
 
 ]
 
