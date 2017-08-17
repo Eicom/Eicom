@@ -61,7 +61,7 @@
                                 </li>
                                 <li class="dropdown li-activo">
                                     <a  title="DEPARTAMENTOS" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                    CATEGORÍAS <span class="caret"></span>
+                                        <i class="fa fa-sitemap" aria-hidden="true"></i> CATEGORÍAS <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         {% categorias_lista as categoria %}
@@ -98,27 +98,27 @@
                                     <!--|-->
                                 </li>
                                 <li>
-                                    <a title="PROMOCIONES" href="{% url 'start:promo' %}">PROMOCIONES</a>
+                                    <a title="PROMOCIONES" href="{% url 'start:promo' %}"><i class="fa fa-star" aria-hidden="true"></i> PROMOCIONES</a>
                                 </li>
                                 <li class="padding-linea hidden-xs padding-separador">
                                     <!--|-->
                                 </li>
                                 {% if request.user.is_authenticated %}
                                   <li>
-                                    <a href="{% url 'start:nuevo' %}"><span class="glyphicon glyphicon-plus"></span>Nuevo</a>
+                                    <a href="{% url 'start:nuevo' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> NUEVO</a>
                                   </li>
                                   <li>
-                                      <a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out"></span> SALIR</a>
+                                      <a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> SALIR</a>
                                   </li>
                                 {% else %}
                                     <li>
-                                        <a title="REGISTER" href="{% url 'registration_register' %}"><span class="glyphicon glyphicon-user"></span> REGISTRARSE</a>
+                                        <a title="REGISTER" href="{% url 'registration_register' %}"><i class="fa fa-user-circle" aria-hidden="true"></i> SUSCRIBIRSE</a>
                                     </li>
                                     <li class="padding-linea hidden-xs padding-separador"></li>
                                 {% endif %}
                                 {% if not request.user.is_authenticated %}
                                     <li>
-                                        <a title="SESION" href="{% url 'auth_login' %}"><span class="glyphicon glyphicon-log-in"></span> INICIAR SESIÓN</a>
+                                        <a title="SESION" href="{% url 'auth_login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> INICIAR SESIÓN</a>
                                     </li>
                                 {% endif %}
                             </ul>

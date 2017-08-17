@@ -144,7 +144,7 @@ def nuevo(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('start:detail', slug=post.clave.lower())
+            return redirect('start:detail', slug=post.slug)
     else:
         form = RegEquipoForm()
     return render(request, 'equipo_form.html', {'form': form})
@@ -158,7 +158,7 @@ def editar(request, slug):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('start:detail', slug=post.slug.lower())
+            return redirect('start:detail', slug=post.slug)
     else:
         form = RegEquipoForm(instance=post)
     return render(request, 'equipo_form.html', {'form': form})

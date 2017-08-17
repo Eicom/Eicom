@@ -20,6 +20,12 @@
             -o-transform : scale(1.05); /* Opera */
             -ms-transform : scale(1.05); /* IE9 */
         }
+        div.cuadro {
+            border: 1px solid #d8d8d8;
+        }
+        div.padding-cuadro {
+            padding-bottom: 20px;
+        }
         .text-align-index {
             text-align: center;
         }
@@ -68,20 +74,23 @@
             <!--inicio for object_list-->
             {% for obj in object_list %}
             {% if obj.top_vendido %}
-                <div class="col-md-3 text-align-index zoom"><br><br>
-                    {% if obj.imagen %}
-                        <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
-                    {% endif %}
-                    <div class="page-header">
-                        <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
-                    </div>
-                    <h6><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h6>
-                    <br>
-                    {% if user.is_authenticated %}
-                      <p><h2>$ {{ obj.precio }}</h2></p>
-                    {% endif %}
-                    <div class="footer buttons-index"><br>
-                        <p><a href="{{ obj.get_absolute_url }}" class="btn emerald-flat-button" role="button">Detalles</a></p>
+                <div class="col-md-3 text-align-index padding-cuadro">
+                    <div class="col-md-12 zoom cuadro"><br><br>
+                        {% if obj.imagen %}
+                            <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
+                        {% endif %}
+                        <div class="page-header">
+                            <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
+                        </div>
+                        <h6><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h6>
+                        <br>
+                        <p>{{  obj.descripcion|truncatechars:120 }}</p>
+                        {% if user.is_authenticated %}
+                          <p><h2>$ {{ obj.precio }}</h2></p>
+                        {% endif %}
+                        <div class="footer buttons-index"><br>
+                            <p><a href="{{ obj.get_absolute_url }}" class="btn emerald-flat-button" role="button">Detalles</a></p>
+                        </div>
                     </div>
                 </div>
             <!--end for object_list-->

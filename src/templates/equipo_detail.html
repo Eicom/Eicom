@@ -13,20 +13,25 @@
             .img-detail {
                 width: 70%;
                 height: 70%;
-        }
+            }
+            .controles {
+                padding: 0 20px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
         {% endblock style %}
     </style>
     <body>
         <div class="container">
-          {% if user.is_authenticated %}
-            <a href="{% url 'start:editar' slug=instance.slug %}"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-            <a class="confirm-delete" href="{% url 'start:borrar' slug=instance.slug %}"><span class="glyphicon glyphicon-remove"></span>Borrar</a>
-            <script type="text/javascript">
-              $(document).on('click', '.confirm-delete', function(){
-                return confirm('Desea borrar el registro {{ instance.clave }}?');
-              });
-            </script>
-          {% endif %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'start:editar' slug=instance.slug %}" class="controles"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                <a class="confirm-delete controles" href="{% url 'start:borrar' slug=instance.slug %}"><span class="glyphicon glyphicon-remove"></span> Borrar</a>
+                <script type="text/javascript">
+                    $(document).on('click', '.confirm-delete', function(){
+                        return confirm('Desea borrar el registro {{ instance.clave }}?');
+                    });
+                </script>
+            {% endif %}
             <div class="col-md-12">
                 <div class="col-md-6 padding-detail">
                     {% if instance.imagen %}
@@ -50,13 +55,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="page-header">
-                      <div class="page-header">
-                          <h1 class="align-detail">{{ instance.nombre }}</h1>
-                      </div>
-                      <h3>Descripción: </h3>
-                      <p>{{ instance.descripcion}}</p>
-                      <hr>
-                      <h4 class="align-detail">GALERÍA:</h4>
+                        <div class="page-header">
+                            <h1 class="align-detail">{{ instance.nombre }}</h1>
+                        </div>
+                        <h3>Descripción: </h3>
+                        <p>{{ instance.descripcion}}</p>
+                        <hr>
+                        <h4 class="align-detail">GALERÍA:</h4>
                     </div>
                     {% include 'slideshow_imagenes_productos.html'%}
                     <hr>

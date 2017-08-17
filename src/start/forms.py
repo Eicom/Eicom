@@ -11,6 +11,12 @@ class RegEquipoForm(forms.ModelForm):
                   'linea', 'familia', 'top_vendido', 'promo', 'precio',
                   'descripcion', 'imagen', 'imagen_1', 'imagen_2', 'imagen_3']
 
+    def __init__(self, *args, **kwargs):
+        super(RegEquipoForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)
+            field.label = ''
+
 
 class RegMarcaForm(forms.ModelForm):
     class Meta:

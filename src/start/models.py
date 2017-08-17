@@ -114,9 +114,9 @@ class Slideshow(models.Model):
 
 
 def create_slug_equipo(instance, new_slug=None):
-    slug = slugify(instance.clave.upper())
+    slug = slugify(instance.clave)
     if new_slug is not None:
-        slug = new_slug.upper()
+        slug = new_slug
     qs = Equipo.objects.filter(slug=slug).order_by('-id')
     exists = qs.exists()
     if exists:
