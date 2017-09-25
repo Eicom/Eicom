@@ -22,11 +22,11 @@
                 {% csrf_token %}
                 {{ form|crispy}}
                 <br>
-                <input class="btn btn-block btn-primary" type="submit" value="{% trans 'Iniciar sesion' %}" />
+                <input class="btn btn-block btn-success" type="submit" value="{% trans 'Iniciar sesion' %}" />
                 <input type="hidden" name="next" value="{{ next }}" /><br>
             </form>
-            <p>{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
-            <p>{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>
+            <!--<p>{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>-->
+            <!--<p>{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p><br>-->
         </div>
     </div>
 </body>

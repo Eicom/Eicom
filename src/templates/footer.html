@@ -1,108 +1,33 @@
 {% load static %}
-<style>
-    {% block style %}
-        .color-footer{
-            background: #202020;
-            padding-top: 0.5cm;
-        }
-        p{
-           color: #7a7b7b;
-        }
-        a {
-            color: #7a7b7b;
-        }
-        a:link {
-            text-decoration:none;
-        }
-        .texto-footer {
-            text-align: center;
-        }
-        .texto-footer-justify {
-            text-align: justify;
-        }
-        .img-footer {
-            height: 50px;
-            width: auto;
-        }
-        .div-social {
-            padding:5px;
-            padding-top:0.5cm;
-            background: #121212;
-            font-size: 20px;
-            text-align: center;
-        }
-        .hr-footer {
-            height: 1px;
-            border: 0;
-            color: #383838;
-            background-color: #383838;
-            margin-top:-5px;
-            margin-bottom: 5px;
+<footer>
+    <div class="contenedor-footer">
+        <div class="secciones">
+            <a href="{% url 'start:contact' %}">Contacto</a>
+            <a href="{% url 'start:about' %}">Acerca de nosotros</a>
+            <a href="#">Preguntas frecuentes</a>
+            <a href="#">Blog</a>
+        </div>
+        <div class="company">
+            <span class="eicom-text">EICOM <i class="fa fa-copyright"></i> 2017</span>
+            <span class="ppython-title">Desarrollado por</span><a title="NavaSoft & Yojimbo" target="_blank" href="/"><span class="ppython">P</span><span class="ppython-text">ower</span><span class="ppython">P</span><span class="ppython-text">ython</span></a></b>.
+        </div>
+        <div class="datos-empresa">
+            <p class="p-location"><i class="fa fa-map-marker marker"></i>
+                Avenida Benjamín Flores y Calle 30 (local verde)</p>
+            <p class="p-location">
+                San Luis Río Colorado, C.P. 123456 Sonora, México</p>
+            <p class="p-location"><i class="fa fa-phone phone"></i> 518 1519 / 653 1067262</p>
+            <p class="p-location"><i class="fa fa-envelope-o envelope"></i> eicom.pythonanywhere.com</p>
+        </div>
 
-        }
-        .padding-location {
-            padding-bottom: 0.5cm;
-        }
-        .p-location {margin: 3px 0;}
-    {% endblock style %}
-</style>
-
-<footer id="footer" class="footer color-footer">
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 hidden-xs">
-                    <div class=" texto-footer-justify padding-location">
-                        <p><i class="fa fa-users" aria-hidden="true"></i><a title="Nosotros" href="{% url 'start:about' %}"> Nosotros</a></p>
-                        <hr class="hr-footer">
-                        <p><i class="fa fa-address-book-o" aria-hidden="true"></i><a href="#"> Blog</a></p>
-                        <hr class="hr-footer">
-                        <p><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="{% url 'start:contact' %}"> Contacto</a></p>
-                        <hr class="hr-footer">
-                        <p><i class="fa fa-certificate" aria-hidden="true"></i><a href="#"> Políticas de garantía</a></p>
-                        <hr class="hr-footer">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class=" texto-footer padding-location">
-                        <!--<a title="EICOM" href="http://eicom.pythonanywhere.com/"><img class="img-responsive center-block img-footer" src="{% static 'img/logofinaleicom.png' %}" alt="" /></a>--><br>
-                        <span class="bottom-legend" style="color: #7a7b7b;">
-                            EICOM © 2017
-                            <br>
-                            Desarrollado por <b><a title="NavaSoft & Yojimbo" target="_blank" href="/">PowerPython</a></b>.
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class=" texto-footer padding-location">
-                        <p class="p-location"><i class="fa fa-map-marker marker"></i>
-                            Avenida Benjamín Flores y Calle 30 (local verde)</p>
-                            <p class="p-location">San Luis Río Colorado, Cp 123456</p>
-                            <p class="p-location">Sonora, México</p>
-                        <p class="p-location"><i class="fa fa-phone phone"></i> 518 1519 / 653 1067262</p>
-                        <p class="p-location"><i class="fa fa-envelope-o envelope"></i> eicom.pythonanywhere.com</p>
-                    </div><!-- media-body -->
-                </div>
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- footer-bottom -->
-    <div class="container-fluid div-social">
-        <ul class="list-inline">
-            <li>
-                <a title="Facebook" class="fb" target="_blank" href="https://www.facebook.com/EICOM"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-                <a title="Twitter" class="tw" target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-                <a title="Instagram" class="fb" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-                <a title="Youtube" class="youtube" target="_blank" href="#"><i class="fa fa-youtube"></i></a>
-            </li>
-            <li>
-                <a title="Google +" class="google" target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-            </li>
-        </ul>
     </div>
 </footer>
+<div class="contenedor-social">
+    <div class="redes-sociales">
+        <a href="https://www.facebook.com/Eicom/"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-google"></i></a>
+    </div>
+</div>

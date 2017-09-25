@@ -1,0 +1,14 @@
+{% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
+{% block content%}
+<div class="col-sm-3 col-xs-12 pull-right">
+    <p class='lead text-align-center'>Subscribirte</p>
+    <form method="POST" action="">{% csrf_token %}
+    {{ suscripcion_form|crispy }}
+    <input class='btn btn-primary' type='submit' value='Confirmar' />
+    </form>
+    <p class='lead text-align-center'>{{ titulo }}<br/><br/><span class="fa-stack fa-4x">
+    <i class="fa fa-circle-thin fa-stack-2x"  style="color:#47b78c;"></i>
+    <i class="fa fa-hand-peace-o fa-stack-1x"></i>
+    </span></p>
+</div>
+{%endblock content%}

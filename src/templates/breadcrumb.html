@@ -1,26 +1,17 @@
 {%load static%}
-<style>
-    {% block style %}
 
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+{% block content %}
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-    {% endblock style %}
-</style>
-<div class="container">
-  <div class="container">
+<div class="contenedor-breadcrumb">
     <ol class="breadcrumb">
-      <li><a href="{% url 'start:inicio' %}">Inicio</a></li>
-      {% if instance.categoria %}
-        <li><a href="{% url 'start:filtro' instance.categoria %}">{{ instance.categoria }}</a></li>
-        {% if instance.nombre %}
-          <li><a href="#">{{ instance.nombre }}</a></li>
+        <li><a href="{% url 'start:inicio' %}">INICIO</a></li>
+        {% if instance.categoria %}
+            <li><a href="{% url 'start:categoria' instance.categoria.slug %}">{{ instance.categoria }}</a></li>
+            {% if instance.nombre %}
+                <li><a href="#">{{ instance.nombre }}</a></li>
+            {% endif %}
         {% endif %}
-      {% endif %}
     </ol>
-  </div>
 </div>
+
+{% endblock content %}

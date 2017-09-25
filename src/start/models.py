@@ -57,6 +57,7 @@ class Equipo(models.Model):
     linea = models.CharField(max_length=30)
     top_vendido = models.BooleanField(default=False)
     promo = models.BooleanField(default=False)
+    nuevo = models.BooleanField(default=False)
     precio = models.DecimalField(max_digits=8, decimal_places=2, null=False)
     imagen = models.ImageField(
         upload_to=upload_location,

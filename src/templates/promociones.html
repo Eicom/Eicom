@@ -1,82 +1,50 @@
 {% extends 'base.html'%}
 {% load static %}
+{% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
-<style>
-    {%block style%}
-        .zoom{
-            transition: 200ms ease;
-            -moz-transition: 200ms ease; /* Firefox */
-            -webkit-transition: 200ms ease; /* Chrome - Safari */
-            -o-transition: 200ms ease; /* Opera */
-        }
-        .zoom:hover{
-            transform : scale(1.05);
-            -moz-transform : scale(1.05); /* Firefox */
-            -webkit-transform : scale(1.05); /* Chrome - Safari */
-            -o-transform : scale(1.05); /* Opera */
-            -ms-transform : scale(1.05); /* IE9 */
-        }
-        .text-align-index {
-            text-align: center;
-        }
-        .emerald-flat-button {
-            position: relative;
-            vertical-align: top;
-            width: 100%;
-            height: 60px;
-            padding: 0;
-            font-size: 22px;
-            color: white;
-            text-align: center;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-            background: #92d14f;
-            border: 0;
-            border-bottom: 2px solid #568624;
-            cursor: pointer;
-            -webkit-box-shadow: inset 0 -2px #568624;
-            box-shadow: inset 0 -2px #568624;
-            padding-top: 0.3cm;
-        }
-        .emerald-flat-button:active {
-            top: 1px;
-            outline: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-    {%endblock%}
-</style>
-<body>
-    <div class="col-md-12">
-        <div class="container-fluid">
-           {% include 'searchbox.html' %}
-        </div>
-        <div class="container">
-            <div class=" col-md-12">
-                <br>
-                {% for obj in object_list %}
-                {% if obj.promo %}
-                    <div class="col-md-3 text-align-index zoom"><br><br>
-                        {% if obj.imagen %}
-                            <img src="{{ obj.imagen.url }}" class="img-responsive  " alt=""/>
-                        {% endif %}
-                        <div class="page-header">
-                            <h4><a href="{{ obj.get_absolute_url }}">{{ obj.nombre }}</a></h4>
-                        </div>
-                        <h6><a href="{{ obj.get_absolute_url }}">{{ obj.modelo }}</a></h6>
-                        <br>
-                        <p><h2>$ {{ obj.precio }}</h2></p>
-                        <div class="footer buttons-index"><br>
-                            <p><a href="{{ obj.get_absolute_url }}" class="btn emerald-flat-button" role="button">Detalles</a></p>
-                        </div>
-                    </div>
-                {% endif %}
-                {% endfor %}
+
+    <div class="contenedor">
+        <section class="main">
+
+            <!--POMOCIONES-->
+            <div class="mas-vendido">
+                <h3>productos en promoción</h3>
             </div>
-            {% include 'pagination.html'%}
-        </div>
-        <hr>
-    </div>
-    {% include 'marcas.html' %}
+            <div class="baraja">
+                {% for equipo in object_list %}
+                    {% if equipo.promo %}
+                        <div class="tarjeta zoom">
+                            <div class="contenedor-tarjeta">
+                                <div class="header-tarjeta">
+                                    {% if equipo.imagen %}
+                                        <img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/>
+                                    {% endif %}
+                                </div>
+                                <div class="body-tarjeta">
+                                    <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
+                                        {{ equipo.nombre|truncatechars:60 }}
+                                    </a>
+                                    <p class="clave">{{ equipo.clave }}</p>
+                                    <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
+                                    {% if user.is_authenticated %}
+                                        <span class="precio">$ {{ equipo.precio }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="footer-tarjeta">
+                                    <a href="{{ equipo.get_absolute_url }}" class="boton" role="button">Ver detalles</a>
+                                </div>
+                            </div><!--.contenedor-tarjeta-->
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div><!--.baraja-->
+            {% include 'pagination.html' %}
+        </section>
+    </div><!--.contenedor-->
+
+    <!--Marcas-->
+    {%include 'marcas.html'%}
+    <!--Footer-->
     {% include 'footer.html' %}
-</body>
+
 {% endblock %}

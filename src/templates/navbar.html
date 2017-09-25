@@ -1,91 +1,97 @@
-﻿{%block content%}
 {% load static %}
 {% load filtro_tag %}
-<style>
-  {%block style%}
 
-        .navbar-inverse .navbar-nav>li>a {
-            color:#777;
-        }
-
-        .navbar-inverse .navbar-toggle .icon-bar {
-            background-color: black;
-        }
-        .navbar-brand {
-            background: #4CAF50;
-            color: white;
-            padding: 0px;
-        }
-        .navbar-brand>img {
-            height: 100%;
-            width: auto;
-        }
-        .navbar {
-            /*background-image: url("../static/img/fondoeicom.jpg")!important;*/
-        /*background-repeat: no-repeat;*/
-        /*background-position: center center;*/
-        /*background-attachment: fixed;*/
-        /*background-size: cover;*/
-        /*background-color: black;*/
-        /*background-size: cover;*/
-        background-color: white;
-            background: white;
-        /*padding-bottom: 1cm;*/
-        border-color: #e3e3e3;
-        height: 100px;
-        padding-top: 28px;
-    }
-    .navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
-    {
-        background: #20d24d;
-        color:white;
-    }
-
-{%endblock style%}
-</style>
-<body>
-    <nav class="navbar navbar-inverse navbar-static-top " role="navigation">
-        <div class="container">
+{% block content %}
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-ns">
-                <span class="sr-only">Desplegar / Ocultar Menú</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><img id="" class="" src="{% static 'img/logofinaleicom.jpg' %} " alt=""/></a>
-            </div>
-        <!-- Menú -->
-            <div class="collapse navbar-collapse" id="navegacion-ns">
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="/">Inicio</a></li>
+                <a title="EICOM" href="/" class="contenedor-logo"><img class="img-responsive" src="{% static 'img/logofinaleicom.png' %}" alt="EICOM" /></a>
+            </div><!--navbar-header-->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a title="INICIO" href="/"><i class="fa fa-home"></i> INICIO</a>
+                    </li>
                     <li class="dropdown li-activo">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        Categorías <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        {% categorias_lista as categorias %}
-                        {% if categorias %}
-                        {% for obj in categorias %}
-                            <li><a href="{% url 'start:filtro' filtro=obj.categoria %}"/>{{ obj }}</a></li>
-                        {% endfor %}
-                        {% else %}
-                            <li><a href="#">Empty</a></li>
-                        {% endif %}
-                    </ul>
+                        <a  title="DEPARTAMENTOS" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="fa fa-sitemap" aria-hidden="true"></i> CATEGORÍAS <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            {% categorias_lista as categoria %}
+                            {% departamento_lista as departamento %}
+                            {% if departamento %}
+                                {% for obj in departamento %}
+                                    <li class="dropdown-submenu">
+                                        <a class="test" tabindex="-1" href="#">{{ obj }} <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            {% for cate in categoria %}
+                                                {% if obj == cate.departamento %}
+                                                <li><a tabindex="-1" href="{% url 'start:categoria' cate.slug %}">{{ cate }}</a></li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="#">Empty</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <script>
+                        $(document).ready(function(){
+                            $('.dropdown-submenu').on("click", function(e){
+                                $(this).next('ul').toggle();
+								$(this).children('ul').css("display", "inline-table")
+                                e.stopPropagation();
+                                e.preventDefault();
+                            });
+                        });
+                    </script>
+                    <li>
+                        <a title="PROMOCIONES" href="{% url 'start:promo' %}"><i class="fa fa-bullhorn" aria-hidden="true"></i> PROMOCIONES</a>
+                    </li>
+                    <li>
+                        <a title="PROMOCIONES" href="{% url 'start:destacados' %}"><i class="fa fa-star" aria-hidden="true"></i> DESTACADOS</a>
                     </li>
 
-                    <li><a href="{% url 'start:contact' %}">Contáctanos</a></li>
-                    <li><a href="{% url 'start:about' %}">Acerca de nosotros</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="dropdown li-activo">
+                            <a  title="NUEVO" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <i class="fa fa-plus-square-o" aria-hidden="true"></i> NUEVO <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a title="Nuevo Producto" href="{% url 'start:nuevo' var='pr' %}">PRODUCTO</a></li>
+                                <li><a title="Nuevo Departamento" href="{% url 'start:nuevo' var='de' %}">DEPARTAMENTO</a></li>
+                                <li><a title="Nueva Categoria" href="{% url 'start:nuevo' var='ca' %}">CATEGORÍA</a></li>
+                                <li><a title="Nueva Familia" href="{% url 'start:nuevo' var='fa' %}">FAMILIA</a></li>
+                                <li><a title="Nueva Marca" href="{% url 'start:nuevo' var='ma' %}">MARCA</a></li>
+                                <li><a title="Nueva Imagen en Slideshow" href="{% url 'start:nuevo' var='sl' %}">SLIDESHOW DE PROMOCIONES</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> SALIR</a>
+                        </li>
+                    {% endif %}
+                    {% if not "/about" and "/contact" in request.get_full_path %}
+                    <form class="navbar-form navbar-right" role="search" method="get">
+                        <div class="form-group">
+                            <input class="form-control" type="search" name="q" placeholder="Quiero buscar..." value="{{ request.GET.q }}">
+                        </div>
+                        <button type="submit" class="btn btn-default">Buscar</button>
+                    </form>
+                    {%  endif %}
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="{% url 'auth_login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</body>
-{%endblock content%}
+            </div><!-- nav-collapse -->
+        </div><!--container -->
+    </nav><!-- navbar -->
+{% endblock content %}
+
+
 
 

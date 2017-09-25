@@ -1,96 +1,22 @@
-<style>
-    {%block style%}
-        .dark-bar {
-            padding: 10px 0px;
-            background-color: #1d1d1d;
-        }
-        .menu-top li a, .menu-top li {
-            display: inline-block;
-            color: #fff;
-            margin-bottom: 0px;
-        }
-        .menu-top li {
-            padding: 0px 5px;
-        }
-        .menu-top {
-            margin:0px;n-bottom: 0px;
-        }
+{% load static %}
 
-        .fb:hover {
-            color: #3b5998;
-        }
-        .tw:hover {
-            color: #00aced;
-        }
-        .youtube:hover {
-            color: #bb0000;
-        }
-        .google:hover {
-            color: #dd4b39;
-        }
-        .texto:hover {
-            color: #92d14f;
-
-        }
-        a:link {
-            text-decoration:none;
-        }
-        .padding-right {
-           padding-right: 0.3em;
-        }
-    {% endblock style %}
-</style>
-<header>
-    <div class="dark-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-4 text-center">
-                    <ul class="menu-top">
-                        <li>
-                            <i class="fa fa-users padding-right" aria-hidden="true"></i><a class="texto" title="Nosotros" href="{% url 'start:about' %}">Nosotros</a>
-                        </li>
-                        <li>|</li>
-                        <li>
-                            <i class="fa fa-id-card-o padding-right" aria-hidden="true"></i><a class="texto" title="Contacto" href="{% url 'start:contact' %}">Contacto</a>
-                        </li>
-                        <!--<li>|</li>-->
-                        <!--<li>-->
-                            <!--<i class="fa fa-certificate padding-right" aria-hidden="true"></i><a class="texto" title="Blog" href="">Blog</a>-->
-                        <!--</li>-->
-                    </ul>
-                </div><!-- col -->
-                <div class="col-md-4 col-lg-4 text-center">
-                    <ul class="menu-top">
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            (653) 518 15 19
-                        </li>
-                        <li>|</li>
-                        <li>
-                            (653) 106 72 62
-                        </li>
-                    </ul>
-                </div><!-- col -->
-                <div class="col-md-4 col-lg-4 text-center hidden-xs">
-                    <ul class="menu-top">
-                        <li>
-                            <a title="Facebook" class="fb" target="_blank" href="https://www.facebook.com/EICOM"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a title="Twitter" class="tw" target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a title="Instagram" class="fb" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a title="Youtube" class="youtube" target="_blank" href="#"><i class="fa fa-youtube"></i></a>
-                        </li>
-                        <li>
-                            <a title="Google +" class="google" target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                        </li>
-                    </ul>
-                </div><!-- col -->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- dark-bar -->
-</header>
+<div class="barra-top">
+    <div class="contenedor-items">
+        <div class="left">
+            <i class="fa fa-users"></i><a href="{% url 'start:about' %}"> Nosotros</a>
+            <i class="fa fa-id-card"></i><a href="{% url 'start:contact' %}"> Contacto</a>
+        </div>
+        <div class="middle">
+            <div class="contenedor-telefono">
+                <i class="fa fa-phone-square"></i> (653) 518 15 19 <span>/</span> (653) 518 15 19
+            </div>
+        </div>
+        <div class="right">
+            <a href="https://www.facebook.com/Eicom/"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+        </div>
+    </div><!--.contenedor-items-->
+</div><!--.barra-top-->

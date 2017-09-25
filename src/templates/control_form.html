@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
+{% block content %}
+	<div class="formulario">
+        <div class="contenedor-formulario">
+            <div class="header-formulario">
+                <p>{{titulo}}</p>
+            </div>
+            <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+                {{ form|crispy }}
+                <div class="form-buttons">
+                    <a href="/" class="cancel-button" role="button">Cancelar</a>
+                    <button type="submit" class="save-button btn btn-default">Guardar</button>
+                </div>
+            </form>
+        </div>
+	</div>
+{% endblock %}

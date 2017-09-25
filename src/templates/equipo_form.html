@@ -1,118 +1,85 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
-<style>
-    {%block style%}
-        div.titulo-nuevo {
-            text-align: center;
-            color: orangered;
-            padding-bottom: 30px;
-        }
-        div.texto-nuevo {
-            /*color: ;*/
-        }
-        div.padding-divNuevo {
-            padding-bottom: 10px;
-        }
-        div.padding-buttonNuevo {
-            padding: 30px;
-        }
-        div.cuadro-nuevo {
-            border: 1px solid #d8d8d8;
-        }
-    {%endblock style%}
-</style>
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-12 texto-nuevo cuadro-nuevo">
-                <div class="page-header titulo-nuevo">
-                    <h3>NUEVO EQUIPO</h3>
-                </div>
-                <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
-                    <div class="col-md-12">
-                        <div class="col-md-2">
-                            <label>Clave: </label>
-                            {{ form.clave|as_crispy_field }}
-                        </div>
-                        <div class="col-md-4">
-                            <label>Nombre: </label>
-                            {{ form.nombre|as_crispy_field }}
-                        </div>
-                        <div class="col-md-3">
-                            <label>Marca: </label>
-                            {{ form.marca|as_crispy_field }}
-                        </div>
-                        <div class="col-md-3">
-                            <label>Modelo: </label>
-                            {{ form.modelo|as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            <label>Familia: </label>
-                            {{ form.familia|as_crispy_field }}
-                        </div>
-                        <div class="col-md-4">
-                            <label>Categoría: </label>
-                            {{ form.categoria|as_crispy_field }}
-                        </div>
-                        <div class="col-md-2">
-                            <label>Líneas </label>
-                            {{ form.linea|as_crispy_field }}
-                        </div>
-                        <div class="col-md-2">
-                            <label>Precio: </label>
-                            {{ form.precio|as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                         <div class="col-md-3 col-md-offset-3">
-                             <label>Producto más vendido: </label>
-                            {{ form.top_vendido|as_crispy_field }}
-                        </div>
-                        <div class="col-md-3">
-                            <label>Producto en promoción: </label>
-                            {{ form.promo|as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-12">
-                            <label>Descripción: </label>
-                            {{ form.descripcion|as_crispy_field }}
-                            <br><br>
-                        </div>
-                    </div>
-                    <div class="col-md-12 padding-divNuevo">
 
-                        <div class="col-md-6">
-                            <label>Imagen principal: </label>
-                            {{ form.imagen|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
-                            <label>Imagen secundaria 1:</label>
-                            {{ form.imagen_1|as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <label>Imagen secundaria 2:</label>
-                            {{ form.imagen_2|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
-                            <label>Imagen secundaria 3:</label>
-                            {{ form.imagen_3|as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col-md-12 padding-buttonNuevo">
-                        <div class="col-md-3 pull-left">
-                            <a href="/" class="btn btn-danger btn-block" role="button">Cancelar</a>
-                        </div>
-                        <div class="col-md-3 pull-right">
-                            <input class="btn btn-success btn-block" type="submit" value="Guardar producto"/>
-                        </div>
-                    </div>
-                </form>
-            </div>
+<div class="contenedor">
+    <div class="contenedor-formulario-equipo">
+        <div class="header-formulario-equipo">
+            <p>{{titulo}} </p>
         </div>
+        <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+            <div class="primera-seccion">
+                <div class="clave-equipo">
+                    {{ form.clave|as_crispy_field }}
+                </div>
+                <div class="nombre-equipo">
+                    {{ form.nombre|as_crispy_field }}
+                </div>
+                <div class="marca-equipo">
+                    {{ form.marca|as_crispy_field }}
+                </div>
+                <div class="modelo-equipo">
+                    {{ form.modelo|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="segunda-seccion">
+                <div class="familia-equipo">
+                    {{ form.familia|as_crispy_field }}
+                </div>
+                <div class="categoria-equipo">
+                    {{ form.categoria|as_crispy_field }}
+                </div>
+                <div class="lineas-equipo">
+                    {{ form.linea|as_crispy_field }}
+                </div>
+                <div class="precio-equipo">
+                    {{ form.precio|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="tercera-seccion">
+                <div class="top-equipo">
+                    {{ form.top_vendido|as_crispy_field }}
+                </div>
+                <div class="promo-equipo">
+                    {{ form.promo|as_crispy_field }}
+                </div>
+                <div class="nuevo-equipo">
+                    {{ form.nuevo|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="cuarta-seccion">
+                <div class="descripcion-equipo">
+                    {{ form.descripcion|as_crispy_field }}
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="quinta-seccion">
+                <div class="imagen-equipo">
+                {{ form.imagen|as_crispy_field }}
+            </div>
+            <div class="imagen1-equipo">
+                {{ form.imagen_1|as_crispy_field }}
+            </div>
+
+            <div class="imagen2-equipo">
+                    {{ form.imagen_2|as_crispy_field }}
+                </div>
+                <div class="imagen3-equipo">
+                    {{ form.imagen_3|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="form-buttons-equipo">
+                <a href="/" role="button">Cancelar</a>
+                <input class="save-button" type="submit" value="Guardar"/>
+            </div>
+        </form>
     </div>
+</div>
 {% endblock content %}
+
