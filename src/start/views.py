@@ -27,7 +27,9 @@ def categoria(request, slug):
     if query:
         categoria_list = categoria_list.filter(
             Q(nombre__icontains=query) |
-            Q(modelo__icontains=query)
+            Q(modelo__icontains=query) |
+            Q(descripcion__icontains=query) |
+            Q(marca__marca__icontains=query)
         ).distinct()
     paginator = Paginator(categoria_list, 8)  # Show 25 contacts per page
     page_request_var = 'page'
@@ -63,7 +65,9 @@ def destacados(request):
     if query:
         queryset_destacados = queryset_destacados.filter(
             Q(nombre__icontains=query) |
-            Q(modelo__icontains=query)
+            Q(modelo__icontains=query) |
+            Q(descripcion__icontains=query) |
+            Q(marca__marca__icontains=query)
         ).distinct()
     paginator = Paginator(queryset_destacados, 8)  # Show 25 contacts per page
     page_request_var = 'page'
@@ -96,7 +100,9 @@ def promociones(request):
     if query:
         queryset_promocion = queryset_promocion.filter(
             Q(nombre__icontains=query) |
-            Q(modelo__icontains=query)
+            Q(modelo__icontains=query) |
+            Q(descripcion__icontains=query) |
+            Q(marca__marca__icontains=query)
         ).distinct()
     paginator = Paginator(queryset_promocion, 8)  # Show 25 contacts per page
     page_request_var = 'page'

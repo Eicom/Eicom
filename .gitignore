@@ -7,9 +7,8 @@ secret.py
 db.sqlite3
 .DS_Store
 /src/start/migrations
-media
-static
 staticfiles
+media
 wsgi
 excel
 django_excel

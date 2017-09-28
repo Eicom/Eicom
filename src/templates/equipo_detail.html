@@ -48,6 +48,8 @@
                                     <img src="{{ instance.imagen.url }}" class="img-responsive " alt="imagen 1"/>
                                 </a>
                             </div>
+                        {% endif %}
+                        {% if instance.image_1 and isntace.image_2 and instance.image_3 %}
                             <div class="contenedor-imagen zoom-galeria" >
                                 <a href="{{ instance.imagen_1.url }}" data-lightbox="galeria">
                                     <img src="{{ instance.imagen_1.url }}" class="img-responsive " alt="imagen 2"/>
@@ -57,7 +59,7 @@
                                 <a href="{{ instance.imagen_2.url }}" data-lightbox="galeria">
                                     <img src="{{ instance.imagen_2.url }}" class="img-responsive " alt="imagen 3"/>
                                 </a>
-                            </div>
+                            </div>                        
                             <div class="contenedor-imagen zoom-galeria">
                                 <a href="{{ instance.imagen_3.url }}" data-lightbox="galeria">
                                     <img src="{{ instance.imagen_3.url }}" class="img-responsive " alt="imagen 4"/>

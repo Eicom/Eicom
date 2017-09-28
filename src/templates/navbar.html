@@ -23,16 +23,17 @@
                             <i class="fa fa-sitemap" aria-hidden="true"></i> CATEGORÍAS <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+                            {# Estos provienen del templatetag filtro_tag.py son los nombres de las funciones #}
                             {% categorias_lista as categoria %}
                             {% departamento_lista as departamento %}
                             {% if departamento %}
                                 {% for obj in departamento %}
                                     <li class="dropdown-submenu">
                                         <a class="test" tabindex="-1" href="#">{{ obj }} <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu prueba">
                                             {% for cate in categoria %}
                                                 {% if obj == cate.departamento %}
-                                                <li><a tabindex="-1" href="{% url 'start:categoria' cate.slug %}">{{ cate }}</a></li>
+                                                <li class="list-space"><a class="list-size"tabindex="-1" onclick="location.href='{% url 'start:categoria' cate.slug %}'">{{ cate }}</a></li>
                                                 {% endif %}
                                             {% endfor %}
                                         </ul>
@@ -45,11 +46,20 @@
                     </li>
                     <script>
                         $(document).ready(function(){
-                            $('.dropdown-submenu').on("click", function(e){
+                            $('a.test').on("click", function(e){
                                 $(this).next('ul').toggle();
-								$(this).children('ul').css("display", "inline-table")
+                                // $('ul.prueba').css("display", "inline-block");
+                                //$(this).children('ul').css("cursor", "pointer");
                                 e.stopPropagation();
                                 e.preventDefault();
+                            });
+                            $('.dropdown-submenu').mouseenter(function(){
+                              $(this).children('ul').show();
+                              $(this).children('ul').css("display", "inline-table");
+                              $(this).children('ul').css("cursor", "pointer");
+                            });
+                            $('.dropdown-submenu').mouseleave(function(){
+                              $(this).children('ul').hide();
                             });
                         });
                     </script>
@@ -78,20 +88,16 @@
                             <a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> SALIR</a>
                         </li>
                     {% endif %}
-                    {% if not "/about" and "/contact" in request.get_full_path %}
-                    <form class="navbar-form navbar-right" role="search" method="get">
-                        <div class="form-group">
-                            <input class="form-control" type="search" name="q" placeholder="Quiero buscar..." value="{{ request.GET.q }}">
-                        </div>
-                        <button type="submit" class="btn btn-default">Buscar</button>
-                    </form>
+                    {% if not "/detalles" in request.get_full_path %}
+                      <form class="navbar-form navbar-right" role="search" method="get">
+                          <div class="form-group">
+                              <input class="form-control" type="search" name="q" placeholder="Quiero buscar..." value="{{ request.GET.q }}">
+                          </div>
+                          <button type="submit" class="btn btn-default">Buscar</button>
+                      </form>
                     {%  endif %}
                 </ul>
             </div><!-- nav-collapse -->
         </div><!--container -->
     </nav><!-- navbar -->
 {% endblock content %}
-
-
-
-
