@@ -3,10 +3,13 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
-
+import os
 
 def upload_location(instance, filename):
-    return '%s/%s' % (instance.id, filename)
+    upload_dir = os.path.join('equipos',instance.nombre)
+    # if not os.path.exists(upload_dir):
+    #     os.makedirs(upload_dir)
+    return os.path.join(upload_dir, filename)
 
 
 class Departamento(models.Model):
@@ -97,10 +100,16 @@ class Equipo(models.Model):
         ordering = ['-timestamp']
 
 
+def upload_location_slideshow(instance, filename):
+    upload_dir = os.path.join('promociones',instance.titulo)
+    # if not os.path.exists(upload_dir):
+    #     os.makedirs(upload_dir)
+    return os.path.join(upload_dir, filename)
+
 class Slideshow(models.Model):
     titulo = models.CharField(max_length=50, blank=True, null=True)
-    descripcion = models.CharField(max_length=150, blank=True, null=True)
-    imagen = models.ImageField(upload_to=upload_location, null=True, blank=True,
+    descripcion = models.TextField(max_length=500, blank=True, null=True)
+    imagen = models.ImageField(upload_to=upload_location_slideshow, null=True, blank=True,
                                height_field='height_field', width_field='width_field')
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)

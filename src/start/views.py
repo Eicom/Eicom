@@ -29,7 +29,8 @@ def categoria(request, slug):
             Q(nombre__icontains=query) |
             Q(modelo__icontains=query) |
             Q(descripcion__icontains=query) |
-            Q(marca__marca__icontains=query)
+            Q(marca__marca__icontains=query) |
+            Q(clave__icontains=query)
         ).distinct()
     paginator = Paginator(categoria_list, 8)  # Show 25 contacts per page
     page_request_var = 'page'
@@ -67,7 +68,8 @@ def destacados(request):
             Q(nombre__icontains=query) |
             Q(modelo__icontains=query) |
             Q(descripcion__icontains=query) |
-            Q(marca__marca__icontains=query)
+            Q(marca__marca__icontains=query) |
+            Q(clave__icontains=query)
         ).distinct()
     paginator = Paginator(queryset_destacados, 8)  # Show 25 contacts per page
     page_request_var = 'page'
@@ -102,7 +104,8 @@ def promociones(request):
             Q(nombre__icontains=query) |
             Q(modelo__icontains=query) |
             Q(descripcion__icontains=query) |
-            Q(marca__marca__icontains=query)
+            Q(marca__marca__icontains=query) |
+            Q(clave__icontains=query)
         ).distinct()
     paginator = Paginator(queryset_promocion, 8)  # Show 25 contacts per page
     page_request_var = 'page'
@@ -136,7 +139,7 @@ def slideshow_list(request):
 
 def equipo_list(request):
     queryset_equipo = Equipo.objects.all()
-    queryset_top_vendidos = Equipo.objects.all().order_by('-id')[:4]
+    queryset_top_vendidos = Equipo.objects.filter(top_vendido__icontains=1)[:4]
     queryset_slideshow = Slideshow.objects.all()
     query = request.GET.get('q')
     if query:
@@ -144,7 +147,8 @@ def equipo_list(request):
             Q(nombre__icontains=query) |
             Q(modelo__icontains=query) |
             Q(descripcion__icontains=query) |
-            Q(marca__marca__icontains=query)
+            Q(marca__marca__icontains=query) |
+            Q(clave__icontains=query)
         ).distinct()
     paginator = Paginator(queryset_equipo, 8)  # Show 25 contacts per page
     page_request_var = 'page'

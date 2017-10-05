@@ -24,6 +24,8 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             {# Estos provienen del templatetag filtro_tag.py son los nombres de las funciones #}
+                            {% top_lista as top %}
+                            {% promo_lista as promo %}
                             {% categorias_lista as categoria %}
                             {% departamento_lista as departamento %}
                             {% if departamento %}
@@ -63,13 +65,16 @@
                             });
                         });
                     </script>
+                    {% if promo %}
                     <li>
                         <a title="PROMOCIONES" href="{% url 'start:promo' %}"><i class="fa fa-bullhorn" aria-hidden="true"></i> PROMOCIONES</a>
                     </li>
+                    {% endif %}
+                    {% if top %}
                     <li>
-                        <a title="PROMOCIONES" href="{% url 'start:destacados' %}"><i class="fa fa-star" aria-hidden="true"></i> DESTACADOS</a>
+                        <a title="DESTACADOS" href="{% url 'start:destacados' %}"><i class="fa fa-star" aria-hidden="true"></i> DESTACADOS</a>
                     </li>
-
+                    {% endif %}
                     {% if request.user.is_authenticated %}
                         <li class="dropdown li-activo">
                             <a  title="NUEVO" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">

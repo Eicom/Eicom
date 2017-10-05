@@ -13,12 +13,11 @@
             </div>
             <div class="baraja">
                 {% for equipo in top_vendidos %}
-                    {% if equipo.top_vendido %}
                         <div class="tarjeta zoom">
                             <div class="contenedor-tarjeta">
                                 <div class="header-tarjeta">
                                     {% if equipo.imagen %}
-                                        <img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/>
+                                       <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
                                     {% endif %}
                                 </div>
                                 <div class="body-tarjeta">
@@ -36,7 +35,6 @@
                                 </div>
                             </div><!--.contenedor-tarjeta-->
                         </div>
-                    {% endif %}
                 {% endfor %}
             </div><!--.baraja-->
 
@@ -51,11 +49,11 @@
                         <div class="contenedor-tarjeta">
                             <div class="header-tarjeta">
                                 {% if equipo.imagen %}
-                                    <img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/>
+                                    <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
                                 {% endif %}
                             </div>
                             <div class="body-tarjeta">
-                                <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
+                                <a class="tarjeta-titulo">
                                     {{ equipo.nombre|truncatechars:60 }}
                                 </a>
                                 <p class="clave">{{ equipo.clave }}</p>
