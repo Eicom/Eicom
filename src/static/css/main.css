@@ -360,11 +360,9 @@ ul.pagination a.next {
 
     .tarjeta .contenedor-tarjeta .header-tarjeta {
         padding-left: 10%;
-        background-color: #00abf0;
     }
 
     .tarjeta .contenedor-tarjeta .header-tarjeta a img{
-        background-color: #00d466;
         width: 90%;
     }
 }
