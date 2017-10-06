@@ -139,7 +139,7 @@ def slideshow_list(request):
 
 def equipo_list(request):
     queryset_equipo = Equipo.objects.all()
-    queryset_top_vendidos = Equipo.objects.filter(top_vendido__icontains=1)[:4]
+    queryset_top_vendidos = Equipo.objects.filter(top_vendido__icontains=1)[:8]
     queryset_slideshow = Slideshow.objects.all()
     query = request.GET.get('q')
     if query:
