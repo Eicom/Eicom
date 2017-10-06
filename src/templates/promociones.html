@@ -25,7 +25,7 @@
                                         {{ equipo.nombre|truncatechars:60 }}
                                     </a>
                                     <p class="clave">{{ equipo.clave }}</p>
-                                    <p class="descripcion">{{  equipo.get_markdown|truncatechars:100 }}</p>
+                                    <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
                                     {% if user.is_authenticated %}
                                         <span class="precio">$ {{ equipo.precio }}</span>
                                     {% endif %}
