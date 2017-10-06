@@ -6,42 +6,9 @@
     {% include 'slideshow.html' %}
     <div class="contenedor">
         <section class="main">
-
-            <!--LO MÁS VENDIDO-->
-            <div class="mas-vendido">
-                <a href="{% url 'start:destacados' %}"><h3>PRODUCTOS DESTACADOS</h3></a>
-            </div>
-            <div class="baraja">
-                {% for equipo in top_vendidos %}
-                        <div class="tarjeta zoom">
-                            <div class="contenedor-tarjeta">
-                                <div class="header-tarjeta">
-                                    {% if equipo.imagen %}
-                                       <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
-                                    {% endif %}
-                                </div>
-                                <div class="body-tarjeta">
-                                    <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
-                                        <i class="fa fa-star gold"></i> {{ equipo.nombre|truncatechars:60 }}
-                                    </a>
-                                    <p class="clave">{{ equipo.clave }}</p>
-                                    <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
-                                    {% if user.is_authenticated %}
-                                        <span class="precio">$ {{ equipo.precio }}</span>
-                                    {% endif %}
-                                </div>
-                                <div class="footer-tarjeta">
-                                    <a href="{{ equipo.get_absolute_url }}" class="boton" role="button">Ver detalles</a>
-                                </div>
-                            </div><!--.contenedor-tarjeta-->
-                        </div>
-                {% endfor %}
-            </div><!--.baraja-->
-
-
             <!--LO MÁS NUEVO-->
             <div class="mas-vendido">
-                <h3>PRODUCTOS NUEVOS</h3>
+                <h3>PRODUCTOS RECIENTES</h3>
             </div>
             <div class="baraja">
                 {% for equipo in object_list %}
@@ -63,7 +30,38 @@
                                 {% endif %}
                             </div>
                             <div class="footer-tarjeta">
-                                <a href="{{ equipo.get_absolute_url }}" class="boton" role="button">Ver detalles</a>
+                                <a href="{{ equipo.get_absolute_url }}" class="btn btn-default btn-block" role="button">Ver detalles</a>
+                            </div>
+                        </div><!--.contenedor-tarjeta-->
+                    </div>
+                {% endfor %}
+            </div><!--.baraja-->
+
+            <!--LO MÁS VENDIDO-->
+            <div class="mas-vendido">
+                <a href="{% url 'start:destacados' %}"><h3>PRODUCTOS DESTACADOS</h3></a>
+            </div>
+            <div class="baraja">
+                {% for equipo in top_vendidos %}
+                    <div class="tarjeta zoom">
+                        <div class="contenedor-tarjeta">
+                            <div class="header-tarjeta">
+                                {% if equipo.imagen %}
+                                   <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
+                                {% endif %}
+                            </div>
+                            <div class="body-tarjeta">
+                                <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
+                                    <i class="fa fa-star gold"></i> {{ equipo.nombre|truncatechars:60 }}
+                                </a>
+                                <p class="clave">{{ equipo.clave }}</p>
+                                <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
+                                {% if user.is_authenticated %}
+                                    <span class="precio">$ {{ equipo.precio }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="footer-tarjeta">
+                                <a href="{{ equipo.get_absolute_url }}" class="btn btn-default btn-block" role="button">Ver detalles</a>
                             </div>
                         </div><!--.contenedor-tarjeta-->
                     </div>

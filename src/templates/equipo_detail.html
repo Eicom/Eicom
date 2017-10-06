@@ -2,19 +2,19 @@
 {% load static %}
 {% block head_title %}{{ instance.nombre }} | {{ block.super }}{% endblock head_title %}
 {% block content %}
+        {% include 'breadcrumb.html' %}
         <div class="contenedor">
-            {% include 'breadcrumb.html' %}
             {% if user.is_authenticated %}
                 <div class="opciones">
                     <a href="{% url 'start:editar' slug=instance.slug %}" class="controles-modificar">
                         <i class="fa fa-pencil-square-o"></i> MODIFICAR PRODUCTO
                     </a>
+                    <span class="separador-line"></span>
                     <a class="confirm-delete controles-borrar" href="{% url 'start:borrar' slug=instance.slug %}">
                         <i class="fa fa-eraser"></i> BORRAR PRODUCTO
                     </a>
                 </div>
             {% endif %}
-
             <div class="main-detalles">
                 <div class="contenedor-detalles">
                     <div class="header-detalles">
@@ -31,15 +31,15 @@
                             <span class="precio-detail"><i class="fa fa-angle-double-right" aria-hidden="true"></i><strong> $</strong> {{ instance.precio }}</span>
                         {% endif %}
                     </div>
+                    <div class="descripcion-detalles">
+                        <span class="texto-descripcion">Descripción:</span>
+                        <p>{{ instance.descripcion}}</p>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-detalles">
                 <div class="contenedor-footer-detalles">
-                    <div class="descripcion-detalles">
-                        <span class="texto-descripcion">Descripción:</span>
-                        <p>{{ instance.descripcion | safe}}</p>
-                    </div>
                     <div class="galeria-detalles">
                         <span class="texto-galeria">Galería:</span>
                         {% if instance.imagen %}
@@ -59,7 +59,7 @@
                                 <a href="{{ instance.imagen_2.url }}" data-lightbox="galeria">
                                     <img src="{{ instance.imagen_2.url }}" class="img-responsive " alt="imagen 3"/>
                                 </a>
-                            </div>                        
+                            </div>
                             <div class="contenedor-imagen zoom-galeria">
                                 <a href="{{ instance.imagen_3.url }}" data-lightbox="galeria">
                                     <img src="{{ instance.imagen_3.url }}" class="img-responsive " alt="imagen 4"/>
