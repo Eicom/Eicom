@@ -17,7 +17,7 @@
                             <div class="contenedor-tarjeta">
                                 <div class="header-tarjeta">
                                     {% if equipo.imagen %}
-                                        <img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/>
+                                        <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
                                     {% endif %}
                                 </div>
                                 <div class="body-tarjeta">
