@@ -655,11 +655,11 @@ footer .contenedor-footer .datos-empresa{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .main-detalles .contenedor-detalles .header-detalles {
-    width: 16%;
+    width: 30%;
     /*background-color: #33ccff;*/
 }
 
@@ -667,13 +667,13 @@ footer .contenedor-footer .datos-empresa{
     padding: 10px 5px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    max-width: 150px;
+    max-width: 350px;
     height: auto;
 }
 
 .main-detalles .contenedor-detalles .body-detalles {
     /*background-color: #00d466;*/
-    width: 35%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -681,8 +681,10 @@ footer .contenedor-footer .datos-empresa{
 }
 
 .main-detalles .contenedor-detalles .body-detalles p {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 10px;
 }
 
 .main-detalles .contenedor-detalles .body-detalles .borde {
@@ -695,7 +697,7 @@ footer .contenedor-footer .datos-empresa{
 }
 
 .main-detalles .contenedor-detalles .body-detalles span {
-    font-size: 12px;
+    font-size: 16px;
     margin: 6px;
     text-transform: uppercase;
     color: #666666;
@@ -703,22 +705,22 @@ footer .contenedor-footer .datos-empresa{
 }
 
 .main-detalles .contenedor-detalles .descripcion-detalles {
-    width: 35%;
+    width: 30%;
     /*background-color: #3e8f3e;*/
 }
 
 .main-detalles .contenedor-detalles .descripcion-detalles .texto-descripcion {
     width: 100%;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 22px;
     font-weight: bold;
     color: #666666;
 }
 
 .main-detalles .contenedor-detalles .descripcion-detalles p {
-    font-size: 13px;
+    font-size: 16px;
     text-align: justify;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 @media screen and (max-width: 900px) {
@@ -864,15 +866,25 @@ footer .contenedor-footer .datos-empresa{
 
 /********* SLIDESHOW PROMOTION **************/
 
+
+
+@media screen and (max-width: 1600px) {
+    .slide-width {
+        padding-left: 20px;
+        width: 98%!important;
+        max-width: 1600px!important;
+    }
+}
+
 .padding-contenedor {
     margin-top: 20px;
 }
 
 .padding-contenedor .carousel-inner img {
-            padding-top: -5px;
-            width: 100%;
-            max-height: 550px;
-        }
+    padding-top: -5px;
+    width: 100%;
+    max-height: 550px;
+}
 
 .formulario {
     width: 100%;

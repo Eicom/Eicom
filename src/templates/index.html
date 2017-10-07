@@ -3,8 +3,8 @@
 {% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
     {% include 'social_media.html'%}
-    {% include 'slideshow.html' %}
     <div class="contenedor">
+        {% include 'slideshow.html' %}
         <section class="main">
             <!--LO MÁS NUEVO-->
             <div class="mas-vendido">
