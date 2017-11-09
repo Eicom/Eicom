@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block head_title %}{{ instance.clave }} | {{ block.super }}{% endblock head_title %}
+{% block head_title %}{{ instance.nombre }} | {{ block.super }}{% endblock head_title %}
 {% block content %}
         {% include 'breadcrumb.html' %}
-        <div class="contenedor">
+        <div class="contenedor animated fadeIn fast">
             {% if user.is_authenticated %}
                 <div class="opciones">
                     <a href="{% url 'start:editar' slug=instance.slug %}" class="controles-modificar">

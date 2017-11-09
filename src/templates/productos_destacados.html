@@ -10,7 +10,7 @@
             <div class="mas-vendido">
                 <h3>PRODUCTOS DESTACADOS</h3>
             </div>
-            <div class="baraja">
+            <div class="baraja animated fadeIn fast">
                 {% for equipo in object_list %}
                     {% if equipo.top_vendido %}
                         <div class="tarjeta zoom">
@@ -21,11 +21,11 @@
                                     {% endif %}
                                 </div>
                                 <div class="body-tarjeta">
-                                    <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
+                                    <a class="tarjeta-titulo" href="{{ equipo.get_absolute_url }}">
                                         <i class="fa fa-star gold"></i> {{ equipo.nombre|truncatechars:60 }}
                                     </a>
                                     <p class="clave">{{ equipo.clave }}</p>
-                                    <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
+                                    <p class="descripcion">{{  equipo.get_markdown|truncatechars:100 }}</p>
                                     {% if user.is_authenticated %}
                                         <span class="precio">$ {{ equipo.precio }}</span>
                                     {% endif %}

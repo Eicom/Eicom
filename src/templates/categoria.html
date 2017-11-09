@@ -2,7 +2,7 @@
 {% load static %}
 {% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
-    <div class="contenedor">
+    <div class="contenedor animated fadeIn fast">
         <section class="main">
             <div class="mas-vendido">
                 <h3>{{titulo}}</h3>
@@ -13,7 +13,7 @@
                         <div class="contenedor-tarjeta">
                             <div class="header-tarjeta">
                                 {% if equipo.imagen %}
-                                    <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
+                                <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
                                 {% endif %}
                             </div>
                             <div class="body-tarjeta">
@@ -21,7 +21,7 @@
                                     {{ equipo.nombre|truncatechars:60 }}
                                 </a>
                                 <p class="clave">{{ equipo.clave }}</p>
-                                <p class="descripcion">{{  equipo.descripcion|truncatechars:120 }}</p>
+                                <p class="descripcion">{{  equipo.get_markdown|truncatechars:120 }}</p>
                                 {% if user.is_authenticated %}
                                     <span class="precio">$ {{ equipo.precio }}</span>
                                 {% endif %}

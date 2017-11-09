@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+
 {% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
+
+{% load crispy_forms_tags %}
+
+{%block head_extra%}
+    {{form.media}}
+{%endblock head_extra%}
+
 {% block content %}
 
-<div class="contenedor">
+<div class="contenedor animated fadeIn fast">
     <div class="contenedor-formulario-equipo">
         <div class="header-formulario-equipo">
             <p>{{titulo}} </p>

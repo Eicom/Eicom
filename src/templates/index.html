@@ -3,7 +3,7 @@
 {% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
     {% include 'social_media.html'%}
-    <div class="contenedor">
+    <div class="contenedor fadeIn animated fast">
         {% include 'slideshow.html' %}
         <section class="main">
             <!--LO MÁS NUEVO-->
@@ -20,8 +20,8 @@
                                 {% endif %}
                             </div>
                             <div class="body-tarjeta">
-                                <a class="tarjeta-titulo">
-                                    {{ equipo.nombre|truncatechars:60 }}
+                                <a class="tarjeta-titulo" href="{{ equipo.get_absolute_url }}">
+                                    {{ equipo.nombre|truncatechars:38 }}
                                 </a>
                                 <p class="clave">{{ equipo.clave }}</p>
                                 <p class="descripcion">{{  equipo.descripcion|truncatechars:100 }}</p>
@@ -30,7 +30,7 @@
                                 {% endif %}
                             </div>
                             <div class="footer-tarjeta">
-                                <a href="{{ equipo.get_absolute_url }}" class="btn btn-default btn-block" role="button">Ver detalles</a>
+                                <a href="{{ equipo.get_absolute_url }}" class="btn-hide btn btn-default btn-block" role="button">Ver detalles</a>
                             </div>
                         </div><!--.contenedor-tarjeta-->
                     </div>
@@ -51,7 +51,7 @@
                                 {% endif %}
                             </div>
                             <div class="body-tarjeta">
-                                <a class="tarjeta-titulo" href="{{ obj.get_absolute_url }}">
+                                <a class="tarjeta-titulo" href="{{ equipo.get_absolute_url }}">
                                     <i class="fa fa-star gold"></i> {{ equipo.nombre|truncatechars:60 }}
                                 </a>
                                 <p class="clave">{{ equipo.clave }}</p>
@@ -61,7 +61,7 @@
                                 {% endif %}
                             </div>
                             <div class="footer-tarjeta">
-                                <a href="{{ equipo.get_absolute_url }}" class="btn btn-default btn-block" role="button">Ver detalles</a>
+                                <a href="{{ equipo.get_absolute_url }}" class="btn-hide btn btn-default btn-block" role="button">Ver detalles</a>
                             </div>
                         </div><!--.contenedor-tarjeta-->
                     </div>

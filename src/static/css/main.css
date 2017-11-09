@@ -9,7 +9,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #666666;
-    background: #ffffff;
+    background: white;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -23,6 +23,35 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+  /* Animaciones */
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .fast {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn;
+  }
 
 /***** BARRA TOP *****/
 .barra-top {
@@ -217,13 +246,13 @@ ul.pagination a.next {
 
 .mas-vendido {
     width: 100%;
-    margin: 20px 0;
-    border-bottom: 0.5px solid #dddddd;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid #eeeeee;
     font-weight: normal;
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .mas-vendido a {
@@ -241,10 +270,11 @@ ul.pagination a.next {
 }
 
 .tarjeta {
+    background: white;
     width: 24%;
     overflow: hidden;
-    margin-bottom: 20px;
-    border: 0.5px solid #dddddd;
+    margin-bottom: 16px;
+    border: 0.5px solid #eeeeee;
     border-radius: 3px;
 }
 
@@ -312,6 +342,23 @@ ul.pagination a.next {
     -ms-transform : scale(1.02); /* IE9 */
 }
 
+/*.t-shadow {*/
+/*-webkit-box-shadow: 2px 2px 8px 0px rgba(50, 50, 50, 0.43);*/
+/*-moz-box-shadow:    2px 2px 8px 0px rgba(50, 50, 50, 0.43);*/
+/*box-shadow:         2px 2px 8px 0px rgba(50, 50, 50, 0.43);*/
+/*}*/
+
+/*.t-shadow:hover {*/
+
+            /*opacity: 1;*/
+    /*-webkit-transition: all .2s ease;*/
+    /*-o-transition: all .2s ease;*/
+    /*transition: all .2s ease;*/
+/*-webkit-box-shadow: 0px 1px 15px 0px rgba(50, 50, 50, 1);*/
+/*-moz-box-shadow:    0px 1px 15px 0px rgba(50, 50, 50, 1);*/
+/*box-shadow:         0px 1px 15px 0px rgba(50, 50, 50, 1);*/
+/*}*/
+
 /*.btn {*/
     /*bottom:5px;*/
     /*text-transform: uppercase;*/
@@ -330,18 +377,24 @@ ul.pagination a.next {
 /*}*/
 
 .footer-tarjeta a.btn {
+    /*display: none;*/
     bottom:5px;
     text-transform: uppercase;
     margin: 15px auto;
     background: #3faa32;
     color: white;
     border: none;
-    border-radius: 2px;
+    border-radius: 50px;
     padding: 4px 10px!important;
     cursor: pointer;
+
 }
 
 .footer-tarjeta a.btn:hover {
+
+        /*-webkit-transition: all .1s ease;*/
+    /*-o-transition: all .1s ease;*/
+    /*transition: all .1s ease;*/
     text-decoration: none;
     color: white;
     background: #303030;
@@ -520,7 +573,7 @@ footer .contenedor-footer .datos-empresa{
 /************ CAROUSEL **************/
 
 .borde {
-    border-top: 0.5px solid #dddddd;
+    border-top: 0.5px solid #eeeeee;
 }
 
 .carousel-control {
@@ -568,6 +621,11 @@ footer .contenedor-footer .datos-empresa{
 
 /************ EQUIPO DETALLES **************/
 
+.breadcrumb {
+     padding: 15px 0!important;
+     margin-bottom: 0!important;
+}
+
 .contenedor-breadcrumb {
     margin: 0 auto;
     width: 90%;
@@ -596,15 +654,15 @@ footer .contenedor-footer .datos-empresa{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
 
 .separador-line {
-    border-left: 1px solid #dddddd;
+    border-left: 1px solid #eeeeee;
 }
 
 .contenedor .opciones a {
@@ -644,7 +702,7 @@ footer .contenedor-footer .datos-empresa{
 /********* MAIN DETALLES **************/
 
 .main-detalles {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #eeeeee;
     width: 100%;
     padding-top: 35px;
     /*background-color: #007bb6;*/
@@ -665,7 +723,7 @@ footer .contenedor-footer .datos-empresa{
 
 .main-detalles .contenedor-detalles .header-detalles img {
     padding: 10px 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #eeeeee;
     border-radius: 3px;
     max-width: 350px;
     height: auto;
@@ -692,7 +750,7 @@ footer .contenedor-footer .datos-empresa{
     font-size: 25px;
     font-weight: bold;
     color: #666666;
-    border-bottom: 0.5px solid #dddddd;
+    border-bottom: 0.5px solid #eeeeee;
     padding-top: 16px;
 }
 
@@ -701,7 +759,7 @@ footer .contenedor-footer .datos-empresa{
     margin: 6px;
     text-transform: uppercase;
     color: #666666;
-    border-bottom: 0.5px solid #dddddd;
+    border-bottom: 0.5px solid #eeeeee;
 }
 
 .main-detalles .contenedor-detalles .descripcion-detalles {
@@ -749,7 +807,7 @@ footer .contenedor-footer .datos-empresa{
     .main-detalles .contenedor-detalles .descripcion-detalles{
         margin-top: 20px;
         width: 100%;
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #eeeeee;
     }
 
     .main-detalles .contenedor-detalles .body-detalles p,
@@ -772,7 +830,7 @@ footer .contenedor-footer .datos-empresa{
 .footer-detalles {
     width: 100%;
     margin-top: 36px;
-    border-top: 0.5px solid #dddddd;
+    border-top: 0.5px solid #eeeeee;
     margin-bottom: 30px;
 }
 
@@ -794,7 +852,7 @@ footer .contenedor-footer .datos-empresa{
 
 .footer-detalles .contenedor-footer-detalles .galeria-detalles .contenedor-imagen {
     width: 15%;
-    border: 0.5px solid #dddddd;
+    border: 0.5px solid #eeeeee;
     border-radius: 3px;
     padding-left: 2.5%;
 }
@@ -916,7 +974,7 @@ footer .contenedor-footer .datos-empresa{
     text-transform: uppercase;
     font-weight: bold;
     padding: 5px 0;
-    border-bottom: 0.5px solid #dddddd;
+    border-bottom: 0.5px solid #eeeeee;
     margin-bottom: 20px;
 }
 
@@ -931,7 +989,7 @@ footer .contenedor-footer .datos-empresa{
 }
 
 .formulario .contenedor-formulario form .form-buttons {
-    border-top: 0.5px solid #dddddd;
+    border-top: 0.5px solid #eeeeee;
     margin-top: 20px;
     width: 100%;
     display: flex;
@@ -1005,7 +1063,7 @@ footer .contenedor-footer .datos-empresa{
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px 0;
-    border-bottom: 0.5px solid #dddddd;
+    border-bottom: 0.5px solid #eeeeee;
     margin-bottom: 20px;
 }
 
@@ -1131,7 +1189,7 @@ footer .contenedor-footer .datos-empresa{
 /*SECCIÓN BOTONES*/
 
 .form-buttons-equipo {
-    border-top: 0.5px solid #dddddd;
+    border-top: 0.5px solid #eeeeee;
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -1301,7 +1359,7 @@ header .contenedor-texto .texto .about-us {
 .card {
     width: 32%;
     border-radius: 3px;
-    border: 0.5px solid #dddddd;
+    border: 0.5px solid #eeeeee;
     /*-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
     /*-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
     /*box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
@@ -1350,7 +1408,7 @@ header .contenedor-texto .texto .about-us {
     width: 100%;
     overflow: hidden;
     border-radius: 3px;
-    border: 0.5px solid #dddddd;
+    border: 0.5px solid #eeeeee;
     /*-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
     /*-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
     /*box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);*/
@@ -1411,7 +1469,7 @@ div.mapa {
 }
 
 .contact-margin {
-    border-bottom: 0.5px solid #dddddd;
+    border-bottom: 0.5px solid #eeeeee;
     margin-top: 20px;
 }
 
