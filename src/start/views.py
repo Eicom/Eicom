@@ -21,7 +21,7 @@ def equipo_detail(request, slug=None):
 
 
 def categoria(request, slug):
-    categoria_list = Equipo.objects.filter(categoria__slug__icontains=slug)
+    categoria_list = Equipo.objects.filter(categoria__slug__iexact=slug)
     queryset_categoria = Categoria.objects.all()
     query = request.GET.get('q')
     if query:

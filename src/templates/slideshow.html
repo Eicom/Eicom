@@ -11,8 +11,8 @@
                         <div class="item {% if forloop.counter == 1 %}active{% endif %}" >
                             <img class="img-responsive imagen-slideshow" src="{{ obj.imagen.url }}" alt="">
                             <div class="carousel-caption hidden-xs hidden-sm">
-                                <h3 href="{% url 'start:detail' slug=obj.equipo.get_absolute_url }}">{{ obj.titulo}}</h3>
-                                <p>{{ obj.descripcion}}</p>
+                                <!-- <h3 href="{% url 'start:detail' slug=obj.equipo.get_absolute_url }}">{{ obj.titulo}}</h3> -->
+                                <!-- <p>{{ obj.descripcion}}</p> -->
                             </div>
                         </div>
                     {% endfor %}

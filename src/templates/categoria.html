@@ -23,7 +23,9 @@
                                 <p class="clave">{{ equipo.clave }}</p>
                                 <p class="descripcion">{{  equipo.get_markdown|truncatechars:120 }}</p>
                                 {% if user.is_authenticated %}
-                                    <span class="precio">$ {{ equipo.precio }}</span>
+                                    <div class="precio-contenedor">
+                                        <span class="precio">$ {{ equipo.precio }}</span>
+                                    </div>
                                 {% endif %}
                             </div>
                             <div class="footer-tarjeta">
