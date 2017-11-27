@@ -3,39 +3,34 @@
 {% block head %}{{ titulo }} | {{ block.super }}{% endblock head %}
 {% block content %}
 
-    <div class="contenedor">
+    <div class="contenedor ">
         <section class="main">
-
             <!--POMOCIONES-->
-            <div class="mas-vendido  animated fadeIn fast">
+            <div class="mas-vendido animated fadeIn fast"">
                 <h3>productos en promoción</h3>
             </div>
-            <div class="baraja">
+            <div class="baraja animated fadeIn fast"">
                 {% for equipo in object_list %}
                     {% if equipo.promo %}
-                        <div class="tarjeta zoom">
-                            <div class="contenedor-tarjeta">
-                                <div class="header-tarjeta">
-                                    {% if equipo.imagen %}
-                                        <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
-                                    {% endif %}
-                                </div>
-                                <div class="body-tarjeta">
-                                    <a class="tarjeta-titulo" href="{{ equipo.get_absolute_url }}">
-                                        {{ equipo.nombre|truncatechars:60 }}
-                                    </a>
-                                    <p class="clave">{{ equipo.clave }}</p>
-                                    <p class="descripcion">{{  equipo.get_markdown|truncatechars:100 }}</p>
-                                    {% if user.is_authenticated %}
-                                    <div class="precio-contenedor">
-                                        <span class="precio">$ {{ equipo.precio }}</span>
-                                    </div>
+                        <div class="tarjeta">
+                            <div class="header-tarjeta">
+                                {% if equipo.imagen %}
+                                    <a href="{{ equipo.get_absolute_url }}"><img src="{{ equipo.imagen.url }}" class="img-responsive" alt="imagen-producto"/></a>
                                 {% endif %}
-                                </div>
-                                <div class="footer-tarjeta">
-                                    <a href="{{ equipo.get_absolute_url }}" class="btn btn-default btn-block" role="button">Ver detalles</a>
-                                </div>
-                            </div><!--.contenedor-tarjeta-->
+                            </div>
+                            <div class="body-tarjeta">
+                                <a class="tarjeta-titulo" href="{{ equipo.get_absolute_url }}">
+                                    {{ equipo.nombre|truncatechars:60 }}
+                                </a>
+                                <p class="clave">{{ equipo.clave }}</p>
+                                <p class="descripcion">{{  equipo.get_markdown|truncatechars:100 }}</p>
+                                {% if user.is_authenticated %}
+                                    <span class="precio">$ {{ equipo.precio }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="footer-tarjeta">
+                                <a href="{{ equipo.get_absolute_url }}" class="button green" role="button">Ver detalles</a>
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}
